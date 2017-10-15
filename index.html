@@ -3,7 +3,7 @@
 <style>
 
 body {
-  background: #fcfcfa;
+  .background: #fcfcfa;
 }
 
 .stroke {
@@ -68,6 +68,9 @@ svg.append("rect")
     .attr("height", height)
     .on("click", reset);
 
+var g = svg.append("g")
+    .style("stroke-width", "1.5px");
+
 queue()
     .defer(d3.json, "world-50m.json")
     .defer(d3.tsv, "treaties.tsv", type)
@@ -81,9 +84,7 @@ function ready(error, world, treaties) {
       .sortValues(function(a, b) { return a.date - b.date; })
       .map(treaties, d3.map);
 
-  var country = svg.insert("g", ".graticule")
-      .attr("class", "land")
-    .selectAll("path")
+  var country = svg.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
       .attr("d", path)
@@ -130,7 +131,7 @@ function clicked(d) {
       scale = .9 / Math.max(dx / width, dy / height),
       translate = [width / 2 - scale * x, height / 2 - scale * y];
 
-  country.transition()
+  g.transition()
       .duration(750)
       .style("stroke-width", 1.5 / scale + "px")
       .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
@@ -140,7 +141,7 @@ function reset() {
   active.classed("active", false);
   active = d3.select(null);
 
-  country.transition()
+  g.transition()
       .duration(750)
       .style("stroke-width", "1.5px")
       .attr("transform", "");
