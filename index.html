@@ -12,8 +12,8 @@ body {
 }
 .stroke {
   fill: none;
-  stroke: #000;
-  stroke-width: 3px;
+  stroke: #fcfcfa;
+  stroke-width: 0.5px;
 }
 
 .fill {
@@ -35,7 +35,7 @@ feature {
 }
 
 .feature.active {
-  fill: orange;
+  /*fill: orange*/;
 }
 
 </style>
@@ -78,7 +78,7 @@ svg.append("rect")
     .on("click", reset);
 
 var g = svg.append("g")
-    .style("stroke-width", "1.5px");
+    .style("stroke-width", "0.5px");
 
 queue()
     .defer(d3.json, "world-50m.json")
@@ -152,7 +152,7 @@ function reset() {
 
   g.transition()
       .duration(750)
-      .style("stroke-width", "1.5px")
+      .style("stroke-width", "0.5px")
       .attr("transform", "");
 }
 
