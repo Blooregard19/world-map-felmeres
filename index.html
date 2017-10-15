@@ -7,7 +7,7 @@ body {
 }
 
 .background{
-  fill: none;
+  fill: #fcfcfa;
   pointer-events: all;
 }
 .stroke {
@@ -93,7 +93,7 @@ function ready(error, world, treaties) {
       .sortValues(function(a, b) { return a.date - b.date; })
       .map(treaties, d3.map);
 
-  var country = svg.selectAll("path")
+  var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
       .attr("d", path)
@@ -113,7 +113,7 @@ function ready(error, world, treaties) {
         return treaties[0].name + "\n" + treaties.map(function(d) { return formatDate(d.date); }).join("\n");
       });
 
-  svg.insert("path", ".graticule")
+  g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
