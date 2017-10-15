@@ -5,7 +5,7 @@ Interaktív térképes megjelenítés
 Az országok kódjai:
 https://en.wikipedia.org/wiki/ISO_3166-1_numeric
 
-Fő segdélet:
+Fő segédlet:
 https://gis.stackexchange.com/questions/70511/d3-for-maps-at-what-stage-to-bring-in-data-to-the-geo
 
 További példák:
