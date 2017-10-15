@@ -20,3 +20,7 @@ http://bl.ocks.org/d3noob/5189284
 
 Tesztüzem:
 https://rawgit.com/Blooregard19/world-map-felmeres/master/index.html
+
+Egyéb források:
+http://datamaps.github.io/
+http://www.tnoda.com/blog/2013-12-07
