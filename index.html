@@ -62,6 +62,11 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
+svg.append("rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height)
+    .on("click", reset);
 
 queue()
     .defer(d3.json, "world-50m.json")
@@ -125,7 +130,7 @@ function clicked(d) {
       scale = .9 / Math.max(dx / width, dy / height),
       translate = [width / 2 - scale * x, height / 2 - scale * y];
 
-  g.transition()
+  country.transition()
       .duration(750)
       .style("stroke-width", 1.5 / scale + "px")
       .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
@@ -135,7 +140,7 @@ function reset() {
   active.classed("active", false);
   active = d3.select(null);
 
-  g.transition()
+  country.transition()
       .duration(750)
       .style("stroke-width", "1.5px")
       .attr("transform", "");
