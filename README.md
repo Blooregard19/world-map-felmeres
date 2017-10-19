@@ -24,3 +24,6 @@ https://rawgit.com/Blooregard19/world-map-felmeres/master/index.html
 Egyéb források:
 http://datamaps.github.io/
 http://www.tnoda.com/blog/2013-12-07
+
+SVG-ben blokkok mozgatása (előre kiszámolt helyeken lehetnek a blokkok, csak mindegyikhez a megfelelő kezdési pontot kell hozzárendelni)
+blokkokhoz lehet-e feliratot és png képet rendelni
