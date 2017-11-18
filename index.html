@@ -75,17 +75,15 @@ var g = svg.append("g")
     .style("stroke-width", "0.5px");
 
 var ssv = d3.dsvFormat(";");
-d3.request("visu_data.csv")
-	.mimeType("text/plain")
-	.response(function(xhr) { return ssv.parse(xhr.responseText);})
-  .get(function(obi) {console.log(obi);});
 	
 function hucsv(adat) {
   d3.request(adat)
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText);})
-  .get(function(obi) {return obi;});
+  .get(function(obi) {console.log(obi);});
 }; 
+
+hucsv("visu_data.csv");
 
 queue()
     .defer(d3.json, "world-50m.json")
