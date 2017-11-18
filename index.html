@@ -89,8 +89,8 @@ var ssv = d3.dsvFormat(";");
 function hucsv(adat) {
   d3.request(adat)
 	.mimeType("text/plain")
-	.response(function(xhr) { return ssv.parse(xhr.responseText)})
-  .get(function(adat) {return adat;});
+	.response(function(xhr) { return ssv.parse(xhr.responseText);})
+  .get(function(obi) {return adat;});
 }; 
 
 queue()
