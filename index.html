@@ -54,11 +54,11 @@ var projection = d3.geoNaturalEarth1()
 //    .clamp(true)
 //    .interpolate(d3.interpolateHcl);
 
-var colors = d3.scale.threshold()
+var colors = d3.scaleThreshold()
     .range(["white", "red", "yellow", "green"])
     .domain([0.001, 40, 60]);
 
-var path = d3.geo.path()
+var path = d3.geoPath()
     .projection(projection);
 
 var svg = d3.select("body").append("svg")
@@ -86,6 +86,7 @@ queue()
     .defer(d3.json, "world-50m.json")
     .defer(hucsv, "visu_data.csv")
     .await(ready);
+
 function ready(error, world, obi) {
   if (error) throw error;
 console.log(obi);
