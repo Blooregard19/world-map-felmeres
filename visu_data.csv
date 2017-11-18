@@ -1,0 +1,442 @@
+country;year;obi
+Afghanistan;2008;8,33696
+Afghanistan;2010;21,0326
+Afghanistan;2012;58,6154
+Afghanistan;2015;41,8113
+Albania;2006;24,8901
+Albania;2008;37,3297
+Albania;2010;32,9674
+Albania;2012;46,6947
+Albania;2015;38,2202
+Algeria;2006;28,1957
+Algeria;2008;1,81522
+Algeria;2010;0,728261
+Algeria;2012;13,3263
+Algeria;2015;18,9633
+Angola;2006;4,69565
+Angola;2008;3,97826
+Angola;2010;26,0652
+Angola;2012;27,6947
+Angola;2015;25,5833
+Argentina;2006;39,8261
+Argentina;2008;56,022
+Argentina;2010;56,3846
+Argentina;2012;50,0213
+Argentina;2015;59,2407
+Azerbaijan;2006;30,0543
+Azerbaijan;2008;36,5109
+Azerbaijan;2010;43,413
+Azerbaijan;2012;42,4211
+Azerbaijan;2015;50,8796
+Bangladesh;2006;39,4457
+Bangladesh;2008;41,6522
+Bangladesh;2010;47,8261
+Bangladesh;2012;57,9263
+Bangladesh;2015;56,2752
+Benin;2012;1,4
+Benin;2015;45,2661
+Bolivia;2006;20,6413
+Bolivia;2008;6,52174
+Bolivia;2010;13,413
+Bolivia;2012;11,9368
+Bolivia;2015;16,8349
+Bosnia and Herzegovina;2008;44,2093
+Bosnia and Herzegovina;2010;44,3294
+Bosnia and Herzegovina;2012;49,8202
+Bosnia and Herzegovina;2015;43,25
+Botswana;2006;65,2637
+Botswana;2008;62
+Botswana;2010;50,75
+Botswana;2012;49,5158
+Botswana;2015;47,0734
+Brazil;2006;73,9348
+Brazil;2008;74,191
+Brazil;2010;71,3913
+Brazil;2012;73,021
+Brazil;2015;77,0734
+Bulgaria;2006;47,2198
+Bulgaria;2008;56,7692
+Bulgaria;2010;55,6923
+Bulgaria;2012;65,3053
+Bulgaria;2015;65,4954
+Burkina Faso;2006;11,2391
+Burkina Faso;2008;14,4783
+Burkina Faso;2010;5,44565
+Burkina Faso;2012;22,7895
+Burkina Faso;2015;42,8165
+Cambodia;2008;10,8804
+Cambodia;2010;14,5217
+Cambodia;2012;14,7579
+Cambodia;2015;7,65138
+Cameroon;2006;29,337
+Cameroon;2008;5,44565
+Cameroon;2010;2,17391
+Cameroon;2012;10,1789
+Cameroon;2015;43,7248
+Chad;2006;5,42391
+Chad;2008;7,97826
+Chad;2010;0,358696
+Chad;2012;2,81053
+Chad;2015;3,98165
+Chile;2010;72,1304
+Chile;2012;66,3298
+Chile;2015;58,0185
+China;2008;13,7717
+China;2010;13,0435
+China;2012;10,8947
+China;2015;13,7523
+Colombia;2006;56,913
+Colombia;2008;60,5652
+Colombia;2010;60,5326
+Colombia;2012;58,2737
+Colombia;2015;56,8624
+Costa Rica;2006;44,8444
+Costa Rica;2008;45,1889
+Costa Rica;2010;46,6222
+Costa Rica;2012;49,9778
+Costa Rica;2015;53,9429
+Croatia;2006;42,4022
+Croatia;2008;59,3517
+Croatia;2010;56,8022
+Croatia;2012;61,3789
+Croatia;2015;52,8899
+Czech Republic;2006;60,8242
+Czech Republic;2008;61,9231
+Czech Republic;2010;62,2857
+Czech Republic;2012;74,9247
+Czech Republic;2015;68,8318
+Dem. Rep. of Congo;2008;0,736264
+Dem. Rep. of Congo;2010;5,81522
+Dem. Rep. of Congo;2012;18,0957
+Dem. Rep. of Congo;2015;39,4587
+Dominican Republic;2008;11,7033
+Dominican Republic;2010;14,3187
+Dominican Republic;2012;29,0842
+Dominican Republic;2015;50,7615
+Ecuador;2006;31,5326
+Ecuador;2008;39,1304
+Ecuador;2010;31,1209
+Ecuador;2012;30,5158
+Ecuador;2015;50,3019
+Egypt;2006;18,5109
+Egypt;2008;43,4457
+Egypt;2010;48,587
+Egypt;2012;13,3368
+Egypt;2015;16,2202
+El Salvador;2006;27,8696
+El Salvador;2008;37,3736
+El Salvador;2010;36,989
+El Salvador;2012;43,4947
+El Salvador;2015;52,8716
+Equatorial Guinea;2008;0
+Equatorial Guinea;2010;0
+Equatorial Guinea;2012;0
+Equatorial Guinea;2015;3,66972
+Fiji;2008;12,6957
+Fiji;2010;0
+Fiji;2012;5,63158
+Fiji;2015;15,2936
+France;2006;88,6923
+France;2008;86,8571
+France;2010;86,8242
+France;2012;82,8105
+France;2015;75,8532
+Georgia;2006;33,6556
+Georgia;2008;52,8506
+Georgia;2010;54,6966
+Georgia;2012;55,3187
+Georgia;2015;66,3832
+Germany;2008;64,0667
+Germany;2010;68,1778
+Germany;2012;71,3441
+Germany;2015;70,7103
+Ghana;2006;42,3696
+Ghana;2008;49,6413
+Ghana;2010;54,3913
+Ghana;2012;49,8
+Ghana;2015;51,3578
+Guatemala;2006;46,3152
+Guatemala;2008;46
+Guatemala;2010;50
+Guatemala;2012;50,5158
+Guatemala;2015;46,156
+Honduras;2006;38,0543
+Honduras;2008;11,5978
+Honduras;2010;10,8696
+Honduras;2012;53,3263
+Honduras;2015;42,7798
+Hungary;2015;48,8991
+India;2006;52,8913
+India;2008;60,4891
+India;2010;66,6923
+India;2012;67,7579
+India;2015;45,844
+Indonesia;2006;41,663
+Indonesia;2008;54,3261
+Indonesia;2010;50,6848
+Indonesia;2012;61,7158
+Indonesia;2015;58,7064
+Iraq;2010;0,358696
+Iraq;2012;3,86316
+Iraq;2015;3,05505
+Italy;2010;57,8901
+Italy;2012;60,2979
+Italy;2015;72,5278
+Jordan;2006;50,1868
+Jordan;2008;52,5109
+Jordan;2010;50
+Jordan;2012;57,1789
+Jordan;2015;55,0917
+Kazakhstan;2006;43,087
+Kazakhstan;2008;34,7717
+Kazakhstan;2010;38,0769
+Kazakhstan;2012;47,8404
+Kazakhstan;2015;51,2222
+Kenya;2006;48,1848
+Kenya;2008;57,663
+Kenya;2010;49,2935
+Kenya;2012;49,1263
+Kenya;2015;48
+Kyrgyz Republic;2008;8,33696
+Kyrgyz Republic;2010;15,2609
+Kyrgyz Republic;2012;20
+Kyrgyz Republic;2015;54,4037
+Lebanon;2008;32,2065
+Lebanon;2010;31,8681
+Lebanon;2012;32,6277
+Lebanon;2015;2,44954
+Liberia;2008;2,8913
+Liberia;2010;39,5109
+Liberia;2012;42,8211
+Liberia;2015;37,6147
+Macedonia;2008;54,3696
+Macedonia;2010;48,5652
+Macedonia;2012;35,4211
+Macedonia;2015;35,4587
+Malawi;2006;41,7473
+Malawi;2008;27,5326
+Malawi;2010;47,1196
+Malawi;2012;52,3263
+Malawi;2015;64,8073
+Malaysia;2008;34,7889
+Malaysia;2010;38,8242
+Malaysia;2012;38,6211
+Malaysia;2015;45,5596
+Mali;2010;35,1413
+Mali;2012;42,8
+Mali;2015;46,4954
+Mexico;2006;49,9674
+Mexico;2008;54,6957
+Mexico;2010;51,989
+Mexico;2012;61,3404
+Mexico;2015;65,7615
+Mongolia;2006;18,1196
+Mongolia;2008;35,8261
+Mongolia;2010;59,8043
+Mongolia;2012;50,5263
+Mongolia;2015;51,3761
+Morocco;2006;19,1522
+Morocco;2008;27,5
+Morocco;2010;28,2065
+Morocco;2012;37,5368
+Morocco;2015;38,2018
+Mozambique;2010;28,2391
+Mozambique;2012;46,7979
+Mozambique;2015;38,2385
+Myanmar;2012;0
+Myanmar;2015;1,82569
+Namibia;2006;50,0326
+Namibia;2008;46,3804
+Namibia;2010;52,7802
+Namibia;2012;54,7609
+Namibia;2015;45,963
+Nepal;2006;35,8696
+Nepal;2008;43,4783
+Nepal;2010;44,9783
+Nepal;2012;44,3723
+Nepal;2015;24,2018
+New Zealand;2006;86,2759
+New Zealand;2008;85,8851
+New Zealand;2010;90,1034
+New Zealand;2012;93,163
+New Zealand;2015;88,3868
+Nicaragua;2006;20,6413
+Nicaragua;2008;18,7826
+Nicaragua;2010;36,5543
+Nicaragua;2012;41,7474
+Nicaragua;2015;46,4495
+Niger;2008;26,0978
+Niger;2010;3,27174
+Niger;2012;3,51579
+Niger;2015;16,5046
+Nigeria;2006;20,3043
+Nigeria;2008;19,2065
+Nigeria;2010;17,7717
+Nigeria;2012;15,7579
+Nigeria;2015;23,8257
+Norway;2006;72,3258
+Norway;2008;79,8315
+Norway;2010;83,2135
+Norway;2012;82,8495
+Norway;2015;84,1402
+Pakistan;2006;51,4674
+Pakistan;2008;38,0217
+Pakistan;2010;38,4239
+Pakistan;2012;57,9158
+Pakistan;2015;42,789
+Papua New Guinea;2006;51,8261
+Papua New Guinea;2008;60,5326
+Papua New Guinea;2010;56,9022
+Papua New Guinea;2012;55,8
+Papua New Guinea;2015;55,3211
+Peru;2006;76,8261
+Peru;2008;66,6374
+Peru;2010;64,8022
+Peru;2012;56,734
+Peru;2015;75,0874
+Philippines;2006;51,4457
+Philippines;2008;48,2391
+Philippines;2010;55,1413
+Philippines;2012;48,4632
+Philippines;2015;63,9266
+Poland;2006;73,5435
+Poland;2008;67
+Poland;2010;64,4505
+Poland;2012;58,8298
+Poland;2015;64,1759
+Portugal;2010;57,5682
+Portugal;2012;61,6087
+Portugal;2015;64,4231
+Qatar;2012;0
+Qatar;2015;0
+Romania;2006;66,3261
+Romania;2008;61,6087
+Romania;2010;58,6848
+Romania;2012;46,9895
+Romania;2015;75,2202
+Russia;2006;47,2527
+Russia;2008;57,9674
+Russia;2010;60,163
+Russia;2012;74,0526
+Russia;2015;74,3211
+Rwanda;2008;1,44565
+Rwanda;2010;10,8696
+Rwanda;2012;7,73684
+Rwanda;2015;35,7523
+S?o Tomé e Príncipe;2008;0,728261
+S?o Tomé e Príncipe;2010;0
+S?o Tomé e Príncipe;2012;28,7684
+S?o Tomé e Príncipe;2015;29,3394
+Saudi Arabia;2008;1,08696
+Saudi Arabia;2010;1,08696
+Saudi Arabia;2012;1,05263
+Saudi Arabia;2015;0
+Senegal;2008;2,8913
+Senegal;2010;2,88043
+Senegal;2012;10,1789
+Senegal;2015;42,8349
+Serbia;2008;45,6739
+Serbia;2010;53,6196
+Serbia;2012;38,9579
+Serbia;2015;47,0826
+Sierra Leone;2012;39,4194
+Sierra Leone;2015;52,0183
+Slovakia;2010;56,7912
+Slovakia;2012;67,0213
+Slovakia;2015;56,8056
+Slovenia;2006;81,7143
+Slovenia;2008;73,5652
+Slovenia;2010;69,5652
+Slovenia;2012;74,0526
+Slovenia;2015;67,5872
+South Africa;2006;85,5326
+South Africa;2008;87,4556
+South Africa;2010;92,3407
+South Africa;2012;90,0851
+South Africa;2015;86,4444
+South Korea;2006;72,9231
+South Korea;2008;65,956
+South Korea;2010;71,1444
+South Korea;2012;75,2903
+South Korea;2015;65,4019
+Spain;2010;62,9778
+Spain;2012;63,4839
+Spain;2015;58,0741
+Sri Lanka;2006;47,4457
+Sri Lanka;2008;64,1304
+Sri Lanka;2010;67,0978
+Sri Lanka;2012;45,9474
+Sri Lanka;2015;38,5229
+Sudan;2008;0,358696
+Sudan;2010;7,97826
+Sudan;2012;
+Sudan;2015;10,4037
+Sweden;2006;76,0674
+Sweden;2008;77,9438
+Sweden;2010;83,1798
+Sweden;2012;84,2967
+Sweden;2015;87,0095
+Tajikistan;2012;17,2105
+Tajikistan;2015;25,3578
+Tanzania;2006;47,8261
+Tanzania;2008;35,5217
+Tanzania;2010;44,6304
+Tanzania;2012;46,7053
+Tanzania;2015;45,5688
+Thailand;2008;39,8043
+Thailand;2010;41,8876
+Thailand;2012;36,4842
+Thailand;2015;42,4954
+Timor-Leste;2010;34,131
+Timor-Leste;2012;35,6667
+Timor-Leste;2015;41,3981
+Trinidad and Tobago;2008;32,6087
+Trinidad and Tobago;2010;32,913
+Trinidad and Tobago;2012;37,8842
+Trinidad and Tobago;2015;33,8991
+Tunisia;2012;11,2211
+Tunisia;2015;42,1651
+Turkey;2006;41,6522
+Turkey;2008;43,4783
+Turkey;2010;56,5109
+Turkey;2012;49,8421
+Turkey;2015;44,3211
+Uganda;2006;31,9011
+Uganda;2008;51,087
+Uganda;2010;55,4457
+Uganda;2012;64,9579
+Uganda;2015;62,422
+Ukraine;2008;55,3187
+Ukraine;2010;62,2747
+Ukraine;2012;53,6737
+Ukraine;2015;45,5138
+United Kingdom;2006;87,9091
+United Kingdom;2008;88,0337
+United Kingdom;2010;87,2921
+United Kingdom;2012;88,4239
+United Kingdom;2015;75,4623
+United States;2006;80,9213
+United States;2008;82,2556
+United States;2010;81,8889
+United States;2012;79,2258
+United States;2015;80,6916
+Venezuela;2008;35,4674
+Venezuela;2010;34,0217
+Venezuela;2012;36,8105
+Venezuela;2015;7,95413
+Vietnam;2006;2,92308
+Vietnam;2008;9,77174
+Vietnam;2010;13,7609
+Vietnam;2012;18,9789
+Vietnam;2015;17,7431
+Yemen;2008;9,79348
+Yemen;2010;24,6304
+Yemen;2012;10,5263
+Yemen;2015;33,6514
+Zambia;2006;37,2826
+Zambia;2008;48,1739
+Zambia;2010;35,8696
+Zambia;2012;4,21053
+Zambia;2015;38,5229
+Zimbabwe;2012;20,3263
+Zimbabwe;2015;35,1651
