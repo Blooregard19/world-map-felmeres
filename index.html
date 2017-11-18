@@ -33,16 +33,18 @@ body {
 </style>
 <body>
 <script src="//d3js.org/d3.v4.min.js"></script>
-<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="//d3js.org/d3.geo.projection.v2.min.js"></script>
 <script src="//d3js.org/queue.v1.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script>
-var parseDate = d3.time.format("%Y-%m-%d").parse,
-    formatDate = d3.time.format("%x");
+//var parseDate = d3.time.format("%Y-%m-%d").parse,
+//    formatDate = d3.time.format("%x");
+
 var width = 960,
     height = 500
     active = d3.select(null);
-var projection = d3.geo.naturalEarth()
+
+var projection = d3.geoNaturalEarth1()
     .scale(167)
     .translate([width / 2, height / 2])
     .precision(.1);
@@ -51,21 +53,27 @@ var projection = d3.geo.naturalEarth()
 //    .range(["purple", "orange"])
 //    .clamp(true)
 //    .interpolate(d3.interpolateHcl);
+
 var colors = d3.scale.threshold()
     .range(["white", "red", "yellow", "green"])
     .domain([0.001, 40, 60]);
+
 var path = d3.geo.path()
     .projection(projection);
+
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
+
 svg.append("rect")
     .attr("class", "background")
     .attr("width", width)
     .attr("height", height)
     .on("click", reset);
+
 var g = svg.append("g")
     .style("stroke-width", "0.5px");
+
 var ssv = d3.dsvFormat(";");
   
 function hucsv(adat) {
@@ -85,7 +93,8 @@ console.log(obi);
       .key(function(d) { return d.country; })
       .sortValues(function(a, b) { return a.year - b.year; })
       .map(obi, d3.map);
-  var country = g.selectAll("path")
+  
+var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
       .attr("d", path)
@@ -107,12 +116,15 @@ console.log(obi);
       .attr("class", "boundary")
       .attr("d", path);
 }
+
 function type(d) {
   d.id = +d.id;
   d.date = parseDate(d.date);
   return d;
 }
+
 d3.select(self.frameElement).style("height", height + "px");
+
 function clicked(d) {
   if (active.node() === this) return reset();
   active.classed("active", false);
@@ -129,6 +141,7 @@ function clicked(d) {
       .style("stroke-width", 1.5 / scale + "px")
       .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 }
+
 function reset() {
   active.classed("active", false);
   active = d3.select(null);
