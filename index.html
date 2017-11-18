@@ -90,7 +90,7 @@ function hucsv(adat) {
   d3.request(adat)
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
-  .get(function(obi) {return obi;});
+  .get(function(adat) {return adat;});
 }; 
 
 queue()
