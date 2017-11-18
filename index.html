@@ -58,11 +58,15 @@ var projection = d3.geo.naturalEarth()
     .translate([width / 2, height / 2])
     .precision(.1);
 
-var color = d3.scale.linear()
-    .domain([new Date(1900, 0, 1), new Date(2000, 0, 1)])
-    .range(["purple", "orange"])
-    .clamp(true)
-    .interpolate(d3.interpolateHcl);
+//var color = d3.scale.linear()
+//    .domain([new Date(1900, 0, 1), new Date(2000, 0, 1)])
+//    .range(["purple", "orange"])
+//    .clamp(true)
+//    .interpolate(d3.interpolateHcl);
+
+var colors = d3.scale.threshold()
+    .range(["white", "red", "yellow", "green"])
+    .domain([0.001, 40, 60]);
 
 var path = d3.geo.path()
     .projection(projection);
@@ -80,18 +84,27 @@ svg.append("rect")
 var g = svg.append("g")
     .style("stroke-width", "0.5px");
 
+var ssv = d3.dsvFormat(";");
+  
+function hucsv(adat) {
+  d3.request(adat)
+	.mimeType("text/plain")
+	.response(function(xhr) { return ssv.parse(xhr.responseText)})
+  .get(function(datab);
+}; 
+
 queue()
     .defer(d3.json, "world-50m.json")
-    .defer(d3.tsv, "treaties.tsv", type)
+    .defer(hucsv, "visu_data.csv")
     .await(ready);
 
-function ready(error, world, treaties) {
+function ready(error, world, obi) {
   if (error) throw error;
-
+console.log(obi);
   var treatiesById = d3.nest()
-      .key(function(d) { return d.id; })
-      .sortValues(function(a, b) { return a.date - b.date; })
-      .map(treaties, d3.map);
+      .key(function(d) { return d.country; })
+      .sortValues(function(a, b) { return a.year - b.year; })
+      .map(obi, d3.map);
 
   var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
