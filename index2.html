@@ -71,7 +71,7 @@ svg.append("use")
     .attr("xlink:href", "#sphere");
 
 queue()
-    .defer(d3.json, "/mbostock/raw/4090846/world-50m.json")
+    .defer(d3.json, "world-50m.json")
     .defer(d3.tsv, "treaties.tsv", type)
     .await(ready);
 
