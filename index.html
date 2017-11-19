@@ -80,7 +80,7 @@ function hucsv(adat) {
   d3.request(adat)
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText);})
-  .get(function(obi) {console.log(obi);});
+  .get(function(obi) {return obi;});
 }; 
 
 
@@ -91,7 +91,7 @@ queue()
 
 function ready(error, world, obi) {
   if (error) throw error;
-console.log(world);
+console.log(obi);
   //var treatiesById = d3.nest()
   //    .key(function(d) { return d.country; })
   //    .sortValues(function(a, b) { return a.year - b.year; })
