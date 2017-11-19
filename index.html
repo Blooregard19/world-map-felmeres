@@ -91,11 +91,11 @@ queue()
 
 function ready(error, world, obi) {
   if (error) throw error;
-console.log(obi);
-  var treatiesById = d3.nest()
-      .key(function(d) { return d.country; })
-      .sortValues(function(a, b) { return a.year - b.year; })
-      .map(obi, d3.map);
+console.log(world);
+  //var treatiesById = d3.nest()
+  //    .key(function(d) { return d.country; })
+  //    .sortValues(function(a, b) { return a.year - b.year; })
+  //    .map(obi, d3.map);
   
 var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
