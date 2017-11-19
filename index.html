@@ -86,12 +86,12 @@ function hucsv(adat) {
 
 queue()
     .defer(d3.json, "world-50m.json")
-    .defer(hucsv, "visu_data.csv")
+    //.defer(hucsv, "visu_data.csv")
     .await(ready);
 
-function ready(error, world, obi) {
+function ready(error, world) {
   if (error) throw error;
-console.log(obi);
+//console.log(obi);
 console.log(world);
   //var treatiesById = d3.nest()
   //    .key(function(d) { return d.country; })
