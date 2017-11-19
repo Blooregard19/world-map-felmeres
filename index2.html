@@ -77,7 +77,7 @@ queue()
 
 function ready(error, world, treaties) {
   if (error) throw error;
-
+console.log(treaties);
   var treatiesById = d3.nest()
       .key(function(d) { return d.id; })
       .sortValues(function(a, b) { return a.date - b.date; })
