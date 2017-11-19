@@ -78,10 +78,10 @@ var ssv = d3.dsvFormat(";");
 var obi;
 
 function hucsv(adat, callback) {
-  var obi = d3.request(adat)
+  d3.request(adat)
 	.mimeType("text/plain")
-	.response(function(xhr) { return ssv.parse(xhr.responseText);});
-      callback(obi.get(function(data) {return data;}));
+	.response(function(xhr) { return ssv.parse(xhr.responseText);})
+      .get(function(data) {callback(null, data);});
   
 }; 
 
