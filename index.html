@@ -113,7 +113,7 @@ var country = g.selectAll("path")
   //    .text(function(d) {
   //      var treaties = treatiesById.get(d.id);
   //      return treaties[0].name + "\n" + treaties.map(function(d) { return formatDate(d.date); }).join("\n");
-      });
+  //    });
   g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
