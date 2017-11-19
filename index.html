@@ -79,9 +79,9 @@ var ssv = d3.dsvFormat(";");
 function hucsv(adat) {
   var obi = d3.request(adat)
 	.mimeType("text/plain")
-	.response(function(xhr) { return ssv.parse(xhr.responseText);})
-  .get(function(d) {return d;});
-  return obi;
+	.response(function(xhr) { return ssv.parse(xhr.responseText);});
+  var obi2 = obi.get(function(d) {return d;});
+  return obi2;
 }; 
 
 console.log(hucsv("visu_data.csv"));
