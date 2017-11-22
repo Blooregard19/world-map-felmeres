@@ -100,7 +100,7 @@ function ready(error, world, obi) {
   //    .sortValues(function(a, b) { return a.year - b.year; })
   //    .map(obi, d3.map);
  var obi = d3.map(obi, function(d) {return d.co_code;});
-console.log(obi.get(729).co_code);  
+console.log(obi.get(729));  
 var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
@@ -112,7 +112,7 @@ var country = g.selectAll("path")
     .append("title")
       .text("United States");
   country.filter(function(d) { return obi.has(d.id); })
-      .style("fill", function(d) { return colors(obi.get(d.id).score); });
+      .style("fill", function(d) { return colors(obi.get(d.id).obi); });
   //  .append("title")
   //    .text(function(d) {
   //      var treaties = treatiesById.get(d.id);
