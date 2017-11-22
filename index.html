@@ -118,12 +118,12 @@ var country = g.selectAll("path")
     .append("title")
       .text("United States");
   country.filter(function(d) { return obi.has(d.id); })
-      .style("fill", function(d) { return colors(obi.get(d.id).obi); });
-  //  .append("title")
-  //    .text(function(d) {
-  //      var treaties = treatiesById.get(d.id);
-  //      return treaties[0].name + "\n" + treaties.map(function(d) { return formatDate(d.date); }).join("\n");
-  //    });
+      .style("fill", function(d) { return colors(obi.get(d.id).obi); })
+    .append("title")
+      .text(function(d) {
+        var score = obi.get(d.id);
+        return score.country + "\n Pontszám:" + score.obi;
+      });
   g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
