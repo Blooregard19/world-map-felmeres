@@ -111,7 +111,7 @@ var country = g.selectAll("path")
     .append("title")
       .text("United States");
   country.filter(function(d) { return obi.has(d.id); })
-      .style("fill", function(d) { return colors(obi.co_code); });
+      .style("fill", function(d) { return colors(obi.get(d.id)[0].co_code); });
   //  .append("title")
   //    .text(function(d) {
   //      var treaties = treatiesById.get(d.id);
