@@ -113,10 +113,10 @@ var country = g.selectAll("path")
       .attr("d", path)
       .attr("class", "feature")
       .on("click", clicked);
-  country.filter(function(d) { return d.id === 840; })
-      .style("fill", "#000")
-    .append("title")
-      .text("United States");
+  //country.filter(function(d) { return d.id === 840; })
+  //    .style("fill", "#000")
+  //  .append("title")
+  //    .text("United States");
   country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
     .append("title")
