@@ -99,6 +99,7 @@ console.log(obi);
   //    .key(function(d) { return d.country; })
   //    .sortValues(function(a, b) { return a.year - b.year; })
   //    .map(obi, d3.map);
+ var obi = d3.map(obi, function(d) {return d.co_code;});
   
 var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
