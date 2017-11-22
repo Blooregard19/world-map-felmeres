@@ -100,7 +100,7 @@ function ready(error, world, obi) {
   //    .sortValues(function(a, b) { return a.year - b.year; })
   //    .map(obi, d3.map);
  var obi = d3.map(obi, function(d) {return d.co_code;});
-console.log(obi);  
+console.log(obi.get(729));  
 var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
