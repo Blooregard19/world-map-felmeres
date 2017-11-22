@@ -112,7 +112,7 @@ var country = g.selectAll("path")
     .append("title")
       .text("United States");
   country.filter(function(d) { return obi.has(d.id); })
-      .style("fill", function(d) { return colors(obi.get(d.id).co_code); });
+      .style("fill", function(d) { return colors(obi.get(d.id).score); });
   //  .append("title")
   //    .text(function(d) {
   //      var treaties = treatiesById.get(d.id);
