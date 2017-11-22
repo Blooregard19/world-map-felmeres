@@ -110,8 +110,8 @@ var country = g.selectAll("path")
       .style("fill", "#000")
     .append("title")
       .text("United States");
-  //country.filter(function(d) { return treatiesById.has(d.id); })
-  //    .style("fill", function(d) { return color(treatiesById.get(d.id)[0].date); })
+  country.filter(function(d) { return obi.co_code; })
+      .style("fill", function(d) { return colors(obi.co_code); });
   //  .append("title")
   //    .text(function(d) {
   //      var treaties = treatiesById.get(d.id);
