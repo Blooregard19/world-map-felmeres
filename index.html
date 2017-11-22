@@ -99,6 +99,12 @@ function ready(error, world, obi) {
   //    .key(function(d) { return d.country; })
   //    .sortValues(function(a, b) { return a.year - b.year; })
   //    .map(obi, d3.map);
+
+obi.forEach(function(d) {
+d.obi = +d.obi.replace(",", ".");
+d.year = +d.year;
+});
+
  var obi = d3.map(obi, function(d) {return d.co_code;});
 console.log(obi.get(729));  
 var country = g.selectAll("path")
