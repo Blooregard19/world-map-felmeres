@@ -28,3 +28,12 @@ http://www.tnoda.com/blog/2013-12-07
 SVG-ben blokkok mozgatása (előre kiszámolt helyeken lehetnek a blokkok, csak mindegyikhez a megfelelő kezdési pontot kell hozzárendelni)
 blokkokhoz lehet-e feliratot és png képet rendelni
 http://bl.ocks.org/bycoffe/21061661b1450a4db92a
+
+Egyéb térképes infók:
+https://stackoverflow.com/questions/40245081/d3-append-copy-of-g-element-on-click-to-separate-div
+http://bl.ocks.org/eesur/4e0a69d57d3bfc8a82c2
+https://bl.ocks.org/syntagmatic/0613ee9324e989a6fb6b
+https://stackoverflow.com/questions/40329667/d3-js-markers-dont-display-on-map
+http://www.ewelinawoloszyn.com/mymap/d3_projection03.html
+http://bl.ocks.org/emeeks/f8c0220c54ec8347ea95
+http://bl.ocks.org/madelfio/7094945
