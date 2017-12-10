@@ -149,6 +149,8 @@ queue()
 function ready(error, world, obi) {
   if (error) throw error;
 
+d3.select("#survy").on("change", evvalto);
+	
 //console.log(world);
   //var treatiesById = d3.nest()
   //    .key(function(d) { return d.country; })
@@ -186,7 +188,7 @@ var country = g.selectAll("path")
     .append("title")
       .text(function(d) {
         var score = obi.get(d.id);
-        return score.country + "\n Pontszám:" + score.obi;
+        return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
       });
   g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
@@ -226,6 +228,17 @@ function reset() {
       .duration(750)
       .style("stroke-width", "0.5px")
       .attr("transform", "");
+}
+
+function evvalto() {
+var obi = obi.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+
+country.filter(function(d) { return obi.has(d.id); })
+      .style("fill", function(d) { return colors(obi.get(d.id).obi); })
+    .append("title")
+      .text(function(d) {
+        var score = obi.get(d.id);
+        return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
 }
 // zoom and pan
 //var zoom = d3.behavior.zoom()
