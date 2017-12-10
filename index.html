@@ -94,6 +94,7 @@ body {
 <script>
 //var parseDate = d3.time.format("%Y-%m-%d").parse,
 //    formatDate = d3.time.format("%x");
+var numberFormat = d3.format(",.0f");
 
 var width = 960,
     height = 500
@@ -238,7 +239,7 @@ country.filter(function(d) { return obi.has(d.id); })
     .append("title")
       .text(function(d) {
         var score = obi.get(d.id);
-        return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
+        return score.country + "\n Pontszám:" + numberFormat(score.obi);
       };
 }
 // zoom and pan
