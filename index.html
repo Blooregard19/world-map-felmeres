@@ -200,6 +200,7 @@ function evvalto() {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = d3.map(obi, function(d) {return d.co_code;});
 console.log(obi.get(729));
+coutnry.style("fill", "#fcfcfa")
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
     .append("title")
