@@ -147,7 +147,7 @@ queue()
     .defer(hucsv, "visu_data_exp3.csv")
     .await(ready);
 
-function ready(error, world, obi) {
+function ready(error, world, obib) {
   if (error) throw error;
 
 d3.select("#survy").on("change", evvalto);
@@ -158,7 +158,7 @@ d3.select("#survy").on("change", evvalto);
   //    .sortValues(function(a, b) { return a.year - b.year; })
   //    .map(obi, d3.map);
 
-obi.forEach(function(d) {
+obib.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.obi_ebp = +d.obi_ebp.replace(",", ".");
 d.obi_eb = +d.obi_eb.replace(",", ".");
@@ -171,9 +171,9 @@ d.obi_yer = +d.obi_yer.replace(",", ".");
 d.year = +d.year;
 });
 
-var obi = obi.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = d3.map(obi, function(d) {return d.co_code;});
-console.log(obi.get(729));  
+//console.log(obi.get(729));  
 var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
@@ -195,6 +195,19 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
+
+function evvalto() {
+var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+
+country.filter(function(d) { return obi.has(d.id); })
+      .style("fill", function(d) { return colors(obi.get(d.id).obi); })
+    .append("title")
+      .text(function(d) {
+        var score = obi.get(d.id);
+        return score.country + "\n Pontszám:" + numberFormat(score.obi);
+      });
+}
+
 }
 
 function type(d) {
@@ -231,17 +244,7 @@ function reset() {
       .attr("transform", "");
 }
 
-function evvalto() {
-var obi = obi.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 
-country.filter(function(d) { return obi.has(d.id); })
-      .style("fill", function(d) { return colors(obi.get(d.id).obi); })
-    .append("title")
-      .text(function(d) {
-        var score = obi.get(d.id);
-        return score.country + "\n Pontszám:" + numberFormat(score.obi);
-      });
-}
 // zoom and pan
 //var zoom = d3.behavior.zoom()
 //    .on("zoom",function() {
