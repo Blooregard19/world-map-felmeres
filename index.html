@@ -220,7 +220,7 @@ console.log(obi.get(729));
 country.style("fill", "#ccc")
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
-    .append("title")
+    .selectAll("title")
       .text(function(d) {
         var score = obi.get(d.id);
         return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
