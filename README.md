@@ -37,3 +37,6 @@ https://stackoverflow.com/questions/40329667/d3-js-markers-dont-display-on-map
 http://www.ewelinawoloszyn.com/mymap/d3_projection03.html
 http://bl.ocks.org/emeeks/f8c0220c54ec8347ea95
 http://bl.ocks.org/madelfio/7094945
+
+Zoom példa v4-ben:
+https://bl.ocks.org/mbostock/b783fbb2e673561d214e09c7fb5cedee
