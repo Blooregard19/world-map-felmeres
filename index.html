@@ -202,6 +202,13 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
+  g.selectAll("marker")
+	  .data(capital)
+	  .enter().append("circle")
+	.attr("class", "capitalcity")
+	.attr("r", 2)
+	.attr("cx", function(d) {return d.CapitalLongitude;})
+	.attr("cy", function(d) {return d.CapitalLatitude;});
 
 function evvalto() {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
