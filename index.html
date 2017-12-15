@@ -179,7 +179,8 @@ d.year = +d.year;
 
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = d3.map(obi, function(d) {return d.co_code;});
-console.log(obi.get(729));  
+//console.log(obi.get(729)); 
+console.log(capital);
 var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
@@ -263,6 +264,7 @@ var zoom = d3.zoom()
         g.selectAll("path")
 	    .style("stroke-width", 1.5 / scale + "px")
             .attr("d", path.projection(projection));
+console.log(scale);
 });
 svg.call(zoom)
 </script>
