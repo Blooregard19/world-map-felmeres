@@ -109,11 +109,11 @@ var projection = d3.geoNaturalEarth1()
 //    .range(["purple", "orange"])
 //    .clamp(true)
 //    .interpolate(d3.interpolateHcl);
-var zoom = d3.zoom()
-    .translate(projection.translate())
-    .scale(projection.scale())
-    .scaleExtent([height, 8 * height])
-    .on("zoom", zoomed);
+//var zoom = d3.zoom()
+//    .translate(projection.translate())
+//    .scale(projection.scale())
+//    .scaleExtent([height, 8 * height])
+//    .on("zoom", zoomed);
 
 var colors = d3.scaleThreshold()
     .range(["black", "red", "yellow", "green"])
