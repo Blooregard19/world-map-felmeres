@@ -206,7 +206,7 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
-  g.selectAll("marker")
+  g.selectAll(".capitalcity")
 	  .data(capital)
 	  .enter().append("circle")
 	.attr("class", "capitalcity")
