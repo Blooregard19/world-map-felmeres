@@ -109,6 +109,11 @@ var projection = d3.geoNaturalEarth1()
 //    .range(["purple", "orange"])
 //    .clamp(true)
 //    .interpolate(d3.interpolateHcl);
+var zoom = d3.zoom()
+    .translate(projection.translate())
+    .scale(projection.scale())
+    .scaleExtent([height, 8 * height])
+    .on("zoom", zoomed);
 
 var colors = d3.scaleThreshold()
     .range(["black", "red", "yellow", "green"])
@@ -250,9 +255,10 @@ function type(d) {
 // zoom and pan
 var zoom = d3.zoom()
     .on("zoom",function() {
-	    projection.translate([d3.event.transform.x, d3.event.transform.y]).scale(d3.event.transform.k);
-//        g.attr("transform","translate("+ 
-//            d3.event.transform.x.join(",")+")scale("+d3.event.transform.k+")");
+	    var translate = [[d3.event.transform.x, d3.event.transform.y]],
+		scale = d3.event.transform.k;
+	    //projection.translate([d3.event.transform.x, d3.event.transform.y]).scale(d3.event.transform.k);
+        g.attr("transform","translate("+ translate +")scale("+ scale +")");
         g.selectAll("path")  
             .attr("d", path.projection(projection)); 
   });
