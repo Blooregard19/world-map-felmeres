@@ -86,6 +86,10 @@ body {
 </div>
 </div>
 <div id = "main">
+<div id = "obimap">
+</div>
+<div id = "obiothers">
+</div>
 </div>
 <script src="//d3js.org/d3.v4.min.js"></script>
 <script src="//d3js.org/d3.geo.projection.v2.min.js"></script>
@@ -95,9 +99,10 @@ body {
 //var parseDate = d3.time.format("%Y-%m-%d").parse,
 //    formatDate = d3.time.format("%x");
 var numberFormat = d3.format(",.0f");
-
-var width = 960,
-    height = 500
+var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+	
+var width = pageWidth,
+    height = pageWidth * 0.55 
     active = d3.select(null);
 
 var projection = d3.geoNaturalEarth1()
@@ -122,7 +127,7 @@ var colors = d3.scaleThreshold()
 var path = d3.geoPath()
     .projection(projection);
 
-var svg = d3.select("#main").append("svg")
+var svg = d3.select("#main").select("#obimap").append("svg")
     .attr("width", width)
     .attr("height", height);
 
