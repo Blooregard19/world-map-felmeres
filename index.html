@@ -101,12 +101,12 @@ body {
 var numberFormat = d3.format(",.0f");
 var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 	
-var width = pageWidth,
+var width = pageWidth * 0.95,
     height = pageWidth * 0.55 
     active = d3.select(null);
 
 var projection = d3.geoNaturalEarth1()
-    .scale(167)
+    .scale(64)
     .translate([width / 2, height / 2])
     .precision(.1);
 //var color = d3.scale.linear()
