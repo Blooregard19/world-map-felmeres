@@ -207,8 +207,8 @@ var country = g.selectAll("path")
         var score = obi.get(d.id);
         return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
       });
-  country.on("mouseover", function(d) {d3.select(this).style("fill", function(d) { return d3.select(this).style("fill").color.brighter();});})
-	.on("mouseout", function(d) {d3.select(this).style("fill", function(d) { return colors(obi.get(d.id).obi);});});
+  //country.on("mouseover", function(d) {d3.select(this).style("fill", function(d) { return d3.select(this).style("fill").color.brighter();});})
+//	.on("mouseout", function(d) {d3.select(this).style("fill", function(d) { return colors(obi.get(d.id).obi);});});
   g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
