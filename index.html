@@ -191,19 +191,31 @@ queue()
     .defer(d3.json, "world-110m.json")
     .defer(hucsv, "visu_data_exp4.csv")
     .defer(hucsv, "country-capitals2.csv")
+    .defer(hucsv, "lang_file.csv")
     .await(ready);
 
-function ready(error, world, obib, capital) {
+function ready(error, world, obib, capital, lang) {
   if (error) throw error;
 
 d3.select("#survy").on("change", evvalto);
-	
+var nyelv = d3.select('input[name="langsel"]:checked').node().value;
+document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
+document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
+document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
+document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
+document.getElementById("helptext").innerHTML = lang[132][nyelv];
+var scoretext = lang[133][nyelv];
 //console.log(world);
   //var treatiesById = d3.nest()
   //    .key(function(d) { return d.country; })
   //    .sortValues(function(a, b) { return a.year - b.year; })
   //    .map(obi, d3.map);
-
+obib.forEach(function(obib) {
+  var result = lang.filter(function(langs) {
+  return langs.id === obib.country;
+  });
+  obib.countrytext = (result[0] !== undefined) ? result[0][nyelv] : null;
+});
 obib.forEach(function(d) {
 d.obi = +d.obi.replace(",", ".");
 d.obi_ebp = +d.obi_ebp.replace(",", ".");
@@ -243,7 +255,7 @@ var country = g.selectAll("path")
     .append("title")
       .text(function(d) {
         var score = obi.get(d.id);
-        return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
+        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
       });
   country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
