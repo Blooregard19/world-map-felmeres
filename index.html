@@ -309,6 +309,9 @@ country.filter(function(d) { return obi.has(d.id); })
         var score = obi.get(d.id);
         return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
       });
+ country.filter(function(d) { return obi.has(d.id); })
+	.on("mouseover", colorbrighter)
+	.on("mouseout", colororig); 
 }
 
 function scorestext() {
