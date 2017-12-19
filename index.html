@@ -190,8 +190,8 @@ var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property
 var obi = d3.map(obi, function(d) {return d.co_code;});
 var obic = d3.map(obib.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
 //console.log(obi.get(729)); 
-console.log(capital);
-console.log(obic);
+//console.log(capital);
+//console.log(obic);
 var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
@@ -216,14 +216,15 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
-console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
+//console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
   var fovaros = g.selectAll(".capitalcity")
 	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
-	  .enter().append("circle")
+	  .enter();
+      fovaros.append("circle")
         .attr("class", "capitalcity")
 	.attr("r", 2)
-	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";})
-      .append("text")
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+      fovaros.append("text")
 	.text(function(d) { return obic.get(d.CountryName).obi; });
 
 function evvalto() {
