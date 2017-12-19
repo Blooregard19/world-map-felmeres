@@ -187,6 +187,7 @@ d.CapitalLongitude = +d.CapitalLongitude.replace(",", ".");
 });
 	
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var obi = obi.filter(function(d) {return d.co_code != "";});
 var obi = d3.map(obi, function(d) {return d.co_code;});
 var obic = d3.map(obib.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
 //console.log(obi.get(729)); 
