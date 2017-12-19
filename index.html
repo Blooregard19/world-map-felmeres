@@ -237,6 +237,8 @@ var country = g.selectAll("path")
 
 function evvalto() {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var obi = obi.filter(function(d) {return d.co_code != "";});
+var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
 var obi = d3.map(obi, function(d) {return d.co_code;});
 console.log(obi.get(729));
 country.style("fill", "#ccc")
