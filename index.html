@@ -254,9 +254,9 @@ function colororig() {
   var hovered = d3.select(this),
       hovcolor = d3.select(this).style("fill");
 console.log(hovcolor);
- if (hovcolor == rgb(255, 255, 159)) {
+ if (hovcolor == d3.rgb(255, 255, 159)) {
  hovered.style("fill", d3.rgb(244, 208, 111));
- } else if (hovcolor != rgb(255, 255, 159)) {
+ } else if (hovcolor != d3.rgb(255, 255, 159)) {
   hovered.style("fill", function() {return d3.rgb(hovcolor).darker();});
  }
 }
