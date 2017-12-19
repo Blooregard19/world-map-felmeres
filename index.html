@@ -217,9 +217,8 @@ var country = g.selectAll("path")
       .attr("d", path);
   var fovaros = g.selectAll(".capitalcity")
 	  .data(capital)
-	  .enter();
+	  .enter().append("circle");
       fovaros.filter(function(d) { return obic.has(d.CountryName); })
-	.append("circle")
 	.attr("class", "capitalcity")
 	.attr("r", 2)
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
