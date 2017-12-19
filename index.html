@@ -188,6 +188,7 @@ d.CapitalLongitude = +d.CapitalLongitude.replace(",", ".");
 	
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = d3.map(obi, function(d) {return d.co_code;});
+var obic = d3.map(obi, function(d) {return d.country;});
 //console.log(obi.get(729)); 
 console.log(capital);
 var country = g.selectAll("path")
@@ -214,12 +215,17 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
-  g.selectAll(".capitalcity")
+  var fovaros = g.selectAll(".capitalcity")
 	  .data(capital)
-	  .enter().append("circle")
+	  .enter();
+      fovaros.filter(function(d) { return obic.has(d.CountryName); })
+	.append("circle")
 	.attr("class", "capitalcity")
 	.attr("r", 2)
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+      fovaros.filter(function(d) { return obic.has(d.CountryName); })
+	.append("text")
+	.text(function(d) { return obic.get(d.CountryName).obi; });
 
 function evvalto() {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
