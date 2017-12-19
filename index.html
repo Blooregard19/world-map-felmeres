@@ -299,6 +299,23 @@ function colororig() {
 //      .attr("transform", "");
 //}
 
+function scorestext() {
+  var fovaros = d3.selectAll(".capitalcity")
+	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
+	  .enter();
+      fovaros.append("circle")
+        .attr("class", "capitalcity")
+	.attr("r", 4)
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+      fovaros.append("text")
+	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
+	.attr("font-family", "Arial")
+        .attr("text-anchor", "middle")
+	.attr("alignment-baseline", "central")
+	.attr("font-size", "5px")
+	.attr("fill", "white")
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+}
 
 // zoom and pan
 var zoom = d3.zoom()
@@ -312,6 +329,14 @@ var zoom = d3.zoom()
             .attr("d", path.projection(projection));
 	 //g.selectAll(".capitalcity")
 	 //   .attr("r", 2 / scale);
+if (scale > 2) {
+if (d3.select(".capitalcity").empty() ) {
+scorestext()
+}
+}
+if (scale < 2) {
+d3.selectAll(".capitalcity").exit().remove();
+}
 console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
 });
 svg.call(zoom)
