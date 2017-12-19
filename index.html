@@ -258,6 +258,7 @@ function scorestext() {
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
       fovaros.append("text")
 	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
+	.attr("class", "capitalcity")
 	.attr("font-family", "Arial")
         .attr("text-anchor", "middle")
 	.attr("alignment-baseline", "central")
@@ -284,7 +285,7 @@ scorestext()
 }
 }
 if (scale < 2) {
-d3.selectAll(".capitalcity").exit().remove();
+d3.selectAll(".capitalcity").remove().exit();
 }
 console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
 });
