@@ -225,7 +225,8 @@ var country = g.selectAll("path")
 	.attr("r", 2)
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
       fovaros.append("text")
-	.text(function(d) { return obic.get(d.CountryName).obi; });
+	.text(function(d) { return obic.get(d.CountryName).obi; })
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
 
 function evvalto() {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
