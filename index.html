@@ -15,7 +15,7 @@ body {
   position:absolute;
   /*height: 96%;*/
   /*min-height:550px;*/
-  /*width: 99%;*/
+  width: 99%;
   /*top: 260px;*/
 }
 
@@ -33,6 +33,7 @@ body {
   display: inline-block;
   height: 100%;
   text-align:center;
+  width: 650px;
 }
 img {
     vertical-align: top;
@@ -94,6 +95,15 @@ img {
 </style>
 <body>
 <div id = "fejlec">
+<div id = "langbox">
+<form id = "langselector">
+  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
+  <input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
+  <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
+  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
+  <input id = "langlang2" type = "radio" name = "langsel" value = "lang2"><label id = "lblanglang2" for = "langlang2">Language2</label>
+</form>
+</div>
 <div id = "evval">
 <select id = "survy">
   <option value="2006">2006</option>
