@@ -244,7 +244,7 @@ function type(d) {
 
 function colorbrighter() {
   var hovered = d3.select(this),
-      hovcolor = d3.select(this).style("fill");
+      hovcolor = d3.select(this).attr("fill");
   hovered.style("fill", hovcolor.color.brighter());
 }
 	
