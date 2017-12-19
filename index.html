@@ -218,21 +218,21 @@ var country = g.selectAll("path")
       .attr("class", "boundary")
       .attr("d", path);
 //console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
-  var fovaros = g.selectAll(".capitalcity")
-	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
-	  .enter();
-      fovaros.append("circle")
-        .attr("class", "capitalcity")
-	.attr("r", 4)
-	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
-      fovaros.append("text")
-	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
-	.attr("font-family", "Arial")
-        .attr("text-anchor", "middle")
-	.attr("alignment-baseline", "central")
-	.attr("font-size", "5px")
-	.attr("fill", "white")
-	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+  //var fovaros = g.selectAll(".capitalcity")
+//	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
+//	  .enter();
+  //    fovaros.append("circle")
+  //      .attr("class", "capitalcity")
+//	.attr("r", 4)
+//	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+  //    fovaros.append("text")
+//	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
+//	.attr("font-family", "Arial")
+  //      .attr("text-anchor", "middle")
+//	.attr("alignment-baseline", "central")
+//	.attr("font-size", "5px")
+//	.attr("fill", "white")
+//	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
 
 function evvalto() {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
