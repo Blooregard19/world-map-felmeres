@@ -316,6 +316,7 @@ country.filter(function(d) { return obi.has(d.id); })
 
 function scorestext() {
   var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  var obi = obi.filter(function(d) {return d.co_code != "";});
   var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
   var fovaros = g.selectAll(".capitalcity")
 	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
