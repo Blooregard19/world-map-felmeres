@@ -216,14 +216,12 @@ var country = g.selectAll("path")
       .attr("class", "boundary")
       .attr("d", path);
   var fovaros = g.selectAll(".capitalcity")
-	  .data(capital)
-	  .enter().append("circle");
-      fovaros.filter(function(d) { return obic.has(d.CountryName); })
-	.attr("class", "capitalcity")
+	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
+	  .enter().append("circle")
+        .attr("class", "capitalcity")
 	.attr("r", 2)
-	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
-      fovaros.filter(function(d) { return obic.has(d.CountryName); })
-	.append("text")
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";})
+      .append("text")
 	.text(function(d) { return obic.get(d.CountryName).obi; });
 
 function evvalto() {
