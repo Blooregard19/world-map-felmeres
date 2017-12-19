@@ -177,6 +177,20 @@ var g = svg.append("g")
 
 var ssv = d3.dsvFormat(";");
 var obi;
+d3.selectAll('input[name="langsel"]').on("change", futtat);
+	
+function futtat() {
+d3.selectAll("circle").remove().exit();
+d3.selectAll("title").remove().exit();
+d3.selectAll("path").remove().exit();
+g.selectAll("text").remove().exit();
+queue()
+    .defer(d3.json, "world-110m.json")
+    .defer(hucsv, "visu_data_exp4.csv")
+    .defer(hucsv, "country-capitals2.csv")
+    .defer(hucsv, "lang_file.csv")
+    .await(ready);
+}
 
 function hucsv(adat, callback) {
   d3.request(adat)
