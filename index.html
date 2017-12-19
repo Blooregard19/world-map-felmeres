@@ -101,7 +101,7 @@ body {
 var numberFormat = d3.format(",.0f");
 var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 	
-var width = pageWidth * 0.95,
+var width = pageWidth * 0.6,
     height = pageWidth * 0.55 
     active = d3.select(null);
 
@@ -207,8 +207,8 @@ var country = g.selectAll("path")
         var score = obi.get(d.id);
         return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
       });
-  //country.on("mouseover", function(d) {d3.select(this).style("fill", function(d) { return d3.select(this).style("fill").color.brighter();});})
-//	.on("mouseout", function(d) {d3.select(this).style("fill", function(d) { return colors(obi.get(d.id).obi);});});
+  country.on("mouseover", colorbrighter)
+	.on("mouseout", function(d) {return colororig(obi.get(d.id).obi);}); 
   g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
@@ -242,6 +242,16 @@ function type(d) {
   return d;
 }
 
+function colorbrighter() {
+  var hovered = d3.select(this),
+      hovcolor = d3.select(this).style("fill");
+  hovered.style("fill", hovcolor.color.brighter());
+}
+	
+function colororig(obiscore) {
+  var hovered = d3.select(this);
+  hovered.style("fill", colors(obiscore));
+}
 //d3.select(self.frameElement).style("height", height + "px");
 
 //function clicked(d) {
