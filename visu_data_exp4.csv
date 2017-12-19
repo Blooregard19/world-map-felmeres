@@ -1,4 +1,4 @@
-year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;obi_ar;leg_obi;sai_obi;region;inc_group;di_demtype;gdp_ppp_by;gdp_ppp_obiyear
+﻿year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;obi_ar;leg_obi;sai_obi;region;inc_group;di_demtype;gdp_ppp_by;gdp_ppp_obiyear
 2006;Afghanistan;;;;;;;;;;;;;;;;;
 2006;Albania;24,8901;8;11,16282516;1,068592767;0;0;7,88438747;0;2,92402452;1,850270078;47,1667;62,625;Eastern Europe & Central Asia;Lower Middle Income;Hybrid Regime;5786;6054
 2006;Algeria;28,1957;12;23,348675;0,95084028;0;0;0;0;3,89618472;0;38,8333;12,5;Middle East & North Africa;Lower Middle Income;Authoritarian Regime;7176;7210
@@ -22,7 +22,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2006;Costa Rica;44,8444;188;33,5468803;1,537683732;0;0;0;0;7,097334134;2,662501832;54,5455;71,4286;Latin America & Caribbean;Upper middle income;Full Democracy;9002;9642
 2006;Croatia;42,4022;191;19,86021806;1,52274781;0;2,727190667;8,78224007;0;4,67156852;4,838234875;41,5833;70,875;Eastern Europe & Central Asia;High income;Flawed Democracy;14271;14954
 2006;Czech Republic;60,8242;203;37,47350228;0,972547238;0;0;8,778316667;0;10,25703346;3,342800348;72,7273;62,5;Eastern Europe & Central Asia;Low income;Full Democracy;20362;21678
-2006;Dem. Rep. of Congo;;;;;;;;;;;;;;;;;
+2006;Democratic Republic of Congo;;;;;;;;;;;;;;;;;
 2006;Dominican Republic;;;;;;;;;;;;;;;;;
 2006;Ecuador;31,5326;218;20,90142956;1,439636873;0;0;8,302909092;0;0,888624475;0;19,4167;25;Latin America & Caribbean;Lower Middle Income;Hybrid Regime;6736;6923
 2006;Egypt;18,5109;818;0;1,109136261;0;0;7,733435035;1,020966175;8,647362529;0;30,5833;54,25;Middle East & North Africa;Lower Middle Income;Authoritarian Regime;4319;4530
@@ -72,7 +72,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2006;Romania;66,3261;642;43,23907114;0,98123243;0;0;9,653090083;0;9,916877216;2,535829129;58,3333;50;Eastern Europe & Central Asia;Upper middle income;Flawed Democracy;8789;9504
 2006;Russia;47,2527;643;20,32636344;1,475060216;0;2,257935978;8,507208385;3,638907314;6,794699591;4,252525075;75,0833;58,25;Eastern Europe & Central Asia;Upper middle income;Hybrid Regime;11861;12833
 2006;Rwanda;;;;;;;;;;;;;;;;;
-2006;São Tomé and Príncipe;;;;;;;;;;;;;;;;;
+2006;Sao Tomé e Príncipe;;;;;;;;;;;;;;;;;
 2006;Saudi Arabia;;;;;;;;;;;;;;;;;
 2006;Senegal;;;;;;;;;;;;;;;;;
 2006;Serbia;;;;;;;;;;;;;;;;;
@@ -124,7 +124,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2008;Costa Rica;45,1889;188;30,01853613;1,966891713;0;0;3,721943228;0;6,440709665;3,040819261;54,5455;70,3333;Latin America & Caribbean;Upper middle income;Full Democracy;10247;10374
 2008;Croatia;59,3517;191;35,71563988;1,944980172;1,359381405;3,039886744;7,360960172;0;5,517221931;4,413629697;55,5833;53,2;Eastern Europe & Central Asia;High income;Flawed Democracy;15787;16166
 2008;Czech Republic;61,9231;203;38,82811059;1,294149011;0;0;8,942801296;0;8,837370606;4,020668503;72,25;73,3;Eastern Europe & Central Asia;Low income;Full Democracy;22862;23223
-2008;Dem. Rep. of Congo;0,736264;180;0;0,736264;0;0;0;0;0;0;8,33333;0;Sub-Saharan Africa;Upper middle income;Authoritarian Regime;281;290
+2008;Democratic Republic of Congo;0,736264;180;0;0,736264;0;0;0;0;0;0;8,33333;0;Sub-Saharan Africa;Upper middle income;Authoritarian Regime;281;290
 2008;Dominican Republic;11,7033;214;0;1,673421395;0;0;5,288239092;0;2,898456169;1,843183344;15,0909;53,2;Latin America & Caribbean;Lower Middle Income;Flawed Democracy;7231;7505
 2008;Ecuador;39,1304;218;25,03754017;1,970216847;0;0;9,109321752;0;3,013321233;0;27,1818;33,3;Latin America & Caribbean;Lower Middle Income;Hybrid Regime;7022;7402
 2008;Egypt;43,4457;818;32,91756024;1,337720134;0;0;8,815694672;0;0;0,374724954;38,9167;33,3;Middle East & North Africa;Lower Middle Income;Authoritarian Regime;4762;5011
@@ -174,7 +174,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2008;Romania;61,6087;642;46,52374947;1,303791139;0;0;1,227442797;0;11,44698933;1,10672726;52,8333;60;Eastern Europe & Central Asia;Upper middle income;Flawed Democracy;10093;11062
 2008;Russia;57,9674;643;34,33883121;1,947039107;1,360820431;2,708363215;9,419721826;0;3,397828714;4,794795502;69,5;73,3;Eastern Europe & Central Asia;Upper middle income;Hybrid Regime;13911;14706
 2008;Rwanda;1,44565;646;0;1,217203129;0;0;0;0;0;0,228446871;50;49,9;Sub-Saharan Africa;Low income;Authoritarian Regime;877;949
-2008;São Tomé and Príncipe;0,728261;678;0;0,728261;0;0;0;0;0;0;16,6667;30;Sub-Saharan Africa;High income;;1551;1615
+2008;Sao Tomé e Príncipe;0,728261;678;0;0,728261;0;0;0;0;0;0;16,6667;30;Sub-Saharan Africa;High income;;1551;1615
 2008;Saudi Arabia;1,08696;682;0;0;0;0;0;0;0;0;0;26,7;Middle East & North Africa;Low income;Authoritarian Regime;21643;22158
 2008;Senegal;2,8913;686;0;0,549091603;0;0;1,3958879;0;0;0,946320498;38,8333;20;Sub-Saharan Africa;Low income;Hybrid Regime;1646;1656
 2008;Serbia;45,6739;688;34,76318594;1,320213145;0;0;8,302593051;0;1,287907867;0;30,5833;23,3;Eastern Europe & Central Asia;Upper middle income;Flawed Democracy;9509;9668
@@ -226,7 +226,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2010;Costa Rica;46,6222;188;36,30927633;2,407933059;0;0;0;0;4,312309608;3,592681;54,5455;70,3333;Latin America & Caribbean;Upper Middle Income;Full Democracy;10579,3;10686,9
 2010;Croatia;56,8022;191;31,19946179;2,337944478;0;3,463643531;9,202488499;0;4,978477895;5,620183811;61,0833;73,4;Eastern Europe & Central Asia;High Income;Flawed Democracy;17703,3;17856,5
 2010;Czech Republic;62,2857;203;38,33643488;1,585185949;0;0;9,312719053;0;8,125986784;4,925373337;80,6667;66,7;Eastern Europe & Central Asia;High Income;Full Democracy;24093,3;24832,8
-2010;Dem. Rep. of Congo;5,81522;180;0;2,238294451;0,713838105;0;2,863087445;0;0;0;16,75;20;Sub-Saharan Africa;Low Income;Authoritarian Regime;332,05;342,24
+2010;Democratic Republic of Congo;5,81522;180;0;2,238294451;0,713838105;0;2,863087445;0;0;0;16,75;20;Sub-Saharan Africa;Low Income;Authoritarian Regime;332,05;342,24
 2010;Dominican Republic;14,3187;214;0;2,005496003;0;0;5,506191464;0;4,93967275;1,867339783;21,1818;33,2222;Latin America & Caribbean;Upper Middle Income;Flawed Democracy;8896,22;9139,24
 2010;Ecuador;31,1209;218;18,85250119;2,423169674;0;0;7,871604428;0;1,973624709;0;21,1818;39,9;Latin America & Caribbean;Lower Middle Income;Hybrid Regime;7880,71;8021,84
 2010;Egypt;48,587;818;31,09044114;1,570788158;0;0;8,831095917;1,722719898;5,371954885;0;41,75;30;Middle East & North Africa;Lower Middle Income;Authoritarian Regime;6123,06;6347,35
@@ -276,7 +276,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2010;Romania;58,6848;642;43,60529898;1,575216717;0;0;2,014919531;0;9,239972651;2,249392126;33,3333;63,3;Eastern Europe & Central Asia;Upper Middle Income;Flawed Democracy;11917,3;12131,4
 2010;Russia;60,163;643;33,67852474;2,347518071;0;3,095265783;9,240171549;0;6,530774125;5,270745735;69,5;76,7;Eastern Europe & Central Asia;Upper Middle Income;Hybrid Regime;14920;15737,7
 2010;Rwanda;10,8696;646;0;2,29468111;0,731820969;2,277697993;0;0;2,994860773;2,570539155;52,75;53,4;Sub-Saharan Africa;Low Income;Authoritarian Regime;1149,87;1195,12
-2010;São Tomé and Príncipe;0;678;0;0;0;0;0;0;0;0;13,9167;30;Sub-Saharan Africa;Lower Middle Income;;1814,13;1878,33
+2010;Sao Tomé e Príncipe;0;678;0;0;0;0;0;0;0;0;13,9167;30;Sub-Saharan Africa;Lower Middle Income;;1814,13;1878,33
 2010;Saudi Arabia;1,08696;682;0;0;0;0;0;0;0;0;0;23,4;Middle East & North Africa;High Income;Authoritarian Regime;23221,4;23701,3
 2010;Senegal;2,88043;686;0;0,634030573;0;0;1,636741425;0;0;0,609658002;25;23,3;Sub-Saharan Africa;Low Income;Hybrid Regime;1743,1;1772,88
 2010;Serbia;53,6196;688;38,94979799;1,579532521;0;2,712611621;7,682511531;0;2,695146337;0;38,9167;30;Eastern Europe & Central Asia;Upper Middle Income;Flawed Democracy;10635,4;10897,5
@@ -328,7 +328,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2012;Costa Rica;49,9778;188;39,16388534;1,056406594;0;0;0;0;5,828535805;3,928972261;69,7273;100;Latin America & Caribbean;Upper Middle Income;Full Democracy;11927,5;12424,7
 2012;Croatia;61,3789;191;39,09693794;1,063281494;0;3,207293014;7,776445508;0;5,987311271;4,247630779;66,7273;75;Eastern Europe & Central Asia;High Income;Flawed Democracy;18191,7;18331
 2012;Czech Republic;74,9247;203;47,68924324;0,711270296;0;2,134809912;8,12426604;4,292282192;7,021576331;4,951251987;75,8182;91,75;Eastern Europe & Central Asia;High Income;Full Democracy;27062,2;27380,6
-2012;Dem. Rep. of Congo;18,0957;180;15,97750718;0;0;0;2,118192824;0;0;0;45,4545;41,5;Sub-Saharan Africa;Low Income;Authoritarian Regime;348,1;364,48
+2012;Democratic Republic of Congo;18,0957;180;15,97750718;0;0;0;2,118192824;0;0;0;45,4545;41,5;Sub-Saharan Africa;Low Income;Authoritarian Regime;348,1;364,48
 2012;Dominican Republic;29,0842;214;20,25439778;1,064309549;0;0;3,546854138;0;2,103398491;2,115240038;63,6364;66,5;Latin America & Caribbean;Upper Middle Income;Flawed Democracy;9286,72;9654,67
 2012;Ecuador;30,5158;218;17,76778078;1,062386405;0;2,499582586;6,010276705;0;3,175773519;0;40,6667;58,25;Latin America & Caribbean;Upper Middle Income;Hybrid Regime;8492,43;8854
 2012;Egypt;13,3368;818;1,386314081;0,708624725;0;0;7,387005842;0;3,854855351;0;57,5455;50;Middle East & North Africa;Lower Middle Income;Hybrid Regime;6539,84;6594
@@ -378,7 +378,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2012;Romania;46,9895;642;33,18282477;0,712762791;0;1,775608323;8,141313612;0,354856335;0,707857019;2,114277154;57,5455;100;Eastern Europe & Central Asia;Upper Middle Income;Flawed Democracy;12476,5;12843,1
 2012;Russia;74,0526;643;49,99513834;1,0639528;0;2,492571344;8,142291178;0;7,396409111;4,962237226;84,8182;100;Eastern Europe & Central Asia;Upper Middle Income;Authoritarian Regime;16736;17691,1
 2012;Rwanda;7,73684;646;2,446105479;1,06069488;0;0;0;0;3,170717072;1,059322569;72,8182;91,75;Sub-Saharan Africa;Low Income;Authoritarian Regime;1340,53;1430,85
-2012;São Tomé and Príncipe;28,7684;678;22,73079545;0;0;0;6,037604549;0;0;0;51,4545;41,5;Sub-Saharan Africa;Lower Middle Income;;2251,76;2359,13
+2012;Sao Tomé e Príncipe;28,7684;678;22,73079545;0;0;0;6,037604549;0;0;0;51,4545;41,5;Sub-Saharan Africa;Lower Middle Income;;2251,76;2359,13
 2012;Saudi Arabia;1,05263;682;1,05263;0;0;0;0;0;0;0;0;58,5;Middle East & North Africa;High Income;Authoritarian Regime;24237,4;25466
 2012;Senegal;10,1789;686;0;0;0;2,118126107;8,060773893;0;0;0;30,3636;58,25;Sub-Saharan Africa;Lower Middle Income;Hybrid Regime;1870,99;1921,5
 2012;Serbia;38,9579;688;24,44293263;0,712269973;0;0;7,435612608;0,719967749;2,100987329;3,546129714;48,5455;83,5;Eastern Europe & Central Asia;Upper Middle Income;Flawed Democracy;10642;10811
@@ -430,7 +430,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2015;Costa Rica;53,9429;188;32,32061177;5,159450625;1,192339849;0;5,237387211;0;7,575077151;2,458033392;72,8182;91,75;Latin America & Caribbean;Upper Middle Income;Full democracy;14914,4;15534
 2015;Croatia;52,8899;191;21,9860784;4,867471293;1,194378009;5,24967251;5,570761071;0;8,885713448;5,135825265;27,3636;91,75;Eastern Europe & Central Asia;High Income;Flawed democracy;20392,5;20873
 2015;Czech Republic;68,8318;203;28,92672338;5,479694744;2,402394875;4,0260731;7,429728272;7,425952656;8,902977535;4,238255437;81,9091;83,25;Eastern Europe & Central Asia;High Income;Flawed democracy;28446;29658,7
-2015;Dem. Rep. of Congo;39,4587;180;25,06568702;4,562920823;0,888317908;4,31100296;4,630771293;0;0;0;39,4545;50;Sub-Saharan Africa;Low Income;Authoritarian Regime;702,784;753,907
+2015;Democratic Republic of Congo;39,4587;180;25,06568702;4,562920823;0,888317908;4,31100296;4,630771293;0;0;0;39,4545;50;Sub-Saharan Africa;Low Income;Authoritarian Regime;702,784;753,907
 2015;Dominican Republic;50,7615;214;26,90096729;3,958438862;1,797183504;0;6,195673432;0;8,283804879;3,625432036;69,7273;58,25;Latin America & Caribbean;Upper Middle Income;Flawed democracy;12803,3;13348
 2015;Ecuador;50,3019;218;28,42694481;5,484963766;0;0;7,120803462;0;9,269187963;0;21,2727;75;Latin America & Caribbean;Upper Middle Income;Hybrid Regime;11352,4;11839,2
 2015;Egypt;16,2202;818;0;2,420088231;0;0;5,53030622;3,998218154;4,271587395;0;0;41,75;Middle East & North Africa;Lower Middle Income;Authoritarian Regime;11073,5;11443,9
@@ -480,7 +480,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2015;Romania;75,2202;642;38,7659627;5,463123823;0;4,938761587;6,481353834;4,636441652;10,41053125;4,524025147;54,4545;100;Eastern Europe & Central Asia;Upper Middle Income;Flawed democracy;19397,3;20355,7
 2015;Russia;74,3211;643;36,95378549;3,642280142;2,395258636;4,93902706;6,796529524;7,089226784;8,876531518;3,628460842;78,7273;100;Eastern Europe & Central Asia;High Income;Authoritarian Regime;24764,4;25350,9
 2015;Rwanda;35,7523;646;4,265114311;5,469045557;2,092397669;4,629319254;4,940434097;3,696492922;5,822602914;4,836893277;51,5455;25;Sub-Saharan Africa;Low Income;Authoritarian Regime;1685,66;1782,46
-2015;São Tomé and Príncipe;29,3394;678;22,66433215;5,180742797;1,49432505;0;0;0;0;0;39,9;55,6667;Sub-Saharan Africa;Lower Middle Income;;3138,29;3306,66
+2015;Sao Tomé e Príncipe;29,3394;678;22,66433215;5,180742797;1,49432505;0;0;0;0;0;39,9;55,6667;Sub-Saharan Africa;Lower Middle Income;;3138,29;3306,66
 2015;Saudi Arabia;0;682;0;0;0;0;0;0;0;0;0;33,5;Middle East & North Africa;High Income;Authoritarian Regime;53935,1;56253,4
 2015;Senegal;42,8349;686;25,36585184;4,252871172;1,794417699;5,244880559;6,176878732;0;0;0;66,7273;58,25;Sub-Saharan Africa;Lower Middle Income;Flawed democracy;2316,3;2398,26
 2015;Serbia;47,0826;688;27,80294114;4,869360932;0;0;4,95164495;0;5,834086532;3,624566446;42,4545;66,75;Eastern Europe & Central Asia;Upper Middle Income;Flawed democracy;12605,3;12971,5
@@ -657,7 +657,7 @@ year;country;obi;co_code;obi_ebp;obi_eb;obi_cb;obi_pbs;obi_iyr;obi_myr;obi_yer;o
 2017;Romania;;;;;;;;;;;;;;;;;
 2017;Russia;;;;;;;;;;;;;;;;;
 2017;Rwanda;;;;;;;;;;;;;;;;;
-2017;São Tomé and Príncipe;;;;;;;;;;;;;;;;;
+2017;Sao Tomé e Príncipe;;;;;;;;;;;;;;;;;
 2017;Saudi Arabia;;;;;;;;;;;;;;;;;
 2017;Senegal;;;;;;;;;;;;;;;;;
 2017;Serbia;;;;;;;;;;;;;;;;;
