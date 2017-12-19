@@ -225,7 +225,9 @@ var country = g.selectAll("path")
 	.attr("r", 2)
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
       fovaros.append("text")
-	.text(function(d) { return obic.get(d.CountryName).obi; })
+	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
+	.attr("font-family", "Arial")
+        .attr("text-anchor", "start")
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
 
 function evvalto() {
