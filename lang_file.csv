@@ -1,9 +1,9 @@
 ﻿;id;eng;fra;esp;lang1;lang2
-1;english;English;;;Angol;
-2;french;French;;;Francia;
-3;spanish;Spanish;;;Spanyol;
-4;language1;Hungarian;;;Magyar;
-5;language2;;;;;
+1;english;English;English;English;English;English
+2;french;Francés;Francés;Francés;Francés;Francés
+3;spanish;Espanol;Espanol;Espanol;Espanol;Espanol
+4;language1;Magyar;Magyar;Magyar;Magyar;Magyar
+5;language2;Language2;Language2;Language2;Language2;Language2
 6;sorting;Sort countries;;;Sorbarendezés;
 7;stacked;Stack documents;;;Részletezés;
 8;dnparticipate;Did not participate;;;Nem vett részt;
@@ -133,3 +133,7 @@
 132;helptext;"Discover the Open Budget Survey! First choose your preferred language. With the year selector you can choose which year's data you would like to see. After that you can see who performs best in budget transparency by using the ""Sort countries"" checkbox. You can also select your country by clicking on it and then the chart will highlight it when you reorder the chart or select another year. You may also check which budget documents contributed to the OBI score by selecting the ""Stack documents"" checkbox. Clicking on one of the rectangles in the legend will let you select only that budget document.";;;"Fedezze fel az Open Budget Survey-t! Először válassza ki a kívánt nyelvet a bal felső gombokkal. A legördülő menüben kiválaszthatja, hogy melyik év adatait kívánja megtekinteni. A ""Sorbarendezés"" gombbal megnézheti, hogy melyik országok teljesítettek legjobban a felmérésben. Az oszlopra kattintással kiválaszthat egy országot, és ezt követően a sorba rendezésnél, másik év választásánál is megkülönböztető színnel jelenik meg az ország. Felfedezheti továbbá, hogy melyik költségvetési dokumentumok mennyivel járultak hozzá az OBI pontszámhoz a ""Részletezés"" gombbal. A jelmagyarázat egy négyzetére kattintva szűkítheti az eredményeket kizárólag arra a dokumentumra.";
 133;helptextmap;Discover the world of Open Budget Survey! You may select a language by using the buttons in the top left corner. Then you may select the year of the Open Budget Survey you wish to visualize. You can navigate on the map by clicking on it and dragging it or zoom in by using the mouse wheel. If you zoom in, you may also discover the individual OBI scores of the countries.;;;Fedezze fel az Open Budget Survey világát! A bal felső sarokban kiválaszthatja a megjelenítés nyelvét. Ezt követően a legördülő menüből a megjeleníteni kívánt évet választhatja ki. A térképet a térkép valamely pontjára kattintva és az egér mozgatásával tudja mozgatni. Az egér görgőjével nagyíthatja, kicsinyítheti a térképet. Megfelelő szintre nagyítva az egyes országok OBI-pontszámait is felfedezheti.;
 134;scoretext;Score;;;Pontszám;
+135;Point0;OBI Score 0;;;0 OBI pontos;
+136;Point1-40;OBI Score between 0 and 40;;;0 és 40 közötti OBI pontszám;
+137;Point41-60;OBI Score between 41 and 60;;;41 és 60 közötti OBI pontszám;
+138;Point60;OBI Score above 60;;;60 feletti OBI pontszám;
