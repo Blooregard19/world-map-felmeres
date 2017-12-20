@@ -36,7 +36,7 @@ body {
   display: inline-block;
   height: 100%;
   text-align:center;
-  width: 650px;
+  width: 350px;
 }
 img {
     vertical-align: top;
@@ -166,9 +166,10 @@ Sample text
 //    formatDate = d3.time.format("%x");
 var numberFormat = d3.format(",.0f");
 var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 	
-var width = pageWidth * 0.6,
-    height = pageWidth * 0.55 * 0.6, 
+var width = pageWidth -350,
+    height = pageHeight * 0.8, 
     active = d3.select(null);
 
 var projection = d3.geoNaturalEarth1()
