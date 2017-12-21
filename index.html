@@ -28,7 +28,8 @@ body {
 }
 #obimap {
   display: inline-block;
-  height: 100%;
+  overflow: hidden;
+  /*height: 100%;*/
 }
 	
 #obiothers {
@@ -123,6 +124,13 @@ img {
 .feature.active {
   /*fill: orange*/;
 }
+
+text.capitalcity {
+ text-anchor: middle;
+ /*dominant-baseline: central;*/
+ font-size: 5px;
+ fill: white;
+}
 </style>
 <body>
 <div id = "fejlec">
@@ -171,6 +179,10 @@ var pageHeight = window.innerHeight || document.documentElement.clientHeight || 
 var width = pageWidth -350,
     height = pageHeight * 0.95, 
     active = d3.select(null);
+
+d3.select("#obimap")
+    .style("height", function(x) {return height + "px"})
+    .style("width", function(x) {return width + "px"});
 
 var projection = d3.geoNaturalEarth1()
     .scale(400)
@@ -339,7 +351,7 @@ country.filter(function(d) { return obi.has(d.id); })
     .selectAll("title")
       .text(function(d) {
         var score = obi.get(d.id);
-        return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
+        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
       });
  country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
@@ -366,11 +378,12 @@ function scorestext() {
 	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
 	.attr("class", "capitalcity")
 	.attr("font-family", "Arial")
-        .attr("text-anchor", "middle")
-	.attr("alignment-baseline", "central")
-	.attr("font-size", "5px")
-	.attr("fill", "white")
-	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+        //.attr("text-anchor", "middle")
+	//.attr("alignment-baseline", "central")
+	//.attr("font-size", "5px")
+	//.attr("fill", "white")
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";})
+	.attr("dy", "1.5px");
 }
 	
 // zoom and pan
