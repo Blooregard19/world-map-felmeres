@@ -1,113 +1,403 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
 <style>
-
 body {
   background: #fcfcfa;
 }
-
-.stroke {
-  fill: none;
-  stroke: #000;
-  stroke-width: 3px;
+	
+#fejlec {
+  font: 10px sans-serif;
+  position: static;
+  display: inline-block;
 }
 
+#main {
+  position:absolute;
+  /*height: 96%;*/
+  /*min-height:550px;*/
+  width: 99%;
+  /*top: 260px;*/
+}
+
+#langbox {
+  display: inline-block;
+  height: 100%;	
+}
+#obimap {
+  display: inline-block;
+  height: 100%;
+}
+	
+#obiothers {
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  text-align:center;
+  width: 350px;
+}
+img {
+    vertical-align: top;
+}
+#helptext {
+  width: 300px;
+  font-family: Cabin;
+  margin: auto;
+}
+
+#langselector {
+  display: inline-block;
+}
+#langselector input[type="radio"] {
+  display: none;
+}
+#langselector label {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;
+  cursor: pointer;
+}
+#langselector input[type="radio"]:checked+label {
+  background-color: #779126;
+  color: #fff;
+}
+#langselector input[type="radio"]:disabled+label {
+  background-color:#ddd;
+  color: #ddd;
+}
+
+#evval {
+  /*position: absolute;*/
+  /*top: 10px;*/
+  /*left: 10px;*/
+  display: inline-block;
+}
+#evval {
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   height: 25px;
+   /*overflow: hidden;*/
+   width: 80px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   background-color: #779126;
+}
+#evval #survy {
+   /*background: transparent;*/
+   background: #779126;
+   border: none;
+   font-size: 12px;
+   height: 25px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 79px;
+   color: #fff;
+}
+
+.background{
+  fill: #fcfcfa;
+  pointer-events: all;
+}
+.stroke {
+  fill: none;
+  stroke: #fcfcfa;
+  stroke-width: 0.5px;
+}
 .fill {
   fill: #fff;
 }
-
 .land {
   fill: #ddd;
 }
-
 .boundary {
   fill: none;
   stroke: #fff;
 }
-
+.feature {
+  fill: #ccc;
+  cursor: pointer;
+}
+.feature.active {
+  /*fill: orange*/;
+}
 </style>
 <body>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
-<script src="//d3js.org/queue.v1.min.js"></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
+<div id = "fejlec">
+<div id = "langbox">
+<form id = "langselector">
+  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
+  <input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
+  <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
+  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
+  <input id = "langlang2" type = "radio" name = "langsel" value = "lang2"><label id = "lblanglang2" for = "langlang2">Language2</label>
+</form>
+</div>
+<div id = "evval">
+<select id = "survy">
+  <option value="2006">2006</option>
+  <option value="2008">2008</option>
+  <option value="2010">2010</option>
+  <option value="2012">2012</option>
+  <option value="2015" selected>2015</option>
+  <option value="2017">2017</option>
+</select>
+</div>
+</div>
+<div id = "main">
+<div id = "obimap">
+</div>
+<div id = "obiothers">
+<img src = "IBP_logo.jpg" height = "100" width = "100">
+<img src = "logo.png" height = "100" width = "100">
+<div id = "helptext">
+Sample text
+</div>
+</div>
+</div>
+<script src="d3.v4.min.js"></script>
+<!---<script src="//d3js.org/d3.geo.projection.v2.min.js"></script>-->
+<script src="queue.v1.min.js"></script>
+<script src="topojson.v1.min.js"></script>
 <script>
+//var parseDate = d3.time.format("%Y-%m-%d").parse,
+//    formatDate = d3.time.format("%x");
+var numberFormat = d3.format(",.0f");
+var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+	
+var width = pageWidth -350,
+    height = pageHeight * 0.95, 
+    active = d3.select(null);
 
-var parseDate = d3.time.format("%Y-%m-%d").parse,
-    formatDate = d3.time.format("%x");
-
-var width = 960,
-    height = 500;
-
-var projection = d3.geo.naturalEarth()
-    .scale(167)
+var projection = d3.geoNaturalEarth1()
+    .scale(400)
     .translate([width / 2, height / 2])
     .precision(.1);
+//var color = d3.scale.linear()
+//    .domain([new Date(1900, 0, 1), new Date(2000, 0, 1)])
+//    .range(["purple", "orange"])
+//    .clamp(true)
+//    .interpolate(d3.interpolateHcl);
+//var zoom = d3.zoom()
+//    .translate(projection.translate())
+//    .scale(projection.scale())
+//    .scaleExtent([height, 8 * height])
+//    .on("zoom", zoomed);
 
-var color = d3.scale.linear()
-    .domain([new Date(1900, 0, 1), new Date(2000, 0, 1)])
-    .range(["purple", "orange"])
-    .clamp(true)
-    .interpolate(d3.interpolateHcl);
+var colors = d3.scaleThreshold()
+    .range(["black", "#a4243b", "#f4d06f", "#214e34"]) //315113; 9d080c; ffbb02
+    .domain([0.001, 40, 60]);
 
-var path = d3.geo.path()
+var path = d3.geoPath()
     .projection(projection);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#main").select("#obimap").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-svg.append("defs").append("path")
-    .datum({type: "Sphere"})
-    .attr("id", "sphere")
-    .attr("d", path);
+svg.append("rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height);
+    //.on("click", reset);
 
-svg.append("use")
-    .attr("class", "stroke")
-    .attr("xlink:href", "#sphere");
+var g = svg.append("g")
+    .style("stroke-width", "0.5px");
 
-svg.append("use")
-    .attr("class", "fill")
-    .attr("xlink:href", "#sphere");
+var ssv = d3.dsvFormat(";");
+var obi;
+d3.selectAll('input[name="langsel"]').on("change", futtat);
+	
+function futtat() {
+d3.selectAll("circle").remove().exit();
+d3.selectAll("title").remove().exit();
+d3.selectAll("path").remove().exit();
+g.selectAll("text").remove().exit();
+queue()
+    .defer(d3.json, "world-110m.json")
+    .defer(hucsv, "visu_data_exp4.csv")
+    .defer(hucsv, "country-capitals2.csv")
+    .defer(hucsv, "lang_file.csv")
+    .await(ready);
+}
+
+function hucsv(adat, callback) {
+  d3.request(adat)
+	.mimeType("text/plain")
+	.response(function(xhr) { return ssv.parse(xhr.responseText);})
+      .get(function(data) {callback(null, data);});
+  
+}; 
+
 
 queue()
-    .defer(d3.json, "world-50m.json")
-    .defer(d3.tsv, "treaties.tsv", type)
+    .defer(d3.json, "world-110m.json")
+    .defer(hucsv, "visu_data_exp4.csv")
+    .defer(hucsv, "country-capitals2.csv")
+    .defer(hucsv, "lang_file.csv")
     .await(ready);
 
-function ready(error, world, treaties) {
+function ready(error, world, obib, capital, lang) {
   if (error) throw error;
-console.log(treaties);
-  var treatiesById = d3.nest()
-      .key(function(d) { return d.id; })
-      .sortValues(function(a, b) { return a.date - b.date; })
-      .map(treaties, d3.map);
 
-  var country = svg.insert("g", ".graticule")
-      .attr("class", "land")
-    .selectAll("path")
+d3.select("#survy").on("change", evvalto);
+var nyelv = d3.select('input[name="langsel"]:checked').node().value;
+document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
+document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
+document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
+document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
+document.getElementById("helptext").innerHTML = lang[132][nyelv];
+var scoretext = lang[133][nyelv];
+//console.log(world);
+  //var treatiesById = d3.nest()
+  //    .key(function(d) { return d.country; })
+  //    .sortValues(function(a, b) { return a.year - b.year; })
+  //    .map(obi, d3.map);
+obib.forEach(function(obib) {
+  var result = lang.filter(function(langs) {
+  return langs.id === obib.country;
+  });
+  obib.countrytext = (result[0] !== undefined) ? result[0][nyelv] : null;
+});
+obib.forEach(function(d) {
+d.obi = +d.obi.replace(",", ".");
+d.obi_ebp = +d.obi_ebp.replace(",", ".");
+d.obi_eb = +d.obi_eb.replace(",", ".");
+d.obi_ar = +d.obi_ar.replace(",", ".");
+d.obi_cb = +d.obi_cb.replace(",", ".");
+d.obi_iyr = +d.obi_iyr.replace(",", ".");
+d.obi_myr = +d.obi_myr.replace(",", ".");
+d.obi_pbs = +d.obi_pbs.replace(",", ".");
+d.obi_yer = +d.obi_yer.replace(",", ".");
+d.year = +d.year;
+});
+capital.forEach(function(d) {
+d.CapitalLatitude = +d.CapitalLatitude.replace(",", ".");
+d.CapitalLongitude = +d.CapitalLongitude.replace(",", ".");
+});
+	
+var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var obi = obi.filter(function(d) {return d.co_code != "";});
+var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
+var obi = d3.map(obi, function(d) {return d.co_code;});
+//console.log(obi.get(729)); 
+//console.log(capital);
+//console.log(obic);
+var country = g.selectAll("path")
       .data(topojson.feature(world, world.objects.countries).features)
     .enter().append("path")
-      .attr("d", path);
-
-  country.filter(function(d) { return d.id === 840; })
-      .style("fill", "#000")
-    .append("title")
-      .text("United States");
-
-  country.filter(function(d) { return treatiesById.has(d.id); })
-      .style("fill", function(d) { return color(treatiesById.get(d.id)[0].date); })
+      .attr("d", path)
+      .attr("class", "feature");
+      //.on("click", clicked);
+  //country.filter(function(d) { return d.id === 840; })
+  //    .style("fill", "#000")
+  //  .append("title")
+  //    .text("United States");
+  country.filter(function(d) { return obi.has(d.id); })
+      .style("fill", function(d) { return colors(obi.get(d.id).obi); })
     .append("title")
       .text(function(d) {
-        var treaties = treatiesById.get(d.id);
-        return treaties[0].name + "\n" + treaties.map(function(d) { return formatDate(d.date); }).join("\n");
+        var score = obi.get(d.id);
+        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
       });
-
-  svg.insert("path", ".graticule")
+  country.filter(function(d) { return obi.has(d.id); })
+	.on("mouseover", colorbrighter)
+	.on("mouseout", colororig); 
+  g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
+//console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
+  //var fovaros = g.selectAll(".capitalcity")
+//	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
+//	  .enter();
+  //    fovaros.append("circle")
+  //      .attr("class", "capitalcity")
+//	.attr("r", 4)
+//	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+  //    fovaros.append("text")
+//	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
+//	.attr("font-family", "Arial")
+  //      .attr("text-anchor", "middle")
+//	.attr("alignment-baseline", "central")
+//	.attr("font-size", "5px")
+//	.attr("fill", "white")
+//	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+
+function evvalto() {
+var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var obi = obi.filter(function(d) {return d.co_code != "";});
+var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
+var obi = d3.map(obi, function(d) {return d.co_code;});
+console.log(obi.get(729));
+country.style("fill", "#ccc")
+country.filter(function(d) { return obi.has(d.id); })
+      .style("fill", function(d) { return colors(obi.get(d.id).obi); })
+    .selectAll("title")
+      .text(function(d) {
+        var score = obi.get(d.id);
+        return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
+      });
+ country.filter(function(d) { return obi.has(d.id); })
+	.on("mouseover", colorbrighter)
+	.on("mouseout", colororig); 
 }
+
+function scorestext() {
+  var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  var obi = obi.filter(function(d) {return d.co_code != "";});
+  var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
+  var fovaros = g.selectAll(".capitalcity")
+	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
+	  .enter();
+      fovaros.append("circle")
+        .attr("class", "capitalcity")
+	.attr("r", 4)
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";})
+	.append("title")
+          .text(function(d) {
+            var score = obic.get(d.CountryName);
+            return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+          });
+      fovaros.append("text")
+	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
+	.attr("class", "capitalcity")
+	.attr("font-family", "Arial")
+        .attr("text-anchor", "middle")
+	.attr("alignment-baseline", "central")
+	.attr("font-size", "5px")
+	.attr("fill", "white")
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+}
+	
+// zoom and pan
+var zoom = d3.zoom()
+    .on("zoom",function() {
+	    var translate = [[d3.event.transform.x, d3.event.transform.y]],
+		scale = d3.event.transform.k;
+	    //projection.translate([d3.event.transform.x, d3.event.transform.y]).scale(d3.event.transform.k);
+        g.attr("transform","translate("+ translate +")scale("+ scale +")");
+        g.selectAll("path")
+	    .style("stroke-width", 1.5 / scale + "px")
+            .attr("d", path.projection(projection));
+	 //g.selectAll(".capitalcity")
+	 //   .attr("r", 2 / scale);
+if (scale > 2) {
+if (d3.select(".capitalcity").empty() ) {
+scorestext()
+}
+}
+if (scale < 2) {
+d3.selectAll(".capitalcity").remove().exit();
+}
+console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
+});
+svg.call(zoom)
+	
+} //adatbeolvasó vége
 
 function type(d) {
   d.id = +d.id;
@@ -115,6 +405,47 @@ function type(d) {
   return d;
 }
 
-d3.select(self.frameElement).style("height", height + "px");
+function colorbrighter() {
+  var hovered = d3.select(this),
+      hovcolor = d3.select(this).style("fill");
+  hovered.style("fill", function() {return d3.rgb(hovcolor).brighter();});
+}
+	
+function colororig() {
+  var hovered = d3.select(this),
+      hovcolor = d3.select(this).style("fill");
+ if (hovcolor == d3.rgb(255, 255, 159)) {
+ hovered.style("fill", d3.rgb(244, 208, 111));
+ } else if (hovcolor != d3.rgb(255, 255, 159)) {
+  hovered.style("fill", function() {return d3.rgb(hovcolor).darker();});
+ }
+}
+//d3.select(self.frameElement).style("height", height + "px");
+
+//function clicked(d) {
+//  if (active.node() === this) return reset();
+//  active.classed("active", false);
+//  active = d3.select(this).classed("active", true);
+//  var bounds = path.bounds(d),
+//      dx = bounds[1][0] - bounds[0][0],
+//      dy = bounds[1][1] - bounds[0][1],
+//      x = (bounds[0][0] + bounds[1][0]) / 2,
+//      y = (bounds[0][1] + bounds[1][1]) / 2,
+//      scale = .9 / Math.max(dx / width, dy / height),
+//      translate = [width / 2 - scale * x, height / 2 - scale * y];
+//  g.transition()
+//      .duration(750)
+//      .style("stroke-width", 1.5 / scale + "px")
+//      .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+//}
+
+//function reset() {
+//  active.classed("active", false);
+//  active = d3.select(null);
+//  g.transition()
+//      .duration(750)
+//      .style("stroke-width", "0.5px")
+//      .attr("transform", "");
+//}
 
 </script>
