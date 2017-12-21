@@ -123,6 +123,13 @@ img {
 .feature.active {
   /*fill: orange*/;
 }
+
+text .capitalcity {
+ text-anchor: middle;
+ alignment-baseline: central;
+ font-size: 5px;
+ fill: white;
+}
 </style>
 <body>
 <div id = "fejlec">
@@ -366,10 +373,10 @@ function scorestext() {
 	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
 	.attr("class", "capitalcity")
 	.attr("font-family", "Arial")
-        .attr("text-anchor", "middle")
-	.attr("alignment-baseline", "central")
-	.attr("font-size", "5px")
-	.attr("fill", "white")
+        //.attr("text-anchor", "middle")
+	//.attr("alignment-baseline", "central")
+	//.attr("font-size", "5px")
+	//.attr("fill", "white")
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
 }
 	
