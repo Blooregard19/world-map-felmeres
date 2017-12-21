@@ -19,7 +19,7 @@ https://bl.ocks.org/mbostock/2206590
 http://bl.ocks.org/d3noob/5189284
 
 Tesztüzem:
-https://rawgit.com/Blooregard19/world-map-felmeres/master/index.html
+https://rawgit.com/Blooregard19/world-map-felmeres/master/index2.html
 
 Egyéb források:
 http://datamaps.github.io/
