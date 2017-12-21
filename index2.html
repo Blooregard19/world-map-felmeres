@@ -126,7 +126,7 @@ img {
 
 text.capitalcity {
  text-anchor: middle;
- dominant-baseline: central;
+ /*dominant-baseline: central;*/
  font-size: 5px;
  fill: white;
 }
@@ -381,7 +381,8 @@ function scorestext() {
 	//.attr("alignment-baseline", "central")
 	//.attr("font-size", "5px")
 	//.attr("fill", "white")
-	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
+	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";})
+	.attr("dy", "-3px");
 }
 	
 // zoom and pan
