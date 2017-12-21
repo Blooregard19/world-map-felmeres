@@ -350,7 +350,7 @@ country.filter(function(d) { return obi.has(d.id); })
     .selectAll("title")
       .text(function(d) {
         var score = obi.get(d.id);
-        return score.country + "\n Pontszám:" + d3.format(",.0f")(score.obi);
+        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
       });
  country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
