@@ -28,7 +28,7 @@ body {
 }
 #obimap {
   display: inline-block;
-  height: 100%;
+  /*height: 100%;*/
 }
 	
 #obiothers {
@@ -178,6 +178,10 @@ var pageHeight = window.innerHeight || document.documentElement.clientHeight || 
 var width = pageWidth -350,
     height = pageHeight * 0.95, 
     active = d3.select(null);
+
+d3.select("#obimap")
+    .style("height", function(x) {return height + "px"})
+    .style("width", function(x) {return width + "px"});
 
 var projection = d3.geoNaturalEarth1()
     .scale(400)
