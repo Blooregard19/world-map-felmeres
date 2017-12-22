@@ -46,12 +46,12 @@ https://bl.ocks.org/mbostock/b783fbb2e673561d214e09c7fb5cedee
 - a térképet nem kellene engedni egy bizonyos zoomout alá, kb akkor kellene megállítani, amikor a széle eléri az svg szélét
 - térképnél a kiválasztott országot követően lehetne összehasonlítást kérni az országról
 - térképnél az évválasztáskor a köröket és számokat le kell cserélni, ha nagyítás van
-nyelvválasztás zászlókkal
-térképnél összehasonlítás alapján színezze az országokat
-minimum, maximum értékek alapján is színezhessen a térképen
-térképre jelmagyarázat kell
-https://stackoverflow.com/questions/25015262/how-to-correctly-update-the-text-value-of-an-input-element-in-a-d3-js-transition
-https://stackoverflow.com/questions/32008125/using-javascript-to-change-website-language
-https://bl.ocks.org/mbostock/4183330
-térképnél még lehetne, hogy a kör és szám kettősére egy újabb átlátszó kört rakni és az kapja a title-t, így mindig ki lennének írva az adatok (esetleg bővebb infoboxot ír ki)
-a térkép json-jét bővíteni lehetne Sao Tome-val és Comoros-szal
+- nyelvválasztás zászlókkal
+- térképnél összehasonlítás alapján színezze az országokat
+- minimum, maximum értékek alapján is színezhessen a térképen
+- térképre jelmagyarázat kell
+- https://stackoverflow.com/questions/25015262/how-to-correctly-update-the-text-value-of-an-input-element-in-a-d3-js-transition
+- https://stackoverflow.com/questions/32008125/using-javascript-to-change-website-language
+- https://bl.ocks.org/mbostock/4183330
+- térképnél még lehetne, hogy a kör és szám kettősére egy újabb átlátszó kört rakni és az kapja a title-t, így mindig ki lennének írva az adatok (esetleg bővebb infoboxot ír ki)
+- a térkép json-jét bővíteni lehetne Sao Tome-val és Comoros-szal
