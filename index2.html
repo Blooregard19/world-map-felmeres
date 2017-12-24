@@ -53,7 +53,7 @@ img {
  /*top: 0px;*/
  /*right: 0px;*/
  width: 300px;
- height: 600px;
+ height: 450px;
  font-family: Cabin;
  /*bottom: 0px;*/
  overflow-y: auto;
@@ -142,6 +142,15 @@ text.capitalcity {
  font-size: 5px;
  fill: white;
 }
+
+thead.fixedHeader {
+    display: block;
+}
+/*html>body tbody.scrollContent {
+    display: block;
+    overflow: auto;
+}*/
+
 </style>
 <body>
 <div id = "fejlec">
@@ -440,6 +449,7 @@ function scorestext() {
 	
 // zoom and pan
 var zoom = d3.zoom()
+    .scaleExtent([width/1860, 5])
     .on("zoom",function() {
 	    var translate = [[d3.event.transform.x, d3.event.transform.y]],
 		scale = d3.event.transform.k;
@@ -459,6 +469,7 @@ if (scale < 2) {
 d3.selectAll(".capitalcity").remove().exit();
 }
 console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
+console.log(svg.style("width"));
 });
 svg.call(zoom)
 
