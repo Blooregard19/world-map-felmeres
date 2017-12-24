@@ -481,7 +481,7 @@ scorestext()
 if (scale < 2) {
 d3.selectAll(".capitalcity").remove().exit();
 }
-console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
+//console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
 //console.log(svg.style("width"));
 });
 svg.call(zoom)
@@ -489,12 +489,7 @@ svg.call(zoom)
 function countrysearch() {
   var orszag = d3.select(this).datum();  
   var countries = topojson.feature(world, world.objects.countries).features;
-  console.log(countries);
-  console.log(path.centroid(countries));
   var countries = countries.filter(function(d) { return d.id == orszag.co_code; });
-  console.log(countries.filter(function(d) { return d.id == orszag.co_code; }));
-  console.log(d3.geoPath().centroid(countries[0]));
-  console.log(path.centroid(countries[0]));
   var centroid = path.centroid(countries[0]),
         translate = projection.translate(),
         scale = 2.3;
@@ -513,6 +508,8 @@ function countrysearch() {
     //  .attr("transform","translate("+ centroid +")scale("+ scale +")");
     g.transition().delay(750).duration(750)
       .call(zoom.scaleBy, scale);
+    g.attr("transform","translate("+ [longitude, latitude] +")scale("+ scale +")");
+
 }
 
 function transform() {
