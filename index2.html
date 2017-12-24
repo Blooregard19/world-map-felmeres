@@ -285,6 +285,8 @@ document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
 document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
 document.getElementById("helptext").innerHTML = lang[132][nyelv];
 var scoretext = lang[133][nyelv];
+var countrytranslate = lang[138][nyelv];
+var comparettext = lang[139][nyelv];
 //console.log(world);
   //var treatiesById = d3.nest()
   //    .key(function(d) { return d.country; })
@@ -369,7 +371,7 @@ var fejlec = tabla.append("thead")
   .attr("id", "tablaHeader")
   //.style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
   .append("tr");
-  fejlec.append("th").html("Country"); //lang file-ba kellene az ország megnevezés
+  fejlec.append("th").html(countrytranslate); //lang file-ba kellene az ország megnevezés
   fejlec.append("th").html(scoretext);
 var tr = tabla.append("tbody")
   	.attr("class", "scrollContent")
