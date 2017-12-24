@@ -109,7 +109,10 @@ img {
    width: 79px;
    color: #fff;
 }
-
+#comparediv {
+  display: inline-block;
+  height: 100%;	
+}
 #compareselector {
   display: inline-block;
 }
@@ -547,6 +550,7 @@ if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
 evvalto()
 } else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
 var selscore = d3.select("tr.selectedcountry").data.obi;
+console.log(selscore);
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = obi.filter(function(d) {return d.co_code != "";});
 var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
