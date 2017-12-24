@@ -482,10 +482,11 @@ function countrysearch() {
   console.log(countries.filter(function(d) { return d.id == orszag.co_code; }));
   console.log(d3.geoPath().centroid(countries[0]));
   console.log(path.centroid(countries[0]));
-  console.log(path.centroid(orszag));
-  console.log(d3.geoPath().centroid(orszag));
-  console.log(path.centroid(orszag.geometry));
-  console.log(d3.geoPath().centroid(orszag.geometry));
+  d3.transition()
+    .duration(700)
+    .projection.center(path.centroid(countries[0]))
+    .projection.scale(2.3);
+
 }
 
 } //adatbeolvasó vége
