@@ -347,6 +347,13 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
+   var label = svg.selectAll("text")
+          .data(topojson.feature(world, world.objects.countries).features)
+          .enter()
+          .append("text")
+            .attr("class", "label")
+            .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+            .text(function(d) {return d.id;});
 //console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
   //var fovaros = g.selectAll(".capitalcity")
 //	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
