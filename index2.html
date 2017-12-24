@@ -483,16 +483,22 @@ function countrysearch() {
   console.log(d3.geoPath().centroid(countries[0]));
   console.log(path.centroid(countries[0]));
   var centroid = path.centroid(countries[0]),
-        translate = projection.translate();
+        translate = projection.translate(),
+        scale = 2.3;
     projection.translate([
       translate[0] - centroid[0] + width / 2,
       translate[1] - centroid[1] + height / 2
     ]);
-    projection.scale(810);
-  g.selectAll("path").transition()
+    g.attr("transform","scale("+ scale +")");
+    g.selectAll("path").transition()
       .duration(750)
       .attr("d", path);
 
+}
+
+function transform() {
+  return d3.zoom
+      .scale(2.3);
 }
 
 } //adatbeolvasó vége
