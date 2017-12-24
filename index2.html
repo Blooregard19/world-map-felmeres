@@ -355,6 +355,13 @@ var country = g.selectAll("path")
 
 d3.select("#countryselector").selectAll("table").remove();
 var tabla = d3.select("#countryselector").append("table");
+var fejlec = tabla.append("thead")
+  .attr("class", "fixedHeader")
+  .attr("id", "tablaHeader")
+  //.style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
+  .append("tr");
+  fejlec.append("th").html("Country"); //lang file-ba kellene az ország megnevezés
+  fejlec.append("th").html(scoretext);
   var tr = tabla.selectAll("tr")
   	.data(obib.filter(function(d) {return d.year == d3.select("#survy").property("value");}))
   	.enter().append("tr");
@@ -369,7 +376,7 @@ var td = tr.append("td")
     .attr("id", function(d) {return d.country;})
     .attr("title", function(d) { return d.country; })
     //.html(function(d) {return format(d.value/1000) + "Mrd Ft";})
-    .html(function(d) {return d3.format(",.0f")(d.value);})
+    .html(function(d) {return d3.format(",.0f")(d.obi);})
     //.on("mouseover", highlight)
     //.on("mouseout", unhighlight)
     .on("click", countrysearch );
