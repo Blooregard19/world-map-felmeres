@@ -493,13 +493,14 @@ function countrysearch() {
       translate[0] - centroid[0] + width / 2,
       translate[1] - centroid[1] + height / 2
     ]);
-    g.selectAll("path").transition()
-      .duration(750)
-      .attr("d", path);
     g.transition()
-      .delay(750)
       .duration(250)
       .attr("transform","scale("+ scale +")");
+    g.selectAll("path").transition()
+      .delay(250)
+      .duration(750)
+      .attr("d", path);
+    
 
 }
 
