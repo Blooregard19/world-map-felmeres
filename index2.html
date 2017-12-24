@@ -549,7 +549,7 @@ function scorecompare() {
 if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
 evvalto()
 } else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
-var selscore = d3.select("tr.selectedcountry").data.obi;
+var selscore = d3.select("tr.selectedcountry").datum().obi;
 console.log(selscore);
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = obi.filter(function(d) {return d.co_code != "";});
