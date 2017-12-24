@@ -478,10 +478,10 @@ function countrysearch() {
   var countries = topojson.feature(world, world.objects.countries).features;
   console.log(countries);
   console.log(path.centroid(countries));
-  var countries = countries.filter(function(d) { return d.id == orszag.co_code; })[0];
+  var countries = countries.filter(function(d) { return d.id == orszag.co_code; });
   console.log(countries.filter(function(d) { return d.id == orszag.co_code; }));
-  console.log(d3.geoPath().centroid(countries));
-  console.log(path.centroid(countries));
+  console.log(d3.geoPath().centroid(countries[0]));
+  console.log(path.centroid(countries[0]));
   console.log(path.centroid(orszag));
   console.log(d3.geoPath().centroid(orszag));
   console.log(path.centroid(orszag.geometry));
