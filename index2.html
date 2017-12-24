@@ -160,6 +160,10 @@ tbody.scrollContent {
     display: block;
     overflow: auto;
 }
+tr.selectedcountry {
+  background-color: #779126;
+  color: #fff;	
+}
 
 </style>
 <body>
@@ -487,9 +491,11 @@ d3.selectAll(".capitalcity").remove().exit();
 svg.call(zoom)
 
 function countrysearch() {
-  var orszag = d3.select(this).datum();  
+  var orszag = d3.select(this);
+  d3.selectAll("tr").attr("class", null);
+  orszag.attr("class", "selectedcountry");
   var countries = topojson.feature(world, world.objects.countries).features;
-  var countries = countries.filter(function(d) { return d.id == orszag.co_code; });
+  var countries = countries.filter(function(d) { return d.id == orszag.datum().co_code; });
   var centroid = path.centroid(countries[0]),
         translate = projection.translate(),
         scale = 2.3;
