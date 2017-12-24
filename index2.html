@@ -473,7 +473,10 @@ d3.selectAll(".capitalcity").remove().exit();
 svg.call(zoom)
 
 function countrysearch() {
-	
+  var orszag = d3.select(this).attr("id");
+  var orszagsel = country.filter(function(d) {return d.id == orszag;});
+  console.log(d3.geo.centroid(orszagsel));
+  
 }
 
 } //adatbeolvasó vége
