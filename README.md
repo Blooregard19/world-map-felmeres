@@ -55,3 +55,4 @@ https://bl.ocks.org/mbostock/b783fbb2e673561d214e09c7fb5cedee
 - https://bl.ocks.org/mbostock/4183330
 - térképnél még lehetne, hogy a kör és szám kettősére egy újabb átlátszó kört rakni és az kapja a title-t, így mindig ki lennének írva az adatok (esetleg bővebb infoboxot ír ki)
 - a térkép json-jét bővíteni lehetne Sao Tome-val és Comoros-szal
+- másfajta tooltip: https://github.com/tietyk/D3/blob/master/Prototype/part8-9.html
