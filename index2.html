@@ -48,6 +48,16 @@ img {
   font-family: Cabin;
   margin: auto;
 }
+#countryselector {
+ position: absolute;
+ /*top: 0px;*/
+ /*right: 0px;*/
+ width: 300px;
+ height: 600px;
+ font-family: Cabin;
+ /*bottom: 0px;*/
+ overflow-y: auto;
+}
 
 #langselector {
   display: inline-block;
@@ -163,6 +173,8 @@ text.capitalcity {
 <img src = "logo.png" height = "100" width = "100">
 <div id = "helptext">
 Sample text
+</div>
+<div id = "countryselector">
 </div>
 </div>
 </div>
@@ -311,6 +323,7 @@ var country = g.selectAll("path")
   //    .text("United States");
   country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
+      .attr("id", function(d) { return obi.get(d.id).country; })
     .append("title")
       .text(function(d) {
         var score = obi.get(d.id);
@@ -340,12 +353,33 @@ var country = g.selectAll("path")
 //	.attr("fill", "white")
 //	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
 
+d3.select("#countryselector").selectAll("table").remove();
+var tabla = d3.select("#countryselector").append("table");
+  var tr = tabla.selectAll("tr")
+  	.data(obi)
+  	.enter().append("tr");
+var td = tr.append("td")
+    .attr("class", function(d) {return d.country;})
+    .attr("title", function(d) { return d.country; })
+    .html(function(d) {return d.countrytext;})
+    //.on("mouseover", highlight)
+    //.on("mouseout", unhighlight)
+    .on("click", countrysearch );
+  var td = tr.append("td")
+    .attr("class", function(d) {return d.country;})
+    .attr("title", function(d) { return d.country; })
+    //.html(function(d) {return format(d.value/1000) + "Mrd Ft";})
+    .html(function(d) {return d3.format(",.0f")(d.value);})
+    //.on("mouseover", highlight)
+    //.on("mouseout", unhighlight)
+    .on("click", countrysearch );
+
 function evvalto() {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = obi.filter(function(d) {return d.co_code != "";});
 var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
 var obi = d3.map(obi, function(d) {return d.co_code;});
-console.log(obi.get(729));
+//console.log(obi.get(729));
 country.style("fill", "#ccc")
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
@@ -356,13 +390,18 @@ country.filter(function(d) { return obi.has(d.id); })
       });
  country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
-	.on("mouseout", colororig); 
+	.on("mouseout", colororig);
+ if (!d3.select(".capitalcity").empty() ) {
+  scorestext()
+ }
+
 }
 
 function scorestext() {
   var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
   var obi = obi.filter(function(d) {return d.co_code != "";});
   var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
+  d3.selectAll(".capitalcity").remove().exit();
   var fovaros = g.selectAll(".capitalcity")
 	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
 	  .enter();
@@ -415,7 +454,10 @@ d3.selectAll(".capitalcity").remove().exit();
 console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
 });
 svg.call(zoom)
+
+function countrysearch() {
 	
+}
 } //adatbeolvasó vége
 
 function type(d) {
