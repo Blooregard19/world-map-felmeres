@@ -110,6 +110,15 @@ img {
    color: #fff;
 }
 
+#comparediv {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;
+  cursor: pointer;
+}
+
 .background{
   fill: #fcfcfa;
   pointer-events: all;
@@ -495,15 +504,15 @@ function countrysearch() {
       translate[0] - centroid[0] + width / 2,
       translate[1] - centroid[1] + height / 2
     ]);
-    //g.selectAll("path").transition()
-    //  .duration(750)
-    //  .attr("d", path);
+    g.selectAll("path").transition()
+      .duration(750)
+      .attr("d", path);
     //g.transition()
     //  .delay(750)
     //  .duration(250)
     //  .attr("transform","translate("+ centroid +")scale("+ scale +")");
-    g.selectAll("path").transition().duration(750)
-      .call(zoom.transform, d3.zoomIdentity.translate(longitude, latitude).scale(scale));
+    //g.selectAll("path").transition().duration(750)
+    //  .call(zoom.transform, d3.zoomIdentity.translate(longitude, latitude).scale(scale));
 }
 
 function transform() {
