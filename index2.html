@@ -347,13 +347,7 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
-   var label = svg.selectAll("text")
-          .data(topojson.feature(world, world.objects.countries).features)
-          .enter()
-          .append("text")
-            .attr("class", "label")
-            .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-            .text(function(d) {return d.id;});
+   
 //console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
   //var fovaros = g.selectAll(".capitalcity")
 //	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
@@ -484,7 +478,7 @@ function countrysearch() {
   var countries = topojson.feature(world, world.objects.countries).features;
   console.log(countries);
   console.log(path.centroid(countries));
-  var countries = countries.filter(function(d) { return d.id == orszag.co_code; });
+  var countries = countries.filter(function(d) { return d.id == orszag.co_code; })[0];
   console.log(countries.filter(function(d) { return d.id == orszag.co_code; }));
   console.log(d3.geoPath().centroid(countries));
   console.log(path.centroid(countries));
