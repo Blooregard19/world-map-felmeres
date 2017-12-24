@@ -493,7 +493,7 @@ function countrysearch() {
     g.selectAll("path").transition()
       .duration(750)
       .attr("d", path);
-    g.selectAll("path").transition()
+    g.transition()
       .delay(750)
       .duration(250)
       .attr("transform","scale("+ scale +")");
