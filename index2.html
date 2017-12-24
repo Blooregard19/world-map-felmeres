@@ -380,9 +380,10 @@ var tr = tabla.append("tbody")
   	.data(obib.filter(function(d) {return d.year == d3.select("#survy").property("value");}))
   	.enter().append("tr")
         //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
-  	.attr("id", function(d) {return d.country;});
-tr.append("td").html(function(d) {return d.countrytext;}).on("click", countrysearch );
-tr.append("td").html(function(d) {return d3.format(",.0f")(d.obi);}).on("click", countrysearch );
+  	.attr("id", function(d) {return d.country;})
+        .on("click", countrysearch );
+tr.append("td").html(function(d) {return d.countrytext;});
+tr.append("td").html(function(d) {return d3.format(",.0f")(d.obi);});
 var cellak = document.querySelector('#lapozotabla').getElementsByTagName('td');
 var fejek = document.querySelector('#tablaHeader').getElementsByTagName('th');
 d3.select(fejek[0]).style("width", function (d) {return d3.select(cellak[0]).node().offsetWidth + "px";});
