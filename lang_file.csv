@@ -137,3 +137,5 @@
 136;Point1-40;OBI Score between 0 and 40;;;0 és 40 közötti OBI pontszám;
 137;Point41-60;OBI Score between 41 and 60;;;41 és 60 közötti OBI pontszám;
 138;Point60;OBI Score above 60;;;60 feletti OBI pontszám;
+139;Country;Country;;;Ország;
+140;Compare;Compare;;;Összehasonlítás;
