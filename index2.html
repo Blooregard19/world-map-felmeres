@@ -511,8 +511,8 @@ function countrysearch() {
     //  .delay(750)
     //  .duration(250)
     //  .attr("transform","translate("+ centroid +")scale("+ scale +")");
-    //g.selectAll("path").transition().duration(750)
-    //  .call(zoom.transform, d3.zoomIdentity.translate(longitude, latitude).scale(scale));
+    g.transition().delay(750).duration(750)
+      .call(zoom.scaleBy, 2.3);
 }
 
 function transform() {
