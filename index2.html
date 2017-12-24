@@ -356,17 +356,17 @@ var country = g.selectAll("path")
 d3.select("#countryselector").selectAll("table").remove();
 var tabla = d3.select("#countryselector").append("table");
   var tr = tabla.selectAll("tr")
-  	.data(obi)
+  	.data(obib.filter(function(d) {return d.year == d3.select("#survy").property("value");}))
   	.enter().append("tr");
 var td = tr.append("td")
-    .attr("class", function(d) {return d.country;})
+    .attr("id", function(d) {return d.country;})
     .attr("title", function(d) { return d.country; })
     .html(function(d) {return d.countrytext;})
     //.on("mouseover", highlight)
     //.on("mouseout", unhighlight)
     .on("click", countrysearch );
   var td = tr.append("td")
-    .attr("class", function(d) {return d.country;})
+    .attr("id", function(d) {return d.country;})
     .attr("title", function(d) { return d.country; })
     //.html(function(d) {return format(d.value/1000) + "Mrd Ft";})
     .html(function(d) {return d3.format(",.0f")(d.value);})
@@ -458,6 +458,7 @@ svg.call(zoom)
 function countrysearch() {
 	
 }
+
 } //adatbeolvasó vége
 
 function type(d) {
