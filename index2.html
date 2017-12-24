@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>OBI World Map</title>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+</head>
 <style>
 body {
   background: #fcfcfa;
@@ -489,10 +490,12 @@ function countrysearch() {
       translate[0] - centroid[0] + width / 2,
       translate[1] - centroid[1] + height / 2
     ]);
-    g.attr("transform","scale("+ scale +")");
     g.selectAll("path").transition()
       .duration(750)
       .attr("d", path);
+    g.selectAll("path").transition()
+      .duration(750)
+      .attr("transform","scale("+ scale +")");
 
 }
 
