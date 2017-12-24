@@ -110,13 +110,27 @@ img {
    color: #fff;
 }
 
-#comparediv {
+#compareselector {
+  display: inline-block;
+}
+#compareselector input[type="radio"] {
+  display: none;
+}
+#compareselector label {
   display: inline-block;
   background-color: #ddd;
   padding: 4px 11px;
   font-family: Cabin;
   font-size: 13px;
   cursor: pointer;
+}
+#compareselector input[type="radio"]:checked+label {
+  background-color: #779126;
+  color: #fff;
+}
+#compareselector input[type="radio"]:disabled+label {
+  background-color:#ddd;
+  color: #ddd;
 }
 
 .background{
@@ -188,6 +202,10 @@ tr.selectedcountry {
 </select>
 </div>
 <div id = "comparediv">
+<form id = "compareselector">
+  <input id = "compcomp" type = "radio" name = "compsel" value = "comp"/><label id = "comptext" for = "compcomp">Compare</label>
+  <input id = "compnorm" type = "radio" name = "compsel" value = "normal" checked/><label id = "normtext" for = "compnorm">Full score</label>
+</form>
 </div>
 </div>
 <div id = "main">
@@ -240,6 +258,10 @@ var projection = d3.geoNaturalEarth1()
 var colors = d3.scaleThreshold()
     .range(["black", "#a4243b", "#f4d06f", "#214e34"]) //315113; 9d080c; ffbb02
     .domain([0.001, 40, 60]);
+
+var colorcomp = d3.scaleThreshold()
+    .range(["#a4243b", "#876927", "white", "#456b26", "#214e34"]) //315113; 9d080c; ffbb02
+    .domain([-100, -10, -5, 5, 10, 100]);
 
 var path = d3.geoPath()
     .projection(projection);
@@ -294,13 +316,15 @@ function ready(error, world, obib, capital, lang) {
   if (error) throw error;
 
 d3.select("#survy").on("change", evvalto);
+d3.select("#compareselector").on("change", scorecompare);
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
 document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
 document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
 document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
 document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
 document.getElementById("helptext").innerHTML = lang[132][nyelv];
-document.getElementById("comparediv").innerHTML = lang[139][nyelv];
+document.getElementById("comptext").innerHTML = lang[139][nyelv];
+//document.getElementById("normtext").innerHTML = lang[140][nyelv];
 var scoretext = lang[133][nyelv];
 var countrytranslate = lang[138][nyelv];
 var comparettext = lang[139][nyelv];
@@ -518,9 +542,21 @@ function countrysearch() {
 
 }
 
-function transform() {
-  return d3.zoom
-      .scale(2.3);
+function scorecompare() {
+if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
+evvalto()
+} else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
+var selscore = d3.select("tr.selectedcountry").data.obi;
+var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var obi = obi.filter(function(d) {return d.co_code != "";});
+var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
+var obi = d3.map(obi, function(d) {return d.co_code;});
+//console.log(obi.get(729));
+country.style("fill", "#ccc")
+country.filter(function(d) { return obi.has(d.id); })
+      .style("fill", function(d) { return colorcomp(obi.get(d.id).obi - selscore); })
+}
+
 }
 
 } //adatbeolvasó vége
