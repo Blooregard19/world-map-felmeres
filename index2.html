@@ -146,7 +146,7 @@ text.capitalcity {
 thead.fixedHeader {
     display: block;
 }
-#countryselector.scrollContent {
+tbody.scrollContent {
     display: block;
     overflow: auto;
 }
@@ -371,24 +371,17 @@ var fejlec = tabla.append("thead")
   .append("tr");
   fejlec.append("th").html("Country"); //lang file-ba kellene az ország megnevezés
   fejlec.append("th").html(scoretext);
-  var tr = tabla.selectAll("tr")
+var tr = tabla.append("tbody")
+  	.attr("class", "scrollContent")
+  	.attr("id", "lapozotabla")
+        .selectAll("tr")
   	.data(obib.filter(function(d) {return d.year == d3.select("#survy").property("value");}))
-  	.enter().append("tr");
-var td = tr.append("td")
-    .attr("id", function(d) {return d.country;})
-    .attr("title", function(d) { return d.country; })
-    .html(function(d) {return d.countrytext;})
-    //.on("mouseover", highlight)
-    //.on("mouseout", unhighlight)
-    .on("click", countrysearch );
-  var td = tr.append("td")
-    .attr("id", function(d) {return d.country;})
-    .attr("title", function(d) { return d.country; })
-    //.html(function(d) {return format(d.value/1000) + "Mrd Ft";})
-    .html(function(d) {return d3.format(",.0f")(d.obi);})
-    //.on("mouseover", highlight)
-    //.on("mouseout", unhighlight)
-    .on("click", countrysearch );
+  	.enter().append("tr")
+        //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
+  	.attr("id", function(d) {return d.country;});
+tr.append("td").html(function(d) {return d.countrytext;}).on("click", countrysearch );
+tr.append("td").html(function(d) {return d.obi;}).on("click", countrysearch );
+  
 
 function evvalto() {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
