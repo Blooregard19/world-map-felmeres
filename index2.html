@@ -473,10 +473,10 @@ d3.selectAll(".capitalcity").remove().exit();
 svg.call(zoom)
 
 function countrysearch() {
-  var orszag = d3.select(this).datum();
+  var orszag = d3.select(this).datum();  
   var countries = topojson.feature(world, world.objects.countries).features;
-  var countries = countries.filter(function(d) { return d.id; });
-  console.log(orszag);
+  var countries = countries.filter(function(d) { return d.id == orszag.co_code; });
+  console.log(path.centroid(countries));
   
 }
 
