@@ -494,7 +494,8 @@ function countrysearch() {
       .duration(750)
       .attr("d", path);
     g.selectAll("path").transition()
-      .duration(750)
+      .delay(750)
+      .duration(250)
       .attr("transform","scale("+ scale +")");
 
 }
