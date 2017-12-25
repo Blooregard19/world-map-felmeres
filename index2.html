@@ -539,7 +539,7 @@ function countrysearch() {
   coords.forEach(function(d) { +d;});
   var oldscale = g.attr("transform").split("scale(")[1];
   oldscale = oldscale.split(")")[0];
-  oldscale.forEach(function(d) { +d;});
+  //oldscale.forEach(function(d) { +d;});
   var longitude = - coords[0] - centroid[0] + width / 2,
       latitude = - coords[1] - centroid[1] + height / 2;
    //projection.translate([
