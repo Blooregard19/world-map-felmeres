@@ -532,7 +532,12 @@ function countrysearch() {
         scale = 2.3;
   var longitude = translate[0] - centroid[0] + width / 2,
       latitude = translate[1] - centroid[1] + height / 2;
-   //g.selectAll("path").transition()
+   projection.translate([
+      translate[0] - centroid[0] + width / 2,
+      translate[1] - centroid[1] + height / 2
+    ])
+      .scale(scale);
+    //g.selectAll("path").transition()
     //  .duration(750)
     //  .attr("d", path);
     //g.transition()
@@ -545,11 +550,7 @@ function countrysearch() {
     //g.transition().duration(750)
     //  .call(zoom.transform, transform);
     //g.attr("transform","translate("+ [longitude, latitude] +")scale("+ scale +")");
-    return projection.translate([
-      translate[0] - centroid[0] + width / 2,
-      translate[1] - centroid[1] + height / 2
-    ])
-      .scale(scale);
+    
 }
 
 function scorecompare() {
