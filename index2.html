@@ -538,7 +538,7 @@ function countrysearch() {
   coords = coords.split(")scale")[0];
   coords = coords.split(",");
   coords.forEach(function(d) { +d;});
-  var oldscale = g.attr("transform").split("scale(")[1];
+  var oldscale = svg.attr("transform").split("scale(")[1];
   oldscale = oldscale.split(")")[0];
   //oldscale.forEach(function(d) { +d;});
   var longitude = - coords[0] - centroid[0] + width / 2,
