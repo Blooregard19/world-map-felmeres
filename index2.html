@@ -280,8 +280,7 @@ svg.append("rect")
     .attr("height", height);
     //.on("click", reset);
 
-var g = svg.append("g")
-    .style("stroke-width", "0.5px");
+
 
 var ssv = d3.dsvFormat(";");
 var obi;
@@ -318,6 +317,8 @@ queue()
 
 function ready(error, world, obib, capital, lang) {
   if (error) throw error;
+var g = svg.append("g")
+    .style("stroke-width", "0.5px");
 g.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
 d3.select("#compareselector").on("change", scorecompare);
