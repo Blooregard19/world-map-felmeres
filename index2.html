@@ -536,8 +536,8 @@ function countrysearch() {
   coords = coords.split("translate(")[1];
   coords = coords.split(")scale")[0];
   coords = coords.split(",");
-  var longitude = coords[0] - centroid[0] + width / 2,
-      latitude = - coords[1] + centroid[1] - height / 2;
+  var longitude = - coords[0] - centroid[0] + width / 2,
+      latitude = coords[1] + centroid[1] - height / 2;
    //projection.translate([
    //   translate[0] - centroid[0] + width / 2,
    //   translate[1] - centroid[1] + height / 2
