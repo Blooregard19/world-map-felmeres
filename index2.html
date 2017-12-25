@@ -57,7 +57,7 @@ img {
  height: 450px;
  font-family: Cabin;
  /*bottom: 0px;*/
- overflow-y: auto;
+ /*overflow-y: auto;*/
 }
 
 #langselector {
@@ -409,6 +409,8 @@ var country = g.selectAll("path")
 //	.attr("fill", "white")
 //	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
 
+var tableData = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+tableData = tableData.sort(function(a, b) {return d3.ascending(a.countrytext, b.countrytext);});
 d3.select("#countryselector").selectAll("table").remove();
 var tabla = d3.select("#countryselector").append("table");
 var fejlec = tabla.append("thead")
@@ -422,7 +424,7 @@ var tr = tabla.append("tbody")
   	.attr("class", "scrollContent")
   	.attr("id", "lapozotabla")
         .selectAll("tr")
-  	.data(obib.filter(function(d) {return d.year == d3.select("#survy").property("value");}))
+  	.data(tableData)
   	.enter().append("tr")
         //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
   	.attr("id", function(d) {return d.country;})
