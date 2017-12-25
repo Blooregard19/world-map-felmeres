@@ -528,9 +528,9 @@ function countrysearch() {
   orszag.attr("class", "selectedcountry");
   var countries = topojson.feature(world, world.objects.countries).features;
   var countries = countries.filter(function(d) { return d.id == orszag.datum().co_code; });
-  //g.call(zoom.scaleTo, 1);
+  g.transition(500).call(zoom.scaleTo, 1);
   var centroid = path.centroid(countries[0]),
-        //translate = projection.translate(),
+        translate = projection.translate(),
         coords = g.attr("transform"),
         scale = 2.3;
   coords = coords.split("translate(")[1];
@@ -541,8 +541,7 @@ function countrysearch() {
    //projection.translate([
    //   translate[0] - centroid[0] + width / 2,
    //   translate[1] - centroid[1] + height / 2
-   // ])
-   //   .scale(scale);
+   // ]);
     console.log(d3.zoomTransform(g));
     console.log(centroid);
     //console.log(translate);
@@ -557,14 +556,14 @@ function countrysearch() {
     //  .duration(750)
     //  .attr("d", path);
     //g.transition()
-    //  .delay(750)
-    //  .duration(250)
+    //  .delay(650)
+    //  .duration(550)
     //  .attr("transform","translate("+ centroid +")scale("+ scale +")");
     //g.transition().duration(750).call(zoom.translateBy, centroid[0], centroid[1]);
     //g.transition().delay(750).duration(750).call(zoom.scaleTo, scale);
-    //var transform = d3.zoomIdentity.translate().scale(scale);
-    //g.transition().duration(750)
-    //  .call(zoom.transform, transform);
+    var transform = d3.zoomIdentity.translate(coords[0] - centroid[0], coords[1] - centroid[1]).scale(scale);
+    g.transition().delay(650).duration(850)
+      .call(zoom.transform, transform);
     //g.attr("transform","translate("+ [longitude, latitude] +")scale("+ scale +")");
     return g;
 }
