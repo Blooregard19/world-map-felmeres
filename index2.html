@@ -572,12 +572,12 @@ function countrysearch() {
       .call(zoom.translateBy, longitude, latitude);
     //g.transition().delay(1500).duration(500)
     //  .call(zoom.scaleTo, scale);
-    console.log(g.attr("transform"));
-    var transform = g.attr("transform");
-    //g.attr("transform","translate("+ [longitude,latitude] +")scale("+ scale +")");
-    g.attr("transform", transform);
+    //var transform = g.attr("transform");
+    g.attr("transform","translate("+ [longitude,latitude] +")scale(1)");
+    //g.attr("transform", transform);
     return g;
 }
+
 
 function scorecompare() {
 if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
