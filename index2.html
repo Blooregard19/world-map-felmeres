@@ -525,10 +525,11 @@ function countrysearch() {
   var orszag = d3.select(this);
   d3.selectAll("tr").attr("class", null);
   orszag.attr("class", "selectedcountry");
+  console.log(d3.zoomTransform(g));
   var countries = topojson.feature(world, world.objects.countries).features;
   var countries = countries.filter(function(d) { return d.id == orszag.datum().co_code; });
   var centroid = path.centroid(countries[0]),
-        //translate = projection.translate(),
+        translate = projection.translate(),
         scale = 2.3;
   var longitude = translate[0] - centroid[0] + width / 2,
       latitude = translate[1] - centroid[1] + height / 2;
@@ -537,6 +538,7 @@ function countrysearch() {
    //   translate[1] - centroid[1] + height / 2
    // ])
    //   .scale(scale);
+    console.log(d3.zoomTransform(g));
     g.call(zoom.scaleTo, 1);
     console.log(centroid);
     console.log(translate);
