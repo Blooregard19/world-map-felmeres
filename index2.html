@@ -176,7 +176,7 @@ thead.fixedHeader {
 tbody.scrollContent {
     display: block;
     overflow: auto;
-    height: 450px;
+    /*height: 450px;*/
 }
 tr.selectedcountry {
   background-color: #779126;
@@ -424,6 +424,7 @@ var fejlec = tabla.append("thead")
 var tr = tabla.append("tbody")
   	.attr("class", "scrollContent")
   	.attr("id", "lapozotabla")
+        .attr("height", "450px")
         .selectAll("tr")
   	.data(tableData)
   	.enter().append("tr")
