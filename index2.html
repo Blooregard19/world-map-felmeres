@@ -537,7 +537,7 @@ function countrysearch() {
    //   translate[1] - centroid[1] + height / 2
    // ])
    //   .scale(scale);
-    g.call(zoom.transform, d3.zoomIdentity);
+    g.call(zoom.scaleTo, 1);
     console.log(centroid);
     console.log(translate);
     console.log(longitude);
