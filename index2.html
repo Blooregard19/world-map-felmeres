@@ -565,6 +565,9 @@ function countrysearch() {
     var transform = d3.zoomIdentity.translate(longitude,latitude);
     g.transition().delay(650).duration(850)
       .call(zoom.translateBy, longitude, latitude);
+    g.transition().delay(1500).duration(500)
+      .call(zoom.scaleTo, scale);
+    console.log(g.attr("transform"));
     //g.attr("transform","translate("+ [longitude,latitude] +")scale("+ scale +")");
     return g;
 }
