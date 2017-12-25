@@ -537,6 +537,9 @@ function countrysearch() {
   coords = coords.split(")scale")[0];
   coords = coords.split(",");
   coords.forEach(function(d) { +d;});
+  var oldscale = g.attr("transform").split("scale(")[1];
+  oldscale = oldscale.split(")")[0];
+  oldscale.forEach(function(d) { +d;});
   var longitude = - coords[0] - centroid[0] + width / 2,
       latitude = - coords[1] - centroid[1] + height / 2;
    //projection.translate([
@@ -548,6 +551,7 @@ function countrysearch() {
     console.log(coords);
     console.log(longitude);
     console.log(latitude);
+    console.log(oldscale);
     //console.log(zoom.transform());
     //console.log(zoom.scale());
     console.log(g.attr("transform"));
