@@ -280,7 +280,8 @@ svg.append("rect")
     .attr("height", height);
     //.on("click", reset);
 
-
+var g = svg.append("g")
+    .style("stroke-width", "0.5px");
 
 var ssv = d3.dsvFormat(";");
 var obi;
@@ -317,9 +318,8 @@ queue()
 
 function ready(error, world, obib, capital, lang) {
   if (error) throw error;
-var g = svg.append("g")
-    .style("stroke-width", "0.5px");
-g.attr("transform","translate(0,0)scale(1)");
+
+svg.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
 d3.select("#compareselector").on("change", scorecompare);
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
@@ -529,10 +529,10 @@ function countrysearch() {
   orszag.attr("class", "selectedcountry");
   var countries = topojson.feature(world, world.objects.countries).features;
   var countries = countries.filter(function(d) { return d.id == orszag.datum().co_code; });
-  g.transition(500).call(zoom.scaleTo, 1);
+  svg.transition(500).call(zoom.scaleTo, 1);
   var centroid = path.centroid(countries[0]),
         translate = projection.translate(),
-        coords = g.attr("transform"),
+        coords = svg.attr("transform"),
         scale = 2.3;
   coords = coords.split("translate(")[1];
   coords = coords.split(")scale")[0];
@@ -556,7 +556,7 @@ function countrysearch() {
     console.log(translate);
     //console.log(zoom.transform());
     //console.log(zoom.scale());
-    console.log(g.attr("transform"));
+    console.log(svg.attr("transform"));
     //console.log(g.attr("translate"));
     //console.log(d3.zoomTransform(g));
     //g.selectAll("path").transition()
