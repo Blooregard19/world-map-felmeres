@@ -542,7 +542,7 @@ function countrysearch() {
    //   translate[0] - centroid[0] + width / 2,
    //   translate[1] - centroid[1] + height / 2
    // ]);
-    console.log(d3.zoomTransform(g));
+    //console.log(d3.zoomTransform(g));
     console.log(centroid);
     console.log(coords);
     console.log(longitude);
@@ -561,7 +561,7 @@ function countrysearch() {
     //  .attr("transform","translate("+ centroid +")scale("+ scale +")");
     //g.transition().duration(750).call(zoom.translateBy, centroid[0], centroid[1]);
     //g.transition().delay(750).duration(750).call(zoom.scaleTo, scale);
-    var transform = d3.zoomIdentity.translate(longitude,latitude).scale(scale);
+    var transform = d3.zoomIdentity.translate(longitude,latitude);
     g.transition().delay(650).duration(850)
       .call(zoom.transform, transform);
     //g.attr("transform","translate("+ [longitude,latitude] +")scale("+ scale +")");
