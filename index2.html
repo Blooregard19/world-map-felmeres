@@ -528,7 +528,7 @@ function countrysearch() {
   var countries = topojson.feature(world, world.objects.countries).features;
   var countries = countries.filter(function(d) { return d.id == orszag.datum().co_code; });
   var centroid = path.centroid(countries[0]),
-        translate = projection.translate(),
+        //translate = projection.translate(),
         scale = 2.3;
   var longitude = translate[0] - centroid[0] + width / 2,
       latitude = translate[1] - centroid[1] + height / 2;
