@@ -541,8 +541,8 @@ function countrysearch() {
   var oldscale = svg.attr("transform").split("scale(")[1];
   oldscale = oldscale.split(")")[0];
   //oldscale.forEach(function(d) { +d;});
-  var longitude = - coords[0] - centroid[0] + width / 2,
-      latitude = - coords[1] - centroid[1] + height / 2;
+  //var longitude = - coords[0] - centroid[0] + width / 2,
+  //    latitude = - coords[1] - centroid[1] + height / 2;
   var longitude = - centroid[0] + width / 2,
       latitude = - centroid[1] + height / 2;
    //projection.translate([
