@@ -521,7 +521,7 @@ return g;
 //console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
 //console.log(svg.style("width"));
 });
-g.call(zoom)
+svg.call(zoom)
 
 function countrysearch() {
   var orszag = d3.select(this);
@@ -529,7 +529,7 @@ function countrysearch() {
   orszag.attr("class", "selectedcountry");
   var countries = topojson.feature(world, world.objects.countries).features;
   var countries = countries.filter(function(d) { return d.id == orszag.datum().co_code; });
-  g.transition(500).call(zoom.scaleTo, 1);
+  svg.transition(500).call(zoom.scaleTo, 1);
   var centroid = path.centroid(countries[0]),
         translate = projection.translate(),
         coords = g.attr("transform"),
@@ -571,9 +571,9 @@ function countrysearch() {
     //g.transition().duration(750).call(zoom.translateBy, centroid[0], centroid[1]);
     //g.transition().delay(750).duration(750).call(zoom.scaleTo, scale);
     //var transform = d3.zoomIdentity.translate(longitude,latitude);
-    g.transition().delay(650).duration(850)
+    svg.transition().delay(650).duration(850)
       .call(zoom.translateTo, centroid[0], centroid[1]);
-    g.transition().delay(1800).duration(500)
+    svg.transition().delay(1800).duration(500)
       .call(zoom.scaleTo, scale);
     //var transform = g.attr("transform");
     //svg.attr("transform","translate("+ [longitude,latitude] +")scale(1)");
