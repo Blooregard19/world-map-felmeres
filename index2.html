@@ -319,6 +319,7 @@ function ready(error, world, obib, capital, lang) {
   if (error) throw error;
 
 svg.attr("transform","translate(0,0)scale(1)");
+g.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
 d3.select("#compareselector").on("change", scorecompare);
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
