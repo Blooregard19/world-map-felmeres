@@ -432,6 +432,7 @@ var tr = tabla.append("tbody")
         //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
   	.attr("id", function(d) {return d.country;})
         .on("click", countrysearch );
+console.log(tableData);
 tr.append("td").html(function(d) {return d.countrytext;});
 tr.append("td").html(function(d) {return d3.format(",.0f")(d.obi);});
 var cellak = document.querySelector('#lapozotabla').getElementsByTagName('td');
