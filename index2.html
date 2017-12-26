@@ -543,6 +543,8 @@ function countrysearch() {
   //oldscale.forEach(function(d) { +d;});
   var longitude = - coords[0] - centroid[0] + width / 2,
       latitude = - coords[1] - centroid[1] + height / 2;
+  var longitude = - centroid[0] + width / 2,
+      latitude = - centroid[1] + height / 2;
    //projection.translate([
    //   translate[0] - centroid[0] + width / 2,
    //   translate[1] - centroid[1] + height / 2
@@ -570,8 +572,8 @@ function countrysearch() {
     //g.transition().delay(750).duration(750).call(zoom.scaleTo, scale);
     //var transform = d3.zoomIdentity.translate(longitude,latitude);
     svg.transition().delay(650).duration(850)
-      .call(zoom.translateBy, longitude, latitude);
-    //g.transition().delay(1500).duration(500)
+      .call(zoom.translateTo, longitude, latitude);
+    //svg.transition().delay(1500).duration(500)
     //  .call(zoom.scaleTo, scale);
     //var transform = g.attr("transform");
     //svg.attr("transform","translate("+ [longitude,latitude] +")scale(1)");
