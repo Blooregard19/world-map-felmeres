@@ -273,17 +273,13 @@ var path = d3.geoPath()
 var svg = d3.select("#main").select("#obimap").append("svg")
     .attr("width", width)
     .attr("height", height);
-//svg.append("rect")
-//    .attr("class", "background")
-//    .attr("width", width)
-//    .attr("height", height);
-    //.on("click", reset);
-
-var g = svg.append("rect")
+svg.append("rect")
     .attr("class", "background")
     .attr("width", width)
-    .attr("height", height)
-    .append("g")
+    .attr("height", height);
+    //.on("click", reset);
+
+var g = svg.append("g")
     .style("stroke-width", "0.5px");
 
 var ssv = d3.dsvFormat(";");
