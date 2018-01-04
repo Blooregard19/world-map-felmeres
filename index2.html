@@ -136,6 +136,28 @@ img {
   color: #ddd;
 }
 
+label input[type=checkbox] {
+  display: none;/* <-- hide the default checkbox */
+}
+label span {/* <-- style the artificial checkbox */
+  height: 18px;
+  width: 18px;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  display: inline-block;
+  position: relative;
+  top: 2.5px;
+}
+[type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon (easier if only the background is colored and leave out the content)*/
+  content: '\2714';
+  font: 20pt Cabin;
+  position: absolute;
+  top: -9px;
+  left: 0px;
+  color: #779126;
+  }
+
 .background{
   fill: #fcfcfa;
   pointer-events: all;
@@ -210,6 +232,20 @@ tr.selectedcountry {
   <input id = "compcomp" type = "radio" name = "compsel" value = "comp"/><label id = "comptext" for = "compcomp">Compare</label>
   <input id = "compnorm" type = "radio" name = "compsel" value = "normal" checked/><label id = "normtext" for = "compnorm">Full score</label>
 </form>
+</div>
+<div id = "compbox">
+<label><input class="regular-checkbox" name = "comparisoncheck" id = "compcheck" type="checkbox"><span></span><label id = "lbcompbox" for = "compcheck">Compare years</label><label>
+</div>
+<div id = "evval">
+<label id = "compyeartext">Base year</label>
+<select id = "compyear">
+  <option value="2006">2006</option>
+  <option value="2008">2008</option>
+  <option value="2010">2010</option>
+  <option value="2012">2012</option>
+  <option value="2015" selected>2015</option>
+  <option value="2017">2017</option>
+</select>
 </div>
 </div>
 <div id = "main">
@@ -425,7 +461,7 @@ legendbase.append("rect")
 	.attr("height", "100px")
 	.attr("x", width - rectwidth)
 	.attr("fill", "#fcfcfa")
-	.attr("opacity", 0.8)
+	.attr("opacity", 0.9)
 	.attr("rx", 10)
 	.attr("ry", 10);
 var legend = legendbase.append("g")
