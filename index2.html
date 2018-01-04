@@ -262,11 +262,13 @@ var projection = d3.geoNaturalEarth1()
 var colors = d3.scaleThreshold()
     .range(["black", "#a4243b", "#f4d06f", "#214e34"]) //315113; 9d080c; ffbb02
     .domain([0.001, 40, 60]);
+var zbase = d3.scaleOrdinal().range(["black", "#a4243b", "#f4d06f", "#214e34"]);
 
 var colorcomp = d3.scaleThreshold()
     .range(["#a4243b", "#876927", "#f4d06f", "#456b26", "#214e34"]) //315113; 9d080c; ffbb02
     .domain([-15, -5, 5, 15]);
-
+var zcomp = d3.scaleOrdinal().range(["#a4243b", "#876927", "#f4d06f", "#456b26", "#214e34"]);
+	
 var path = d3.geoPath()
     .projection(projection);
 
@@ -330,6 +332,11 @@ document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
 document.getElementById("helptext").innerHTML = lang[132][nyelv];
 document.getElementById("comptext").innerHTML = lang[139][nyelv];
 //document.getElementById("normtext").innerHTML = lang[140][nyelv];
+var cimke = new Array(4);
+for (var i = 0; i < cimke.length; i++ ) {
+cimke[i] = lang[134 + i][nyelv];
+}
+var cimke = cimke.reverse();
 var scoretext = lang[133][nyelv];
 var countrytranslate = lang[138][nyelv];
 var comparettext = lang[139][nyelv];
@@ -394,11 +401,35 @@ var country = g.selectAll("path")
       .attr("class", "boundary")
       .attr("d", path);
   
-var legend = svg.append("rect")
+var legendrect = svg.append("rect")
 		.attr("class", "legend")
 		.attr("width", "75px")
 		.attr("height", "100px")
-		.attr("x", width - 75);
+		.attr("x", width - 75)
+		.attr("fill", "#fcfcfa");
+var legend = legendrect.append("g")
+      .attr("class", "legend")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    //.data(cimke.reverse())
+    .data(cimke)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+//console.log(keys.slice().reverse());
+legend.append("rect")
+      .attr("id", function(d, i) {return cimke[i];})
+      .attr("class", "legend")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", zbase);
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d, i) { return cimke[i]; });
 //console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
   //var fovaros = g.selectAll(".capitalcity")
 //	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
