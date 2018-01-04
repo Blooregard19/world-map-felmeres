@@ -401,13 +401,14 @@ var country = g.selectAll("path")
       .attr("class", "boundary")
       .attr("d", path);
   
-var legendrect = svg.append("rect")
-		.attr("class", "legend")
-		.attr("width", "75px")
-		.attr("height", "100px")
-		.attr("x", width - 75)
-		.attr("fill", "#fcfcfa");
-var legend = legendrect.append("g")
+var legendbase = svg.append("g");
+legendbase.append("rect")
+	.attr("class", "legend")
+	.attr("width", "75px")
+	.attr("height", "100px")
+	.attr("x", width - 75)
+	.attr("fill", "#fcfcfa");
+var legend = legendbase.append("g")
       .attr("class", "legend")
       .attr("font-family", "sans-serif")
       .attr("font-size", 10)
