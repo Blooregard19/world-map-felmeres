@@ -406,10 +406,7 @@ var country = g.selectAll("path")
       });
   country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
-	.on("mouseout", colororig)
-	      .on("mouseover", mouseover)
-              .on("mousemove", mousemove(d))
-              .on("mouseout", mouseout); 
+	.on("mouseout", colororig); 
   g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
@@ -739,24 +736,24 @@ legend.append("rect")
       .text(function(d, i) { return cimke[i]; });	
 }
 
-function mouseover(){
-        tooltip.transition()
-          .duration(200)
-          .style("opacity", .9);
-      }
+//function mouseover(){
+//        tooltip.transition()
+//          .duration(200)
+//          .style("opacity", .9);
+//      }
 
-function mousemove(d){
-	var score = obic.get(d.CountryName);
-	tooltip .html(score.countrytext  + "<br/>"  + d3.format(",.0f")(score.obi))
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 50) + "px");
-      }
+//function mousemove(d){
+//	var score = obic.get(d.CountryName);
+//	tooltip .html(score.countrytext  + "<br/>"  + d3.format(",.0f")(score.obi))
+//            .style("left", (d3.event.pageX) + "px")
+//            .style("top", (d3.event.pageY - 50) + "px");
+//      }
 
-function mouseout(){
-          tooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-      }
+//function mouseout(){
+//          tooltip.transition()
+//            .duration(500)
+//            .style("opacity", 0);
+//      }
 
 } //adatbeolvasó vége
 
