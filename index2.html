@@ -833,7 +833,16 @@ if (document.getElementById("compcheck").checked) {
   var obic = d3.map(obic, function(d) {return d.co_code;});
     country.style("fill", "#ccc");
     country.filter(function(d) { return obi.has(d.id); })
-        .style("fill", function(d) { return colorcomp(obi.get(d.id).obi - obic.get(d.id).obi); })
+        .style("fill", function(d) {
+	    var actobi = obi.get(d.id).obi,
+		oldobi = obic.get(d.id).obi;
+	    if (typeof oldobi != 'undefined') {
+	    var result = actobi - oldobi;
+	    } else if (typeof oldobi == 'undefined') {
+	    var result = 'NA';
+	    }
+	    return colorcomp(result); 
+          })
       .selectAll("title")
         .text(function(d) {
           var score = obi.get(d.id);
