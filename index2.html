@@ -393,7 +393,12 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
-   
+  
+var legend = svg.append("rect")
+		.attr("class", "legend")
+		.attr("width", "75px")
+		.attr("height", "100px")
+		.attr("x", width - 75);
 //console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
   //var fovaros = g.selectAll(".capitalcity")
 //	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
