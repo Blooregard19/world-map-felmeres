@@ -665,10 +665,11 @@ var tr = tabla.select("tbody")
 //  	.attr("id", "lapozotabla")
 //        .attr("height", "450px")
         .selectAll("tr")
-  	.data(tableData)
-  	.merge().selectAll("tr")
+  	.data(tableData, function(d) {return d.country;});
+  	//.merge();
+        //.selectAll("tr")
         //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
-  	.attr("id", function(d) {return d.country;});
+  	//.attr("id", function(d) {return d.country;});
       tr.filter(function(d) {return d.co_code != "";}).on("click", countrysearch );
 //console.log(tableData);
 //tr.selectAll("td").html(function(d) {return d.countrytext;});
@@ -735,6 +736,17 @@ function colororig() {
   hovered.style("fill", function() {return d3.rgb(hovcolor).darker();});
  }
 }
+
+function getTextWidth(text, font) {
+    // re-use canvas object for better performance
+    var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+    var context = canvas.getContext("2d");
+    context.font = font;
+    //context.font = "1em Cabin";
+    var metrics = context.measureText(text);
+    return metrics.width;
+}
+
 //d3.select(self.frameElement).style("height", height + "px");
 
 //function clicked(d) {
