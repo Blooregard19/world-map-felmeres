@@ -779,7 +779,7 @@ var tr = tabla.select("tbody")
       tr.on("click", null);
       tr.filter(function(d) {return d.co_code != "";}).on("click", countrysearch );
 //tr.selectAll("td").data(tableData, function(d) {return d.country;});
-console.log(tableData);
+//console.log(tableData);
 tr.selectAll("td").remove();
 tr.append("td").html(function(d) {return d.countrytext;});
 tr.append("td").html(function(d) {if (d.co_code != "") {var out = d3.format(",.0f")(d.obi);} else if (d.co_code == "") {var out = "-";} return out;});
@@ -825,7 +825,7 @@ legend.append("rect")
 }
 
 function yearcompare() {
-if (d3.select('input[name="comparisoncheck"]').checked) {
+if (document.getElementById("compcheck").checked) {
   var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
   var obi = obi.filter(function(d) {return d.co_code != "";});
   var obic = obi.filter(function(d) {return d.year == d3.select("#compyear").property("value");});
@@ -839,7 +839,8 @@ if (d3.select('input[name="comparisoncheck"]').checked) {
           var score = obi.get(d.id);
           return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
         });
-} else if (!d3.select('input[name="comparisoncheck"]').checked) {
+  console.log(obi);
+} else if (!document.getElementById("compcheck").checked) {
   evvalto();
 }
 }
