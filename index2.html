@@ -672,8 +672,8 @@ var tr = tabla.select("tbody")
   	//.attr("id", function(d) {return d.country;});
       tr.filter(function(d) {return d.co_code != "";}).on("click", countrysearch );
 console.log(tableData);
-tr.selectAll("td").html(function(d) {return d.countrytext;});
 tr.selectAll("td").html(function(d) {if (d.co_code != "") {var out = d3.format(",.0f")(d.obi);} else if (d.co_code == "") {var out = "-";} return out;});
+tr.select("td").html(function(d) {return d.countrytext;});
 //var cellak = document.querySelector('#lapozotabla').getElementsByTagName('td');
 //var fejek = document.querySelector('#tablaHeader').getElementsByTagName('th');
 //d3.select(fejek[0]).style("width", function (d) {return d3.select(cellak[0]).node().offsetWidth + "px";});
