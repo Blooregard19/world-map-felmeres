@@ -590,7 +590,7 @@ svg.call(zoom)
 
 function countrysearch() {
   document.getElementById("compareselector").disabled=false;
-  d3.select('input[name="compsel"]).select("#compnorm").property("checked") = true;
+  d3.select('input[name="compsel"]').select("#compnorm").property("checked") = true;
   var orszag = d3.select(this);
   d3.selectAll("tr").attr("class", null);
   orszag.attr("class", "selectedcountry");
