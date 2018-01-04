@@ -292,6 +292,7 @@ function futtat() {
 d3.selectAll("circle").remove().exit();
 d3.selectAll("title").remove().exit();
 d3.selectAll("path").remove().exit();
+d3.selectAll("#legend").remove().exit();
 g.selectAll("text").remove().exit();
 queue()
     .defer(d3.json, "world-110m.json")
@@ -319,7 +320,7 @@ queue()
 
 function ready(error, world, obib, capital, lang) {
   if (error) throw error;
-
+document.getElementById("compareselector").disabled=true;
 svg.attr("transform","translate(0,0)scale(1)");
 g.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
@@ -404,7 +405,7 @@ var country = g.selectAll("path")
 var legendbase = svg.append("g");
 legendbase.append("rect")
 	.attr("class", "legend")
-	.attr("width", "75px")
+	.attr("width", "200px")
 	.attr("height", "100px")
 	.attr("x", width - 75)
 	.attr("fill", "#fcfcfa");
@@ -562,6 +563,7 @@ return g;
 svg.call(zoom)
 
 function countrysearch() {
+  document.getElementById("compareselector").disabled=false;
   var orszag = d3.select(this);
   d3.selectAll("tr").attr("class", null);
   orszag.attr("class", "selectedcountry");
