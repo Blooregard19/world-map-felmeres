@@ -281,8 +281,8 @@ tr.selectedcountry {
   <option value="2006">2006</option>
   <option value="2008">2008</option>
   <option value="2010">2010</option>
-  <option value="2012">2012</option>
-  <option value="2015" selected>2015</option>
+  <option value="2012" selected>2012</option>
+  <option value="2015">2015</option>
   <option value="2017">2017</option>
 </select>
 </div>
@@ -828,7 +828,7 @@ function yearcompare() {
 if (document.getElementById("compcheck").checked) {
   var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
   var obi = obi.filter(function(d) {return d.co_code != "";});
-  var obic = obi.filter(function(d) {return d.year == d3.select("#compyear").property("value");});
+  var obic = obib.filter(function(d) {return d.year == d3.select("#compyear").property("value");});
   var obi = d3.map(obi, function(d) {return d.co_code;});
   var obic = d3.map(obic, function(d) {return d.co_code;});
     country.style("fill", "#ccc");
@@ -849,7 +849,7 @@ if (document.getElementById("compcheck").checked) {
           var score = obi.get(d.id);
           return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
         });
-  console.log(obi);
+  console.log(obic);
 } else if (!document.getElementById("compcheck").checked) {
   evvalto();
 }
