@@ -518,11 +518,11 @@ country.filter(function(d) { return obi.has(d.id); })
 tablecreator();
 legendcreator(cimke, zbase);
 } else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
+tablecreator();
 scorecompare()
 if (!d3.select(".capitalcity").empty() ) {
   scorestext()
  }
-tablecreator();
 }
 }
 
