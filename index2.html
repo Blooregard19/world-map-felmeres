@@ -407,7 +407,7 @@ legendbase.append("rect")
 	.attr("class", "legend")
 	.attr("width", "200px")
 	.attr("height", "100px")
-	.attr("x", width - 75)
+	.attr("x", width - 200)
 	.attr("fill", "#fcfcfa");
 var legend = legendbase.append("g")
       .attr("class", "legend")
@@ -470,7 +470,7 @@ var tr = tabla.append("tbody")
         //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
   	.attr("id", function(d) {return d.country;});
       tr.filter(function(d) {return d.co_code != "";}).on("click", countrysearch );
-console.log(tableData);
+//console.log(tableData);
 tr.append("td").html(function(d) {return d.countrytext;});
 tr.append("td").html(function(d) {if (d.co_code != "") {var out = d3.format(",.0f")(d.obi);} else if (d.co_code == "") {var out = "-";} return out;});
 var cellak = document.querySelector('#lapozotabla').getElementsByTagName('td');
@@ -498,6 +498,7 @@ country.filter(function(d) { return obi.has(d.id); })
  if (!d3.select(".capitalcity").empty() ) {
   scorestext()
  }
+tablecreator();
 
 }
 
@@ -638,6 +639,37 @@ country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colorcomp(obi.get(d.id).obi - selscore); })
 }
 
+}
+
+function tablecreator() {
+var tableData = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+tableData = tableData.sort(function(a, b) {return d3.ascending(a.countrytext, b.countrytext);});
+d3.select("#countryselector").selectAll("table").remove();
+var tabla = d3.select("#countryselector").append("table");
+var fejlec = tabla.append("thead")
+  .attr("class", "fixedHeader")
+  .attr("id", "tablaHeader")
+  //.style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
+  .append("tr");
+  fejlec.append("th").html(countrytranslate); //lang file-ba kellene az ország megnevezés
+  fejlec.append("th").html(scoretext);
+var tr = tabla.append("tbody")
+  	.attr("class", "scrollContent")
+  	.attr("id", "lapozotabla")
+        .attr("height", "450px")
+        .selectAll("tr")
+  	.data(tableData)
+  	.enter().append("tr")
+        //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
+  	.attr("id", function(d) {return d.country;});
+      tr.filter(function(d) {return d.co_code != "";}).on("click", countrysearch );
+//console.log(tableData);
+tr.append("td").html(function(d) {return d.countrytext;});
+tr.append("td").html(function(d) {if (d.co_code != "") {var out = d3.format(",.0f")(d.obi);} else if (d.co_code == "") {var out = "-";} return out;});
+var cellak = document.querySelector('#lapozotabla').getElementsByTagName('td');
+var fejek = document.querySelector('#tablaHeader').getElementsByTagName('th');
+d3.select(fejek[0]).style("width", function (d) {return d3.select(cellak[0]).node().offsetWidth + "px";});
+d3.select(fejek[1]).style("width", function (d) {return d3.select(cellak[1]).node().offsetWidth + "px";});
 }
 
 } //adatbeolvasó vége
