@@ -470,7 +470,7 @@ var tr = tabla.append("tbody")
   	.attr("id", "lapozotabla")
         .attr("height", "450px")
         .selectAll("tr")
-  	.data(tableData)
+  	.data(tableData, function(d) {return d.country;})
   	.enter().append("tr")
         //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
   	.attr("id", function(d) {return d.country;});
@@ -671,8 +671,8 @@ var tr = tabla.select("tbody")
         //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
   	//.attr("id", function(d) {return d.country;});
       tr.filter(function(d) {return d.co_code != "";}).on("click", countrysearch );
-//console.log(tableData);
-//tr.selectAll("td").html(function(d) {return d.countrytext;});
+console.log(tableData);
+tr.selectAll("td").html(function(d) {return d.countrytext;});
 tr.selectAll("td").html(function(d) {if (d.co_code != "") {var out = d3.format(",.0f")(d.obi);} else if (d.co_code == "") {var out = "-";} return out;});
 //var cellak = document.querySelector('#lapozotabla').getElementsByTagName('td');
 //var fejek = document.querySelector('#tablaHeader').getElementsByTagName('th');
