@@ -412,7 +412,7 @@ var words = cimke.concat(cimkecomp),
 for (var i = 0, len = words.length; i < len; i++) {
       hossz.push(getTextWidth(words[i], "10px Cabin"));
     }
-var rectwidth = hossz[indexOfMax(hossz)] + 20;
+var rectwidth = hossz[indexOfMax(hossz)] + 30;
 var legendbase = svg.append("g");
 legendbase.append("rect")
 	.attr("class", "legend")
@@ -694,9 +694,9 @@ d3.selectAll("#legend").remove().exit();
 var legendbase = svg.append("g");
 legendbase.append("rect")
 	.attr("class", "legend")
-	.attr("width", "200px")
+	.attr("width", rectwidth + "px")
 	.attr("height", "100px")
-	.attr("x", width - 200)
+	.attr("x", width - rectwidth)
 	.attr("fill", "#fcfcfa");
 var legend = legendbase.append("g")
       .attr("class", "legend")
