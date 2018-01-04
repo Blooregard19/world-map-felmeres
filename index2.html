@@ -190,6 +190,13 @@ label span {/* <-- style the artificial checkbox */
   color: #779126;
   }
 
+#compyeartext {
+  display: inline-block;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;
+}
+
 .background{
   fill: #fcfcfa;
   pointer-events: all;
@@ -398,6 +405,8 @@ svg.attr("transform","translate(0,0)scale(1)");
 g.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
 d3.select("#compareselector").on("change", scorecompare);
+d3.select("#compcheck").on("change", yearcompare);
+d3.select("#compyear").on("change", yearcompare);
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
 document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
 document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
@@ -815,6 +824,25 @@ legend.append("rect")
       .text(function(d, i) { return cimke[i]; });	
 }
 
+function yearcompare() {
+if (d3.select('input[name="compbox"]').checked) {
+  var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  var obi = obi.filter(function(d) {return d.co_code != "";});
+  var obic = obi.filter(function(d) {return d.year == d3.select("#compyear").property("value");});
+  var obi = d3.map(obi, function(d) {return d.co_code;});
+  var obic = d3.map(obic, function(d) {return d.co_code;});
+    country.style("fill", "#ccc");
+    country.filter(function(d) { return obi.has(d.id); })
+        .style("fill", function(d) { return colorcomp(obi.get(d.id).obi - obic.get(d.id).obi); })
+      .selectAll("title")
+        .text(function(d) {
+          var score = obi.get(d.id);
+          return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+        });
+} else if (!d3.select('input[name="compbox"]').checked) {
+  evvalto();
+}
+}
 //function mouseover(){
 //        tooltip.transition()
 //          .duration(200)
