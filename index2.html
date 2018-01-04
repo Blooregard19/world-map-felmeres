@@ -835,9 +835,9 @@ if (document.getElementById("compcheck").checked) {
     country.filter(function(d) { return obi.has(d.id); })
         .style("fill", function(d) {
 	    var actobi = obi.get(d.id).obi,
-		oldobi = obic.get(d.id).obi;
+		oldobi = obic.get(d.id);
 	    if (typeof oldobi != 'undefined') {
-	    var result = actobi - oldobi;
+	    var result = actobi - oldobi.obi;
 	    } else if (typeof oldobi == 'undefined') {
 	    var result = 'NA';
 	    }
