@@ -514,6 +514,10 @@ tablecreator();
 legendcreator(cimke, zbase);
 } else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
 scorecompare()
+if (!d3.select(".capitalcity").empty() ) {
+  scorestext()
+ }
+tablecreator();
 }
 }
 
@@ -641,7 +645,7 @@ function countrysearch() {
 function scorecompare() {
 if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
 evvalto()
-legendcreator(cimke, zbase);
+//legendcreator(cimke, zbase);
 } else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
 var selscore = d3.select("tr.selectedcountry").datum().obi;
 //console.log(selscore);
