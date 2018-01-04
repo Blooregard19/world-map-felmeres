@@ -836,7 +836,6 @@ if (document.getElementById("compcheck").checked) {
         .style("fill", function(d) {
 	    var actobi = obi.get(d.id).obi,
 		oldobi = obic.get(d.id);
-	    console.log(oldobi);
 	    if (typeof oldobi != 'undefined') {
 	    var result = actobi - oldobi.obi;
 	    } else if (typeof oldobi == 'undefined') {
@@ -849,7 +848,7 @@ if (document.getElementById("compcheck").checked) {
           var score = obi.get(d.id);
           return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
         });
-  console.log(obic);
+  legendcreator(cimkecomp, zcomp);
 } else if (!document.getElementById("compcheck").checked) {
   evvalto();
 }
