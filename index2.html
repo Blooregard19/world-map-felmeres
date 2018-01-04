@@ -825,7 +825,7 @@ legend.append("rect")
 }
 
 function yearcompare() {
-if (d3.select('input[name="compbox"]').checked) {
+if (d3.select('input[name="comparisoncheck"]').checked) {
   var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
   var obi = obi.filter(function(d) {return d.co_code != "";});
   var obic = obi.filter(function(d) {return d.year == d3.select("#compyear").property("value");});
@@ -839,7 +839,7 @@ if (d3.select('input[name="compbox"]').checked) {
           var score = obi.get(d.id);
           return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
         });
-} else if (!d3.select('input[name="compbox"]').checked) {
+} else if (!d3.select('input[name="comparisoncheck"]').checked) {
   evvalto();
 }
 }
