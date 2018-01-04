@@ -135,10 +135,6 @@ img {
   background-color:#ddd;
   color: #ddd;
 }
-#compbox {
-  display: inline-block;
-  height: 100%;	
-}
 #compval {
   /*position: absolute;*/
   /*top: 10px;*/
@@ -166,6 +162,12 @@ img {
    color: #fff;
 }
 
+#compbox {
+  display: inline-block;
+  height: 100%;
+  font-family: Cabin;
+  font-size: 13px;
+}
 label input[type=checkbox] {
   display: none;/* <-- hide the default checkbox */
 }
@@ -266,8 +268,8 @@ tr.selectedcountry {
 <div id = "compbox">
 <label><input class="regular-checkbox" name = "comparisoncheck" id = "compcheck" type="checkbox"><span></span><label id = "lbcompbox" for = "compcheck">Compare years</label><label>
 </div>
-<div id = "compval">
 <label id = "compyeartext">Base year</label>
+<div id = "compval">
 <select id = "compyear">
   <option value="2006">2006</option>
   <option value="2008">2008</option>
