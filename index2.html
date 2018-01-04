@@ -406,7 +406,10 @@ var country = g.selectAll("path")
       });
   country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
-	.on("mouseout", colororig); 
+	.on("mouseout", colororig)
+	      .on("mouseover", mouseover)
+              .on("mousemove", mousemove)
+              .on("mouseout", mouseout); 
   g.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
@@ -542,10 +545,7 @@ function scorestext() {
           .text(function(d) {
             var score = obic.get(d.CountryName);
             return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
-          })
-	      .on("mouseover", mouseover)
-              .on("mousemove", mousemove)
-              .on("mouseout", mouseout);
+          });
       fovaros.append("text")
 	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
 	.attr("class", "capitalcity")
