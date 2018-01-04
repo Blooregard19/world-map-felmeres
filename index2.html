@@ -424,7 +424,8 @@ legendbase.append("rect")
 	.attr("width", rectwidth + "px")
 	.attr("height", "100px")
 	.attr("x", width - rectwidth)
-	.attr("fill", "#fcfcfa");
+	.attr("fill", "#fcfcfa")
+	.attr("opacity", 0.7);
 var legend = legendbase.append("g")
       .attr("class", "legend")
       .attr("font-family", "sans-serif")
@@ -589,6 +590,7 @@ svg.call(zoom)
 
 function countrysearch() {
   document.getElementById("compareselector").disabled=false;
+  d3.select('input[name="compsel"]).select("#compnorm").property("checked") = true;
   var orszag = d3.select(this);
   d3.selectAll("tr").attr("class", null);
   orszag.attr("class", "selectedcountry");
