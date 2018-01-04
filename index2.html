@@ -338,6 +338,11 @@ for (var i = 0; i < cimke.length; i++ ) {
 cimke[i] = lang[134 + i][nyelv];
 }
 var cimke = cimke.reverse();
+var cimkecomp = new Array(5);
+for (var i = 0; i < cimkecomp.length; i++ ) {
+cimkecomp[i] = lang[141 + i][nyelv];
+}
+var cimkecomp = cimkecomp.reverse();
 var scoretext = lang[133][nyelv];
 var countrytranslate = lang[138][nyelv];
 var comparettext = lang[139][nyelv];
@@ -626,9 +631,10 @@ function countrysearch() {
 function scorecompare() {
 if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
 evvalto()
+legendcreator(cimke, zbase);
 } else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
 var selscore = d3.select("tr.selectedcountry").datum().obi;
-console.log(selscore);
+//console.log(selscore);
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = obi.filter(function(d) {return d.co_code != "";});
 var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
@@ -637,6 +643,7 @@ var obi = d3.map(obi, function(d) {return d.co_code;});
 country.style("fill", "#ccc")
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colorcomp(obi.get(d.id).obi - selscore); })
+legendcreator(cimkecomp, zcomp);
 }
 
 }
@@ -672,6 +679,39 @@ d3.select(fejek[0]).style("width", function (d) {return d3.select(cellak[0]).nod
 d3.select(fejek[1]).style("width", function (d) {return d3.select(cellak[1]).node().offsetWidth + "px";});
 }
 
+function legendcreator(cimke, skala) {
+d3.selectAll("#legend").remove().exit();
+var legendbase = svg.append("g");
+legendbase.append("rect")
+	.attr("class", "legend")
+	.attr("width", "200px")
+	.attr("height", "100px")
+	.attr("x", width - 200)
+	.attr("fill", "#fcfcfa");
+var legend = legendbase.append("g")
+      .attr("class", "legend")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    //.data(cimke.reverse())
+    .data(cimke)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+//console.log(keys.slice().reverse());
+legend.append("rect")
+      .attr("id", function(d, i) {return cimke[i];})
+      .attr("class", "legend")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", skala);
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d, i) { return cimke[i]; });	
+}
 } //adatbeolvasó vége
 
 function type(d) {
