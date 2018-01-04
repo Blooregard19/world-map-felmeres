@@ -836,9 +836,9 @@ if (document.getElementById("compcheck").checked) {
         .style("fill", function(d) {
 	    var actobi = obi.get(d.id).obi,
 		oldobi = obic.get(d.id);
+	    console.log(oldobi);
 	    if (typeof oldobi != 'undefined') {
 	    var result = actobi - oldobi.obi;
-	    console.log(result);
 	    } else if (typeof oldobi == 'undefined') {
 	    var result = -200;
 	    }
