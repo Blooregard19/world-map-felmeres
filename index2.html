@@ -341,7 +341,7 @@ var zbase = d3.scaleOrdinal().range(["#214e34", "#f4d06f", "#a4243b", "black"]);
 
 var colorcomp = d3.scaleThreshold()
     .range(["#ccc", "#a4243b", "#876927", "#f4d06f", "#456b26", "#214e34"]) //315113; 9d080c; ffbb02
-    .domain([-99, -15, -5, 5, 15]);
+    .domain([-150, -15, -5, 5, 15]);
 var zcomp = d3.scaleOrdinal().range(["#a4243b", "#876927", "#f4d06f", "#456b26", "#214e34"].reverse());
 	
 var path = d3.geoPath()
@@ -838,6 +838,7 @@ if (document.getElementById("compcheck").checked) {
 		oldobi = obic.get(d.id);
 	    if (typeof oldobi != 'undefined') {
 	    var result = actobi - oldobi.obi;
+	    console.log(result);
 	    } else if (typeof oldobi == 'undefined') {
 	    var result = -200;
 	    }
