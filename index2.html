@@ -501,7 +501,7 @@ var obi = obi.filter(function(d) {return d.co_code != "";});
 var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
 var obi = d3.map(obi, function(d) {return d.co_code;});
 //console.log(obi.get(729));
-country.style("fill", "#ccc")
+country.style("fill", "#ccc");
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
     .selectAll("title")
@@ -659,9 +659,14 @@ var obi = obi.filter(function(d) {return d.co_code != "";});
 var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
 var obi = d3.map(obi, function(d) {return d.co_code;});
 //console.log(obi.get(729));
-country.style("fill", "#ccc")
+country.style("fill", "#ccc");
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colorcomp(obi.get(d.id).obi - selscore); })
+    .selectAll("title")
+      .text(function(d) {
+        var score = obi.get(d.id);
+        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+      });
 legendcreator(cimkecomp, zcomp);
 }
 
