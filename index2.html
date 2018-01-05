@@ -400,7 +400,8 @@ queue()
 
 function ready(error, world, obib, capital, lang) {
   if (error) throw error;
-document.getElementById("compareselector").disabled=true;
+document.getElementById("compcomp").disabled = true;
+document.getElementById("compnorm").disabled = true;
 svg.attr("transform","translate(0,0)scale(1)");
 g.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
@@ -668,7 +669,8 @@ return g;
 svg.call(zoom)
 
 function countrysearch() {
-  document.getElementById("compareselector").disabled=false;
+  document.getElementById("compcomp").disabled=false;
+  document.getElementById("compnorm").disabled=false;
   document.getElementById("compareselector").compsel[1].checked = true;
   evvalto();
   var orszag = d3.select(this);
@@ -676,7 +678,7 @@ function countrysearch() {
   orszag.attr("class", "selectedcountry");
   var countries = topojson.feature(world, world.objects.countries).features;
   var countries = countries.filter(function(d) { return d.id == orszag.datum().co_code; });
-  svg.transition(500).call(zoom.scaleTo, 1);
+  svg.transition().duration(500).call(zoom.scaleTo, 1);
   var centroid = path.centroid(countries[0]),
         translate = projection.translate(),
         coords = g.attr("transform"),
