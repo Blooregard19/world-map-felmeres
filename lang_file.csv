@@ -139,7 +139,7 @@
 138;Point60;OBI Score above 60;;;60 feletti OBI pontszám;
 139;Country;Country;;;Ország;
 140;Compare;Compare;;;Összehasonlítás;
-141;Fullscore; Full score;;;Teljes pontszám;
+141;Fullscore; Absolute level;;;Teljes pontszám;
 142;Point-15;Worse by more than 15 points;;;Legalább 15-el kevesebb;
 143;Point-5;Worse by 5-15 points;;;5-15 ponttal kevesebb;
 144;Point-5+5;Score between -5 and +5 points;;;Legfeljebb 5 ponttal tér el;
