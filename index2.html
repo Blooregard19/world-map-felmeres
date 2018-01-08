@@ -391,6 +391,8 @@ d3.selectAll("title").remove().exit();
 d3.selectAll("path").remove().exit();
 d3.selectAll("#legend").remove().exit();
 g.selectAll("text").remove().exit();
+svg.attr("transform","translate(0,0)scale(1)");
+g.attr("transform","translate(0,0)scale(1)");
 queue()
     .defer(d3.json, "world-110m.json")
     .defer(hucsv, "visu_data_exp4.csv")
