@@ -395,7 +395,7 @@ svg.attr("transform","translate(0,0)scale(1)");
 g.attr("transform","translate(0,0)scale(1)");
 d3.select('input[name="comparisoncheck"]').property("checked", false);
 queue()
-    .defer(d3.json, "world-110m.json")
+    .defer(d3.json, "world-110m-sao.json")
     .defer(hucsv, "visu_data_exp4.csv")
     .defer(hucsv, "country-capitals2.csv")
     .defer(hucsv, "lang_file.csv")
@@ -412,7 +412,7 @@ function hucsv(adat, callback) {
 
 
 queue()
-    .defer(d3.json, "world-110m.json")
+    .defer(d3.json, "world-110m-sao.json")
     .defer(hucsv, "visu_data_exp4.csv")
     .defer(hucsv, "country-capitals2.csv")
     .defer(hucsv, "lang_file.csv")
