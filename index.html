@@ -2,7 +2,9 @@
 <meta charset="utf-8">
 <head>
   <meta charset="utf-8">
+  <title>OBI World Map</title>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+</head>
 <style>
 body {
   background: #fcfcfa;
@@ -25,6 +27,12 @@ body {
 #langbox {
   display: inline-block;
   height: 100%;	
+  border-right-style: solid;
+  border-right-width: thin;
+  border-right-color: #ccc;
+  padding-right: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 #obimap {
   display: inline-block;
@@ -37,7 +45,7 @@ body {
   display: inline-block;
   height: 100%;
   text-align:center;
-  width: 350px;
+  width: 330px;
 }
 img {
     vertical-align: top;
@@ -46,6 +54,16 @@ img {
   width: 300px;
   font-family: Cabin;
   margin: auto;
+}
+#countryselector {
+ position: absolute;
+ /*top: 0px;*/
+ /*right: 0px;*/
+ width: 300px;
+ height: 450px;
+ font-family: Cabin;
+ /*bottom: 0px;*/
+ /*overflow-y: auto;*/
 }
 
 #langselector {
@@ -97,6 +115,104 @@ img {
    width: 79px;
    color: #fff;
 }
+#comparediv {
+  display: inline-block;
+  height: 100%;	
+  border-right-style: solid;
+  border-right-width: thin;
+  border-right-color: #ccc;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-left-color: #ccc;
+  padding-right: 3px;
+  padding-left: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+#compareselector {
+  display: inline-block;
+}
+#compareselector input[type="radio"] {
+  display: none;
+}
+#compareselector label {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;
+  cursor: pointer;
+}
+#compareselector input[type="radio"]:checked+label {
+  background-color: #779126;
+  color: #fff;
+}
+#compareselector input[type="radio"]:disabled+label {
+  background-color:#ddd;
+  color: #ddd;
+}
+#compval {
+  /*position: absolute;*/
+  /*top: 10px;*/
+  /*left: 10px;*/
+  display: inline-block;
+  padding-right: 3px;
+}
+#compval {
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   height: 25px;
+   /*overflow: hidden;*/
+   width: 80px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   background-color: #779126;
+}
+#compval #compyear {
+   /*background: transparent;*/
+   background: #779126;
+   border: none;
+   font-size: 12px;
+   height: 25px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 79px;
+   color: #fff;
+}
+
+#compbox {
+  display: inline-block;
+  height: 100%;
+  font-family: Cabin;
+  font-size: 13px;
+}
+label input[type=checkbox] {
+  display: none;/* <-- hide the default checkbox */
+}
+label span {/* <-- style the artificial checkbox */
+  height: 18px;
+  width: 18px;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  display: inline-block;
+  position: relative;
+  top: 2.5px;
+}
+[type=checkbox]:checked + span:before {/* <-- style its checked state..with a ticked icon (easier if only the background is colored and leave out the content)*/
+  content: '\2714';
+  font: 20pt Cabin;
+  position: absolute;
+  top: -9px;
+  left: 0px;
+  color: #779126;
+  }
+
+#compyeartext {
+  display: inline-block;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;
+}
 
 .background{
   fill: #fcfcfa;
@@ -131,6 +247,21 @@ text.capitalcity {
  font-size: 5px;
  fill: white;
 }
+
+thead.fixedHeader {
+    display: block;
+}
+tbody.scrollContent {
+    display: block;
+    overflow: auto;
+    -ms-overflow-style: auto;
+    height: 450px;
+}
+tr.selectedcountry {
+  background-color: #779126;
+  color: #fff;	
+}
+
 </style>
 <body>
 <div id = "fejlec">
@@ -153,15 +284,37 @@ text.capitalcity {
   <option value="2017">2017</option>
 </select>
 </div>
+<div id = "comparediv">
+<form id = "compareselector">
+  <input id = "compcomp" type = "radio" name = "compsel" value = "comp"/><label id = "comptext" for = "compcomp">Compare</label>
+  <input id = "compnorm" type = "radio" name = "compsel" value = "normal" checked/><label id = "normtext" for = "compnorm">Full score</label>
+</form>
+</div>
+<div id = "compbox">
+<label><input class="regular-checkbox" name = "comparisoncheck" id = "compcheck" type="checkbox"><span></span><label id = "lbcompbox" for = "compcheck">Compare years</label><label>
+</div>
+<label id = "compyeartext">Base year</label>
+<div id = "compval">
+<select id = "compyear">
+  <option value="2006">2006</option>
+  <option value="2008">2008</option>
+  <option value="2010">2010</option>
+  <option value="2012" selected>2012</option>
+  <option value="2015">2015</option>
+  <option value="2017">2017</option>
+</select>
+</div>
 </div>
 <div id = "main">
 <div id = "obimap">
 </div>
 <div id = "obiothers">
-<img src = "IBP_logo.jpg" height = "100" width = "100">
+<!--<img src = "IBP_logo.jpg" height = "100" width = "100">-->
 <img src = "logo.png" height = "100" width = "100">
 <div id = "helptext">
 Sample text
+</div>
+<div id = "countryselector">
 </div>
 </div>
 </div>
@@ -202,14 +355,19 @@ var projection = d3.geoNaturalEarth1()
 var colors = d3.scaleThreshold()
     .range(["black", "#a4243b", "#f4d06f", "#214e34"]) //315113; 9d080c; ffbb02
     .domain([0.001, 40, 60]);
+var zbase = d3.scaleOrdinal().range(["#214e34", "#f4d06f", "#a4243b", "black"]);
 
+var colorcomp = d3.scaleThreshold()
+    .range(["#ccc", "#a4243b", "#876927", "#f4d06f", "#456b26", "#214e34"]) //315113; 9d080c; ffbb02
+    .domain([-150, -15, -5, 5, 15]);
+var zcomp = d3.scaleOrdinal().range(["#a4243b", "#876927", "#f4d06f", "#456b26", "#214e34"].reverse());
+	
 var path = d3.geoPath()
     .projection(projection);
 
 var svg = d3.select("#main").select("#obimap").append("svg")
     .attr("width", width)
     .attr("height", height);
-
 svg.append("rect")
     .attr("class", "background")
     .attr("width", width)
@@ -219,6 +377,11 @@ svg.append("rect")
 var g = svg.append("g")
     .style("stroke-width", "0.5px");
 
+var tooltip = d3.select("#obimap")
+          .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
 var ssv = d3.dsvFormat(";");
 var obi;
 d3.selectAll('input[name="langsel"]').on("change", futtat);
@@ -227,7 +390,11 @@ function futtat() {
 d3.selectAll("circle").remove().exit();
 d3.selectAll("title").remove().exit();
 d3.selectAll("path").remove().exit();
+d3.selectAll("#legend").remove().exit();
 g.selectAll("text").remove().exit();
+svg.attr("transform","translate(0,0)scale(1)");
+g.attr("transform","translate(0,0)scale(1)");
+d3.select('input[name="comparisoncheck"]').property("checked", false);
 queue()
     .defer(d3.json, "world-110m.json")
     .defer(hucsv, "visu_data_exp4.csv")
@@ -254,15 +421,35 @@ queue()
 
 function ready(error, world, obib, capital, lang) {
   if (error) throw error;
-
+document.getElementById("compcomp").disabled = true;
+document.getElementById("compnorm").disabled = true;
+svg.attr("transform","translate(0,0)scale(1)");
+g.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
+d3.select("#compareselector").on("change", scorecompare);
+d3.select("#compcheck").on("change", yearcompare);
+d3.select("#compyear").on("change", yearcompare);
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
 document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
 document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
 document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
 document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
 document.getElementById("helptext").innerHTML = lang[132][nyelv];
+document.getElementById("comptext").innerHTML = lang[139][nyelv];
+document.getElementById("normtext").innerHTML = lang[140][nyelv];
+var cimke = new Array(4);
+for (var i = 0; i < cimke.length; i++ ) {
+cimke[i] = lang[134 + i][nyelv];
+}
+var cimke = cimke.reverse();
+var cimkecomp = new Array(5);
+for (var i = 0; i < cimkecomp.length; i++ ) {
+cimkecomp[i] = lang[141 + i][nyelv];
+}
+var cimkecomp = cimkecomp.reverse();
 var scoretext = lang[133][nyelv];
+var countrytranslate = lang[138][nyelv];
+var comparettext = lang[139][nyelv];
 //console.log(world);
   //var treatiesById = d3.nest()
   //    .key(function(d) { return d.country; })
@@ -310,6 +497,7 @@ var country = g.selectAll("path")
   //    .text("United States");
   country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
+      .attr("id", function(d) { return obi.get(d.id).country; })
     .append("title")
       .text(function(d) {
         var score = obi.get(d.id);
@@ -322,6 +510,46 @@ var country = g.selectAll("path")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
+
+var words = cimke.concat(cimkecomp),
+    hossz = [];
+for (var i = 0, len = words.length; i < len; i++) {
+      hossz.push(getTextWidth(words[i], "10px Cabin"));
+    }
+var rectwidth = hossz[indexOfMax(hossz)] + 35;
+var legendbase = svg.append("g");
+legendbase.append("rect")
+	.attr("class", "legend")
+	.attr("width", rectwidth + "px")
+	.attr("height", "100px")
+	.attr("x", width - rectwidth)
+	.attr("fill", "#fcfcfa")
+	.attr("opacity", 0.9)
+	.attr("rx", 10)
+	.attr("ry", 10);
+var legend = legendbase.append("g")
+      .attr("class", "legendtext")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    //.data(cimke.reverse())
+    .data(cimke)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+//console.log(keys.slice().reverse());
+legend.append("rect")
+      .attr("id", function(d, i) {return cimke[i];})
+      .attr("class", "legend")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", zbase);
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d, i) { return cimke[i]; });
 //console.log(capital.filter(function(d) {return obic.has(d.CountryName);}));
   //var fovaros = g.selectAll(".capitalcity")
 //	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
@@ -339,13 +567,43 @@ var country = g.selectAll("path")
 //	.attr("fill", "white")
 //	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";});
 
+var tableData = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+tableData = tableData.sort(function(a, b) {return d3.ascending(a.countrytext, b.countrytext);});
+d3.select("#countryselector").selectAll("table").remove();
+var tabla = d3.select("#countryselector").append("table");
+var fejlec = tabla.append("thead")
+  .attr("class", "fixedHeader")
+  .attr("id", "tablaHeader")
+  //.style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
+  .append("tr");
+  fejlec.append("th").html(countrytranslate); //lang file-ba kellene az ország megnevezés
+  fejlec.append("th").html(scoretext);
+var tr = tabla.append("tbody")
+  	.attr("class", "scrollContent")
+  	.attr("id", "lapozotabla")
+        .attr("height", "450px")
+        .selectAll("tr")
+  	.data(tableData, function(d) {return d.country;})
+  	.enter().append("tr")
+        //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
+  	.attr("id", function(d) {return d.country;});
+      tr.filter(function(d) {return d.co_code != "";}).on("click", countrysearch );
+//console.log(tableData);
+tr.append("td").html(function(d) {return d.countrytext;});
+tr.append("td").html(function(d) {if (d.co_code != "") {var out = d3.format(",.0f")(d.obi);} else if (d.co_code == "") {var out = "-";} return out;});
+var cellak = document.querySelector('#lapozotabla').getElementsByTagName('td');
+var fejek = document.querySelector('#tablaHeader').getElementsByTagName('th');
+d3.select(fejek[0]).style("width", function (d) {return d3.select(cellak[0]).node().offsetWidth + "px";});
+d3.select(fejek[1]).style("width", function (d) {return d3.select(cellak[1]).node().offsetWidth + "px";});
+ 
 function evvalto() {
+if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = obi.filter(function(d) {return d.co_code != "";});
 var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
 var obi = d3.map(obi, function(d) {return d.co_code;});
-console.log(obi.get(729));
-country.style("fill", "#ccc")
+//console.log(obi.get(729));
+country.style("fill", "#ccc");
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
     .selectAll("title")
@@ -355,13 +613,26 @@ country.filter(function(d) { return obi.has(d.id); })
       });
  country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
-	.on("mouseout", colororig); 
+	.on("mouseout", colororig);
+ if (!d3.select(".capitalcity").empty() ) {
+  scorestext()
+ }
+tablecreator();
+legendcreator(cimke, zbase);
+} else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
+tablecreator();
+scorecompare()
+if (!d3.select(".capitalcity").empty() ) {
+  scorestext()
+ }
+}
 }
 
 function scorestext() {
   var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
   var obi = obi.filter(function(d) {return d.co_code != "";});
   var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
+  d3.selectAll(".capitalcity").remove().exit();
   var fovaros = g.selectAll(".capitalcity")
 	  .data(capital.filter(function(d) {return obic.has(d.CountryName);}))
 	  .enter();
@@ -383,16 +654,22 @@ function scorestext() {
 	//.attr("font-size", "5px")
 	//.attr("fill", "white")
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";})
-	.attr("dy", "1.5px");
+	.attr("dy", "1.5px")
+	.append("title")
+          .text(function(d) {
+            var score = obic.get(d.CountryName);
+            return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+          });
 }
 	
 // zoom and pan
 var zoom = d3.zoom()
+    .scaleExtent([width/1860, 5])
     .on("zoom",function() {
 	    var translate = [[d3.event.transform.x, d3.event.transform.y]],
 		scale = d3.event.transform.k;
 	    //projection.translate([d3.event.transform.x, d3.event.transform.y]).scale(d3.event.transform.k);
-        g.attr("transform","translate("+ translate +")scale("+ scale +")");
+	g.attr("transform","translate("+ translate +")scale("+ scale +")");
         g.selectAll("path")
 	    .style("stroke-width", 1.5 / scale + "px")
             .attr("d", path.projection(projection));
@@ -406,10 +683,218 @@ scorestext()
 if (scale < 2) {
 d3.selectAll(".capitalcity").remove().exit();
 }
-console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
+return g;
+//console.log(scale); //a skála abszolút értékű, tehát elérhető, hogy egy bizonyos szintű nagyítás után jelenjen meg valami
+//console.log(svg.style("width"));
 });
 svg.call(zoom)
-	
+
+function countrysearch() {
+  document.getElementById("compcomp").disabled=false;
+  document.getElementById("compnorm").disabled=false;
+  document.getElementById("compareselector").compsel[1].checked = true;
+  evvalto();
+  var orszag = d3.select(this);
+  d3.selectAll("tr").attr("class", null);
+  orszag.attr("class", "selectedcountry");
+  var countries = topojson.feature(world, world.objects.countries).features;
+  var countries = countries.filter(function(d) { return d.id == orszag.datum().co_code; });
+  svg.transition().duration(500).call(zoom.scaleTo, 1);
+  var centroid = path.centroid(countries[0]),
+        translate = projection.translate(),
+        coords = g.attr("transform"),
+        scale = 2.3;
+  coords = coords.split("translate(")[1];
+  coords = coords.split(")scale")[0];
+  coords = coords.split(",");
+  coords.forEach(function(d) { +d;});
+  var oldscale = g.attr("transform").split("scale(")[1];
+  oldscale = oldscale.split(")")[0];
+  //oldscale.forEach(function(d) { +d;});
+  //var longitude = - coords[0] - centroid[0] + width / 2,
+  //    latitude = - coords[1] - centroid[1] + height / 2;
+  var longitude = - centroid[0] + width / 2,
+      latitude = - centroid[1] + height / 2;
+   //projection.translate([
+   //   translate[0] - centroid[0] + width / 2,
+   //   translate[1] - centroid[1] + height / 2
+   // ]);
+    //console.log(d3.zoomTransform(g));
+    console.log(centroid);
+    console.log(coords);
+    console.log(longitude);
+    console.log(latitude);
+    console.log(oldscale);
+    console.log(translate);
+    //console.log(zoom.transform());
+    //console.log(zoom.scale());
+    console.log(g.attr("transform"));
+    //console.log(g.attr("translate"));
+    //console.log(d3.zoomTransform(g));
+    //g.selectAll("path").transition()
+    //  .duration(750)
+    //  .attr("d", path);
+    //g.transition()
+    //  .delay(650)
+    //  .duration(550)
+    //  .attr("transform","translate("+ centroid +")scale("+ scale +")");
+    //g.transition().duration(750).call(zoom.translateBy, centroid[0], centroid[1]);
+    //g.transition().delay(750).duration(750).call(zoom.scaleTo, scale);
+    //var transform = d3.zoomIdentity.translate(longitude,latitude);
+    svg.transition().delay(650).duration(850)
+      .call(zoom.translateTo, centroid[0], centroid[1]);
+    svg.transition().delay(1800).duration(500)
+      .call(zoom.scaleTo, scale);
+    //var transform = g.attr("transform");
+    //svg.attr("transform","translate("+ [longitude,latitude] +")scale(1)");
+    //g.attr("transform", transform);
+    return g;
+}
+
+
+function scorecompare() {
+if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
+evvalto()
+//legendcreator(cimke, zbase);
+} else if (d3.select('input[name="compsel"]:checked').property("value") == "comp") {
+var selscore = d3.select("tr.selectedcountry").datum().obi;
+//console.log(selscore);
+var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+var obi = obi.filter(function(d) {return d.co_code != "";});
+var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
+var obi = d3.map(obi, function(d) {return d.co_code;});
+//console.log(obi.get(729));
+country.style("fill", "#ccc");
+country.filter(function(d) { return obi.has(d.id); })
+      .style("fill", function(d) { return colorcomp(obi.get(d.id).obi - selscore); })
+    .selectAll("title")
+      .text(function(d) {
+        var score = obi.get(d.id);
+        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+      });
+legendcreator(cimkecomp, zcomp);
+}
+
+}
+
+function tablecreator() {
+var tableData = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+tableData = tableData.sort(function(a, b) {return d3.ascending(a.countrytext, b.countrytext);});
+//d3.select("#countryselector").selectAll("table").remove();
+var tabla = d3.select("#countryselector").select("table");
+//var fejlec = tabla.append("thead")
+//  .attr("class", "fixedHeader")
+//  .attr("id", "tablaHeader")
+  //.style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
+//  .append("tr");
+//  fejlec.append("th").html(countrytranslate); //lang file-ba kellene az ország megnevezés
+//  fejlec.append("th").html(scoretext);
+var tr = tabla.select("tbody")
+//  	.attr("class", "scrollContent")
+//  	.attr("id", "lapozotabla")
+//        .attr("height", "450px")
+        .selectAll("tr")
+  	.data(tableData, function(d) {return d.country;});
+  	//.merge();
+        //.selectAll("tr")
+        //.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
+  	//.attr("id", function(d) {return d.country;});
+      tr.on("click", null);
+      tr.filter(function(d) {return d.co_code != "";}).on("click", countrysearch );
+//tr.selectAll("td").data(tableData, function(d) {return d.country;});
+//console.log(tableData);
+tr.selectAll("td").remove();
+tr.append("td").html(function(d) {return d.countrytext;});
+tr.append("td").html(function(d) {if (d.co_code != "") {var out = d3.format(",.0f")(d.obi);} else if (d.co_code == "") {var out = "-";} return out;});
+//var cellak = document.querySelector('#lapozotabla').getElementsByTagName('td');
+//var fejek = document.querySelector('#tablaHeader').getElementsByTagName('th');
+//d3.select(fejek[0]).style("width", function (d) {return d3.select(cellak[0]).node().offsetWidth + "px";});
+//d3.select(fejek[1]).style("width", function (d) {return d3.select(cellak[1]).node().offsetWidth + "px";});
+}
+
+function legendcreator(cimke, skala) {
+d3.selectAll(".legendtext").remove().exit();
+//var legendbase = svg.append("g");
+//legendbase.append("rect")
+//	.attr("class", "legend")
+//	.attr("width", rectwidth + "px")
+//	.attr("height", "100px")
+//	.attr("x", width - rectwidth)
+//	.attr("fill", "#fcfcfa")
+//	.attr("opacity", 0.8);
+var legend = legendbase.append("g")
+      .attr("class", "legendtext")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    //.data(cimke.reverse())
+    .data(cimke)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+//console.log(keys.slice().reverse());
+legend.append("rect")
+      .attr("id", function(d, i) {return cimke[i];})
+      .attr("class", "legend")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", skala);
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d, i) { return cimke[i]; });	
+}
+
+function yearcompare() {
+if (document.getElementById("compcheck").checked) {
+  var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
+  var obi = obi.filter(function(d) {return d.co_code != "";});
+  var obic = obib.filter(function(d) {return d.year == d3.select("#compyear").property("value");});
+  var obi = d3.map(obi, function(d) {return d.co_code;});
+  var obic = d3.map(obic, function(d) {return d.co_code;});
+    country.style("fill", "#ccc");
+    country.filter(function(d) { return obi.has(d.id); })
+        .style("fill", function(d) {
+	    var actobi = obi.get(d.id).obi,
+		oldobi = obic.get(d.id);
+	    if (typeof oldobi != 'undefined') {
+	    var result = actobi - oldobi.obi;
+	    } else if (typeof oldobi == 'undefined') {
+	    var result = -200;
+	    }
+	    return colorcomp(result); 
+          })
+      .selectAll("title")
+        .text(function(d) {
+          var score = obi.get(d.id);
+          return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+        });
+  legendcreator(cimkecomp, zcomp);
+} else if (!document.getElementById("compcheck").checked) {
+  evvalto();
+}
+}
+//function mouseover(){
+//        tooltip.transition()
+//          .duration(200)
+//          .style("opacity", .9);
+//      }
+
+//function mousemove(d){
+//	var score = obic.get(d.CountryName);
+//	tooltip .html(score.countrytext  + "<br/>"  + d3.format(",.0f")(score.obi))
+//            .style("left", (d3.event.pageX) + "px")
+//            .style("top", (d3.event.pageY - 50) + "px");
+//      }
+
+//function mouseout(){
+//          tooltip.transition()
+//            .duration(500)
+//            .style("opacity", 0);
+//      }
+
 } //adatbeolvasó vége
 
 function type(d) {
@@ -433,6 +918,32 @@ function colororig() {
   hovered.style("fill", function() {return d3.rgb(hovcolor).darker();});
  }
 }
+
+function getTextWidth(text, font) {
+    // re-use canvas object for better performance
+    var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+    var context = canvas.getContext("2d");
+    context.font = font;
+    //context.font = "1em Cabin";
+    var metrics = context.measureText(text);
+    return metrics.width;
+}
+
+function indexOfMax(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+    var max = arr[0];
+    var maxIndex = 0;
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+    return maxIndex;
+}
+
 //d3.select(self.frameElement).style("height", height + "px");
 
 //function clicked(d) {
