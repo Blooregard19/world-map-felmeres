@@ -286,8 +286,8 @@ tr.selectedcountry {
 </div>
 <div id = "comparediv">
 <form id = "compareselector">
-  <input id = "compcomp" type = "radio" name = "compsel" value = "comp"/><label id = "comptext" for = "compcomp">Compare</label>
-  <input id = "compnorm" type = "radio" name = "compsel" value = "normal" checked/><label id = "normtext" for = "compnorm">Full score</label>
+  <input id = "compcomp" type = "radio" name = "compsel" value = "comp"checked/><label id = "comptext" for = "compcomp">Compare</label>
+  <input id = "compnorm" type = "radio" name = "compsel" value = "normal" /><label id = "normtext" for = "compnorm">Full score</label>
 </form>
 </div>
 <div id = "compbox">
@@ -609,7 +609,7 @@ country.on("mouseover", null)
 country.selectAll("title").remove();
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
-    .selectAll("title")
+    .append("title")
       .text(function(d) {
         var score = obi.get(d.id);
         return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
