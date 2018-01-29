@@ -321,7 +321,7 @@ tr.selectedcountry {
 </select>
 </div>
 <div id = "mainweb">
-<a href = "http://kfib.hu/hu/obs2017" id = "mainlink"><<<Vissza a KFIB honlapjára</a>
+<a href = "http://kfib.hu/hu/obs2017" id = "mainlink">Vissza a KFIB honlapjára</a>
 </div>
 </div>
 <div id = "main">
@@ -377,9 +377,9 @@ var colors = d3.scaleThreshold()
 var zbase = d3.scaleOrdinal().range(["#214e34", "#f4d06f", "#a4243b", "black"]);
 
 var colorcomp = d3.scaleThreshold()
-    .range(["#ccc", "#a4243b", "#EEAC1A", "#f4d06f", "#87AA64", "#214e34"]) //315113; 9d080c; ffbb02
+    .range(["#ccc", "#a4243b", "#EEAC1A", "#f4d06f", "#4AB368", "#214e34"]) //315113; 9d080c; ffbb02
     .domain([-150, -15, -5, 5, 15]);
-var zcomp = d3.scaleOrdinal().range(["#a4243b", "#EEAC1A", "#f4d06f", "#87AA64", "#214e34"].reverse());
+var zcomp = d3.scaleOrdinal().range(["#a4243b", "#EEAC1A", "#f4d06f", "#4AB368", "#214e34"].reverse());
 	
 var path = d3.geoPath()
     .projection(projection);
