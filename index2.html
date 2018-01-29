@@ -267,11 +267,11 @@ tr.selectedcountry {
 <div id = "fejlec">
 <div id = "langbox">
 <form id = "langselector">
-  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
-  <input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
-  <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
   <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
-  <input id = "langlang2" type = "radio" name = "langsel" value = "lang2"><label id = "lblanglang2" for = "langlang2">Language2</label>
+  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
+  <!--<input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
+  <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
+  <input id = "langlang2" type = "radio" name = "langsel" value = "lang2"><label id = "lblanglang2" for = "langlang2">Language2</label>-->
 </form>
 </div>
 <div id = "evval">
@@ -280,8 +280,8 @@ tr.selectedcountry {
   <option value="2008">2008</option>
   <option value="2010">2010</option>
   <option value="2012">2012</option>
-  <option value="2015" selected>2015</option>
-  <option value="2017">2017</option>
+  <option value="2015">2015</option>
+  <option value="2017" selected>2017</option>
 </select>
 </div>
 <div id = "comparediv">
@@ -299,8 +299,8 @@ tr.selectedcountry {
   <option value="2006">2006</option>
   <option value="2008">2008</option>
   <option value="2010">2010</option>
-  <option value="2012" selected>2012</option>
-  <option value="2015">2015</option>
+  <option value="2012">2012</option>
+  <option value="2015" selected>2015</option>
   <option value="2017">2017</option>
 </select>
 </div>
@@ -431,8 +431,8 @@ d3.select("#compcheck").on("change", yearcompare);
 d3.select("#compyear").on("change", yearcompare);
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
 document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
-document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
-document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
+//document.getElementById("lblangfra").innerHTML = lang[1][nyelv];
+//document.getElementById("lblangesp").innerHTML = lang[2][nyelv];
 document.getElementById("lblanglang1").innerHTML = lang[3][nyelv];
 document.getElementById("helptext").innerHTML = lang[132][nyelv];
 document.getElementById("comptext").innerHTML = lang[139][nyelv];
