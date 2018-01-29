@@ -377,9 +377,9 @@ var colors = d3.scaleThreshold()
 var zbase = d3.scaleOrdinal().range(["#214e34", "#f4d06f", "#a4243b", "black"]);
 
 var colorcomp = d3.scaleThreshold()
-    .range(["#ccc", "#a4243b", "#EEAC1A", "#f4d06f", "#4AB368", "#214e34"]) //315113; 9d080c; ffbb02
+    .range(["#ccc", "#a4243b", "#EA8231", "#f4d06f", "#5D9462", "#214e34"]) //315113; 9d080c; ffbb02
     .domain([-150, -15, -5, 5, 15]);
-var zcomp = d3.scaleOrdinal().range(["#a4243b", "#EEAC1A", "#f4d06f", "#4AB368", "#214e34"].reverse());
+var zcomp = d3.scaleOrdinal().range(["#a4243b", "#EA8231", "#f4d06f", "#5D9462", "#214e34"].reverse());
 	
 var path = d3.geoPath()
     .projection(projection);
@@ -458,7 +458,7 @@ document.getElementById("comptext").innerHTML = lang[139][nyelv];
 document.getElementById("normtext").innerHTML = lang[140][nyelv];
 document.getElementById("lbcompbox").innerHTML = lang[146][nyelv];
 document.getElementById("compyeartext").innerHTML = lang[147][nyelv];
-d3.select("#mainweb").attr("margin-left", Math.max(pageWidth - 1020, 0) + "px");
+d3.select("#mainweb").style("margin-left", Math.max(pageWidth - 1020, 0) + "px");
 document.getElementById("mainlink").innerHTML = lang[148][nyelv];
 var cimke = new Array(4);
 for (var i = 0; i < cimke.length; i++ ) {
