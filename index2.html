@@ -267,8 +267,8 @@ tr.selectedcountry {
 <div id = "fejlec">
 <div id = "langbox">
 <form id = "langselector">
-  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1"><label id = "lblanglang1" for = "langlang1">Hungarian</label>
-  <input id = "langeng" type = "radio" name = "langsel" value = "eng" checked /><label id = "lblangeng" for = "langeng">Angol</label>
+  <input id = "langlang1" type = "radio" name = "langsel" value = "lang1" checked><label id = "lblanglang1" for = "langlang1">Hungarian</label>
+  <input id = "langeng" type = "radio" name = "langsel" value = "eng" /><label id = "lblangeng" for = "langeng">Angol</label>
   <!--<input id = "langfra" type = "radio" name = "langsel" value = "fra"><label id = "lblangfra" for = "langfra">French</label>
   <input id = "langesp" type = "radio" name = "langsel" value = "esp"><label id = "lblangesp" for = "langesp">Spanish</label>
   <input id = "langlang2" type = "radio" name = "langsel" value = "lang2"><label id = "lblanglang2" for = "langlang2">Language2</label>-->
@@ -286,8 +286,8 @@ tr.selectedcountry {
 </div>
 <div id = "comparediv">
 <form id = "compareselector">
-  <input id = "compcomp" type = "radio" name = "compsel" value = "comp"checked/><label id = "comptext" for = "compcomp">Compare</label>
-  <input id = "compnorm" type = "radio" name = "compsel" value = "normal" /><label id = "normtext" for = "compnorm">Full score</label>
+  <input id = "compcomp" type = "radio" name = "compsel" value = "comp"/><label id = "comptext" for = "compcomp">Compare</label>
+  <input id = "compnorm" type = "radio" name = "compsel" value = "normal" checked/><label id = "normtext" for = "compnorm">Full score</label>
 </form>
 </div>
 <div id = "compbox">
@@ -597,7 +597,7 @@ d3.select(fejek[0]).style("width", function (d) {return d3.select(cellak[0]).nod
 d3.select(fejek[1]).style("width", function (d) {return d3.select(cellak[1]).node().offsetWidth + "px";});
  
 function evvalto() {
-if (d3.select('input[name="compsel"]:checked').property("value") == "normal") {
+if (d3.select('input[name="compsel"]:checked').property("value") == "normal" | document.getElementById("compnorm").disabled == true) {
 var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
 var obi = obi.filter(function(d) {return d.co_code != "";});
 var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").property("value");}), function(d) {return d.country;});
