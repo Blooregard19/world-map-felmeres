@@ -304,13 +304,16 @@ tr.selectedcountry {
   <option value="2017">2017</option>
 </select>
 </div>
+<div id = "mainweb">
+<a href = "http://kfib.hu/hu/obs2017">Vissza a KFIB honlapjára</a>
+</div>
 </div>
 <div id = "main">
 <div id = "obimap">
 </div>
 <div id = "obiothers">
 <!--<img src = "IBP_logo.jpg" height = "100" width = "100">-->
-<img src = "logo.png" height = "100" width = "100">
+<img src = "logo.png" height = "97" width = "119">
 <div id = "helptext">
 Sample text
 </div>
@@ -503,7 +506,7 @@ var country = g.selectAll("path")
     .append("title")
       .text(function(d) {
         var score = obi.get(d.id);
-        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+        return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi);
       });
   country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
@@ -614,7 +617,7 @@ country.filter(function(d) { return obi.has(d.id); })
     .append("title")
       .text(function(d) {
         var score = obi.get(d.id);
-        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+        return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi);
       });
  country.filter(function(d) { return obi.has(d.id); })
 	.on("mouseover", colorbrighter)
@@ -648,7 +651,7 @@ function scorestext() {
 	.append("title")
           .text(function(d) {
             var score = obic.get(d.CountryName);
-            return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+            return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi);
           });
       fovaros.append("text")
 	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
@@ -663,7 +666,7 @@ function scorestext() {
 	.append("title")
           .text(function(d) {
             var score = obic.get(d.CountryName);
-            return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+            return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi);
           });
 }
 	
@@ -775,7 +778,7 @@ country.filter(function(d) { return obi.has(d.id); })
     .selectAll("title")
       .text(function(d) {
         var score = obi.get(d.id);
-        return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+        return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi);
       });
 legendcreator(cimkecomp, zcomp);
 }
@@ -874,7 +877,7 @@ if (document.getElementById("compcheck").checked) {
       .selectAll("title")
         .text(function(d) {
           var score = obi.get(d.id);
-          return score.countrytext + "\n " + scoretext + ":" + d3.format(",.0f")(score.obi);
+          return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi);
         });
   legendcreator(cimkecomp, zcomp);
 } else if (!document.getElementById("compcheck").checked) {
