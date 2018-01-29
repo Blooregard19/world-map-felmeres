@@ -321,7 +321,7 @@ tr.selectedcountry {
 </select>
 </div>
 <div id = "mainweb">
-<a href = "http://kfib.hu/hu/obs2017"><<<Vissza a KFIB honlapjára</a>
+<a href = "http://kfib.hu/hu/obs2017" id = "mainlink"><<<Vissza a KFIB honlapjára</a>
 </div>
 </div>
 <div id = "main">
@@ -459,7 +459,7 @@ document.getElementById("normtext").innerHTML = lang[140][nyelv];
 document.getElementById("lbcompbox").innerHTML = lang[146][nyelv];
 document.getElementById("compyeartext").innerHTML = lang[147][nyelv];
 d3.select("#mainweb").attr("margin-left", pageWidth - 670 + "px");
-document.getElementById("mainweb").innerHTML = lang[148][nyelv];
+document.getElementById("mainlink").innerText = lang[148][nyelv];
 var cimke = new Array(4);
 for (var i = 0; i < cimke.length; i++ ) {
 cimke[i] = lang[134 + i][nyelv];
