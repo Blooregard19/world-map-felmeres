@@ -604,6 +604,9 @@ var obic = d3.map(obi.filter(function(d) {return d.year == d3.select("#survy").p
 var obi = d3.map(obi, function(d) {return d.co_code;});
 //console.log(obi.get(729));
 country.style("fill", "#ccc");
+country.on("mouseover", null)
+	.on("mouseout", null);
+country.selectAll("title").remove();
 country.filter(function(d) { return obi.has(d.id); })
       .style("fill", function(d) { return colors(obi.get(d.id).obi); })
     .selectAll("title")
