@@ -64,6 +64,7 @@ img {
  font-family: Cabin;
  /*bottom: 0px;*/
  /*overflow-y: auto;*/
+ margin-left: 10px;
 }
 
 #langselector {
@@ -268,6 +269,8 @@ text.capitalcity {
 
 thead.fixedHeader {
     display: block;
+    background-color: #4A5E0C;
+    color: #FBFEE1;
 }
 tbody.scrollContent {
     display: block;
@@ -668,6 +671,8 @@ function scorestext() {
         .attr("class", "capitalcity")
 	.attr("r", 4)
 	.attr("transform", function(d) {return "translate(" + projection([d.CapitalLongitude, d.CapitalLatitude]) + ")";})
+	.attr("stroke", "darkgray")
+	.attr("strok-width", "0.2px")
 	.append("title")
           .text(function(d) {
             var score = obic.get(d.CountryName);
@@ -676,7 +681,7 @@ function scorestext() {
       fovaros.append("text")
 	.text(function(d) { return d3.format(",.0f")(obic.get(d.CountryName).obi); })
 	.attr("class", "capitalcity")
-	.attr("font-family", "Arial")
+	.attr("font-family", "Cabin")
         //.attr("text-anchor", "middle")
 	//.attr("alignment-baseline", "central")
 	//.attr("font-size", "5px")
