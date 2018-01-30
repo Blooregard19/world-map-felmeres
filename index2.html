@@ -308,13 +308,14 @@ tr.selectedcountry {
 </div>
 <div id = "comparediv">
 <form id = "compareselector">
-  <input id = "compcomp" type = "radio" name = "compsel" value = "comp"/><label id = "comptext" for = "compcomp">Compare</label>
   <input id = "compnorm" type = "radio" name = "compsel" value = "normal" checked/><label id = "normtext" for = "compnorm">Full score</label>
+  <input id = "compcomp" type = "radio" name = "compsel" value = "comp"/><label id = "comptext" for = "compcomp">Compare to country</label>
+  <input id = "comptemp" type = "radio" name = "compsel" value = "temp"/><label id = "lbcompbox" for = "comptemp">Compare to other year</label>
 </form>
 </div>
-<div id = "compbox">
+<!--<div id = "compbox">
 <label><input class="regular-checkbox" name = "comparisoncheck" id = "compcheck" type="checkbox"><span></span><label id = "lbcompbox" for = "compcheck">Compare years</label><label>
-</div>
+</div>-->
 <label id = "compyeartext">Base year</label>
 <div id = "compval">
 <select id = "compyear">
@@ -419,7 +420,7 @@ d3.selectAll("#legend").remove().exit();
 g.selectAll("text").remove().exit();
 svg.attr("transform","translate(0,0)scale(1)");
 g.attr("transform","translate(0,0)scale(1)");
-d3.select('input[name="comparisoncheck"]').property("checked", false);
+//d3.select('input[name="comparisoncheck"]').property("checked", false);
 queue()
     .defer(d3.json, "world-110m-sao3.json")
     .defer(hucsv, "visu_data_exp4.csv")
@@ -448,11 +449,12 @@ function ready(error, world, obib, capital, lang) {
   if (error) throw error;
 document.getElementById("compcomp").disabled = true;
 document.getElementById("compnorm").disabled = true;
+document.getElementById("comptemp").disabled = true;
 svg.attr("transform","translate(0,0)scale(1)");
 g.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
-d3.select("#compareselector").on("change", scorecompare);
-d3.select("#compcheck").on("change", yearcompare);
+d3.select("#compareselector").on("change", valto);
+//d3.select("#compcheck").on("change", yearcompare);
 d3.select("#compyear").on("change", yearcompare);
 var nyelv = d3.select('input[name="langsel"]:checked').node().value;
 document.getElementById("lblangeng").innerHTML = lang[0][nyelv];
@@ -657,6 +659,12 @@ scorecompare()
 if (!d3.select(".capitalcity").empty() ) {
   scorestext()
  }
+} else if (d3.select('input[name="compsel"]:checked').property("value") == "temp") {
+tablecreator();
+yearcompare()
+if (!d3.select(".capitalcity").empty() ) {
+  scorestext()
+ }
 }
 }
 
@@ -726,7 +734,8 @@ svg.call(zoom)
 function countrysearch() {
   document.getElementById("compcomp").disabled=false;
   document.getElementById("compnorm").disabled=false;
-  document.getElementById("compareselector").compsel[1].checked = true;
+  document.getElementById("comptemp").disabled=false;
+  //document.getElementById("compareselector").compsel[1].checked = true;
   evvalto();
   var orszag = d3.select(this);
   d3.selectAll("tr").attr("class", null);
@@ -754,15 +763,15 @@ function countrysearch() {
    //   translate[1] - centroid[1] + height / 2
    // ]);
     //console.log(d3.zoomTransform(g));
-    console.log(centroid);
-    console.log(coords);
-    console.log(longitude);
-    console.log(latitude);
-    console.log(oldscale);
-    console.log(translate);
+    //console.log(centroid);
+    //console.log(coords);
+    //console.log(longitude);
+    //console.log(latitude);
+    //console.log(oldscale);
+    //console.log(translate);
     //console.log(zoom.transform());
     //console.log(zoom.scale());
-    console.log(g.attr("transform"));
+    //console.log(g.attr("transform"));
     //console.log(g.attr("translate"));
     //console.log(d3.zoomTransform(g));
     //g.selectAll("path").transition()
@@ -881,8 +890,16 @@ legend.append("rect")
       .text(function(d, i) { return cimke[i]; });	
 }
 
+function valto() {
+if (d3.select('input[name="compsel"]:checked').property("value") == "normal" | d3.select('input[name="compsel"]:checked').property("value") == "comp") {
+scorecompare()
+} else if (d3.select('input[name="compsel"]:checked').property("value") == "temp") {
+yearcompare()
+}
+}
+
 function yearcompare() {
-if (document.getElementById("compcheck").checked) {
+if (d3.select('input[name="compsel"]:checked').property("value") == "temp") {
   var obi = obib.filter(function(d) {return d.year == d3.select("#survy").property("value");});
   var obi = obi.filter(function(d) {return d.co_code != "";});
   var obic = obib.filter(function(d) {return d.year == d3.select("#compyear").property("value");});
@@ -906,7 +923,7 @@ if (document.getElementById("compcheck").checked) {
           return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi);
         });
   legendcreator(cimkecomp, zcomp);
-} else if (!document.getElementById("compcheck").checked) {
+} else if (d3.select('input[name="compsel"]:checked').property("value") != "temp") {
   evvalto();
 }
 }
@@ -981,31 +998,5 @@ function indexOfMax(arr) {
 }
 
 //d3.select(self.frameElement).style("height", height + "px");
-
-//function clicked(d) {
-//  if (active.node() === this) return reset();
-//  active.classed("active", false);
-//  active = d3.select(this).classed("active", true);
-//  var bounds = path.bounds(d),
-//      dx = bounds[1][0] - bounds[0][0],
-//      dy = bounds[1][1] - bounds[0][1],
-//      x = (bounds[0][0] + bounds[1][0]) / 2,
-//      y = (bounds[0][1] + bounds[1][1]) / 2,
-//      scale = .9 / Math.max(dx / width, dy / height),
-//      translate = [width / 2 - scale * x, height / 2 - scale * y];
-//  g.transition()
-//      .duration(750)
-//      .style("stroke-width", 1.5 / scale + "px")
-//      .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-//}
-
-//function reset() {
-//  active.classed("active", false);
-//  active = d3.select(null);
-//  g.transition()
-//      .duration(750)
-//      .style("stroke-width", "0.5px")
-//      .attr("transform", "");
-//}
 
 </script>
