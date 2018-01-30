@@ -148,3 +148,6 @@
 147;CompareYears; Compare by years;;;Időbeli összehasonlítás;
 148;BaseYear; Base year;;;Bázisév;
 149;MainWeb; Back to KFIB webpage;;;Vissza a KFIB honlapjára;
+150;ResultYear; Presented year;;;Felmérés éve;
+151;ComparisonType; Comparison type;;;Összehasonlítás típusa;
+
