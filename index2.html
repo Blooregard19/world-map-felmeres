@@ -28,9 +28,6 @@ body {
 #langbox {
   display: inline-block;
   height: 100%;	
-  border-right-style: solid;
-  border-right-width: thin;
-  border-right-color: #ccc;
   padding-right: 3px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -124,11 +121,7 @@ img {
   border-right-style: solid;
   border-right-width: thin;
   border-right-color: #ccc;
-  border-left-style: solid;
-  border-left-width: thin;
-  border-left-color: #ccc;
   padding-right: 3px;
-  padding-left: 3px;
   padding-top: 4px;
   padding-bottom: 4px;
 }
@@ -221,12 +214,19 @@ label span {/* <-- style the artificial checkbox */
   padding: 4px 5px 4px 8px;
   font-family: Cabin;
   font-size: 13px;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-left-color: #ccc;
 }
 #comptypetext {
   display: inline-block;
   padding: 4px 5px 4px 8px;
   font-family: Cabin;
   font-size: 13px;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-left-color: #ccc;
+  padding-left: 3px;
 }
 
 #mainweb {
@@ -481,7 +481,7 @@ document.getElementById("comptext").innerHTML = lang[139][nyelv];
 document.getElementById("normtext").innerHTML = lang[140][nyelv];
 document.getElementById("lbcompbox").innerHTML = lang[146][nyelv];
 document.getElementById("compyeartext").innerHTML = lang[147][nyelv];
-d3.select("#mainweb").style("margin-left", Math.max(pageWidth - 1020, 0) + "px");
+d3.select("#mainweb").style("margin-left", Math.max(pageWidth - 1235, 0) + "px");
 console.log(lang);
 document.getElementById("mainlink").innerHTML = lang[148][nyelv];
 document.getElementById("resultyear").innerHTML = lang[149][nyelv];
