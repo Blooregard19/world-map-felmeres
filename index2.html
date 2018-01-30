@@ -380,7 +380,7 @@ var projection = d3.geoNaturalEarth1()
 
 var colors = d3.scaleThreshold()
     .range(["black", "#a4243b", "#f4d06f", "#214e34"]) //315113; 9d080c; ffbb02
-    .domain([0.001, 41, 61]);
+    .domain([0.5, 40.5, 60.5]);
 var zbase = d3.scaleOrdinal().range(["#214e34", "#f4d06f", "#a4243b", "black"]);
 
 var colorcomp = d3.scaleThreshold()
