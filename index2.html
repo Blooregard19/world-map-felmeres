@@ -464,8 +464,8 @@ queue()
 function ready(error, world, obib, capital, lang) {
   if (error) throw error;
 document.getElementById("compcomp").disabled = true;
-document.getElementById("compnorm").disabled = true;
-document.getElementById("comptemp").disabled = true;
+//document.getElementById("compnorm").disabled = true;
+//document.getElementById("comptemp").disabled = true;
 svg.attr("transform","translate(0,0)scale(1)");
 g.attr("transform","translate(0,0)scale(1)");
 d3.select("#survy").on("change", evvalto);
@@ -498,6 +498,7 @@ cimkecomp[i] = lang[141 + i][nyelv];
 }
 var cimkecomp = cimkecomp.reverse();
 var scoretext = lang[133][nyelv];
+var scoreoldtext = lang[151][nyelv];
 var countrytranslate = lang[138][nyelv];
 var comparettext = lang[139][nyelv];
 //console.log(world);
@@ -939,7 +940,8 @@ if (d3.select('input[name="compsel"]:checked').property("value") == "temp") {
       .selectAll("title")
         .text(function(d) {
           var score = obi.get(d.id);
-          return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi);
+	  var scoreold = obic.get(d.id);
+          return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi) + "\n " + scoreoldtext + ": " + d3.format(",.0f")(scoreold.obi);
         });
   legendcreator(cimkecomp, zcomp);
 } else if (d3.select('input[name="compsel"]:checked').property("value") != "temp") {
