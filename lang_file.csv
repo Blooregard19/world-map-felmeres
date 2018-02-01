@@ -150,4 +150,4 @@
 149;MainWeb; Back to KFIB webpage;;;Vissza a KFIB honlapjára;
 150;ResultYear; Presented year;;;Felmérés éve;
 151;ComparisonType; Comparison type;;;Összehasonlítás típusa;
-152;scoreoldtext; Compared score;;;Összehasonlított pontszám;
+152;scoreoldtext; Base year's score;;;Bázisév pontszáma;
