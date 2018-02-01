@@ -499,6 +499,7 @@ cimkecomp[i] = lang[141 + i][nyelv];
 var cimkecomp = cimkecomp.reverse();
 var scoretext = lang[133][nyelv];
 var scoreoldtext = lang[151][nyelv];
+var dnptext = lang[7][nyelv];
 var countrytranslate = lang[138][nyelv];
 var comparettext = lang[139][nyelv];
 //console.log(world);
@@ -941,7 +942,12 @@ if (d3.select('input[name="compsel"]:checked').property("value") == "temp") {
         .text(function(d) {
           var score = obi.get(d.id);
 	  var scoreold = obic.get(d.id);
-          return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi) + "\n " + scoreoldtext + ": " + d3.format(",.0f")(scoreold.obi);
+	  if (typeof scoreold != 'undefined') {
+	    var scoreoldtitle = d3.format(",.0f")(scoreold.obi);
+	    } else if (typeof scoreold == 'undefined') {
+	    var scoreoldtitle = dnptext;
+	    }
+          return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi) + "\n " + scoreoldtext + ": " + scoreoldtitle;
         });
   legendcreator(cimkecomp, zcomp);
 } else if (d3.select('input[name="compsel"]:checked').property("value") != "temp") {
