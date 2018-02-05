@@ -951,8 +951,8 @@ if (d3.select('input[name="compsel"]:checked').property("value") == "temp") {
         });
     d3.selectAll(".capitalcity").selectAll("title")
 	.text(function(d) {
-          var score = obi.get(d.id);
-	  var scoreold = obic.get(d.id);
+          var score = obi.get(d.CountryName);
+	  var scoreold = obic.get(d.CountryName);
 	  if (typeof scoreold != 'undefined') {
 	    var scoreoldtitle = d3.format(",.0f")(scoreold.obi);
 	    } else if (typeof scoreold == 'undefined') {
