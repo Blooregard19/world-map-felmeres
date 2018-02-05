@@ -948,18 +948,7 @@ if (d3.select('input[name="compsel"]:checked').property("value") == "temp") {
 	    var scoreoldtitle = dnptext;
 	    }
           return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi) + "\n " + scoreoldtext + ": " + scoreoldtitle;
-        });
-    d3.selectAll(".capitalcity").selectAll("title")
-	.text(function(d) {
-          var score = obi.get(d.CountryName);
-	  var scoreold = obic.get(d.CountryName);
-	  if (typeof scoreold != 'undefined') {
-	    var scoreoldtitle = d3.format(",.0f")(scoreold.obi);
-	    } else if (typeof scoreold == 'undefined') {
-	    var scoreoldtitle = dnptext;
-	    }
-          return score.countrytext + "\n " + scoretext + ": " + d3.format(",.0f")(score.obi) + "\n " + scoreoldtext + ": " + scoreoldtitle;
-        });
+        });    
   legendcreator(cimkecomp, zcomp);
 } else if (d3.select('input[name="compsel"]:checked').property("value") != "temp") {
   evvalto();
