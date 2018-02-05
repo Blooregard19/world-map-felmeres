@@ -937,8 +937,8 @@ if (d3.select('input[name="compsel"]:checked').property("value") == "temp") {
 	    var result = -200;
 	    }
 	    return colorcomp(result); 
-          })
-      .selectAll("title")
+          });
+      d3.selectAll("title")
         .text(function(d) {
           var score = obi.get(d.id);
 	  var scoreold = obic.get(d.id);
